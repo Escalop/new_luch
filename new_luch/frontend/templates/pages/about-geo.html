@@ -1,0 +1,84 @@
+{% extends 'base_page.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load get_include_area %}
+
+{% block content %}
+ <div class="page-vertical">
+{% include 'partials/breadcrumbs.html' with breadcrumbs=breadcrumbs title=object.title %}
+<div class="wrapper">
+  <div class="page-main__content page-main__content--about">
+    <div class="title-group">
+      <h2 class="page-main__content-title">{{ page.parent.title }}</h2>
+      <p class="page-main__deco-title">{{ page.parent.title }}</p>
+    </div>
+    <section class="about">
+      <div class="about__filter-open jsAboutOpen">Разделы: <span class="about__filter-current">История</span></div>
+          {% if whereroot == 'creative' %}
+            {% include 'include/menu_about.html' with menu=menus.about_menu_creative %}
+          {% elif whereroot == 'en' %}
+            {% include 'include/menu_about.html' with menu=menus.about_menu_eng %}
+          {% else %}
+            {% include 'include/menu_about.html' with menu=menus.about_menu %}
+          {% endif %}
+        <div class="about__content">
+          <div class="about__section about__section--geo">
+            <div itemprop="image">
+                <div class="about__location jsInfoMap visually-hidden"></div>
+                {% comment %}<svg id="svg" viewBox="0 0 579 321" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <defs>
+                  <filter id="inner-shadow-2">
+                   <feOffset dx="2" dy="2"></feOffset>
+                   <feGaussianBlur stdDeviation="2" result="offset-blur"></feGaussianBlur>
+                   <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"></feComposite>
+                   <feFlood flood-color="#647290" flood-opacity="0.75" result="color"></feFlood>
+                   <feComposite operator="in" in="color" in2="inverse" result="shadow"></feComposite>
+                   <feComposite operator="over" in="shadow" in2="SourceGraphic"></feComposite>
+                  </filter>
+                 </defs>
+                 <g transform="scale(1) translate(0, 0)" fill="none">
+                     {% for country in geo_map %}
+                         {% if country.is_presence_country %}
+                        <path class="about__pin jsPartner" fill="{{ country.fill_color }}" d="{{ country.path }}" stroke="{{ country.stroke_color }}" stroke-width="{{ country.stroke_width }}" id="{{ country.country_id }}" data-name="{{ country.data_name }}"></path>
+                         {% else %}
+                        <path d="{{ country.path }}" stroke="{{ country.stroke_color }}" stroke-width="{{ country.stroke_width }}" data-name="{{ country.data_name }}" id="{{ country.country_id }}"></path>
+                         {% endif %}
+                     {% endfor %}
+                 </g>
+                </svg>
+                {% endcomment %}
+                <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 249.983 185.384" style="enable-background:new 0 0 249.983 185.384;" xml:space="preserve">
+                     <linearGradient id="flag" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#ffffff"/>
+                      <stop offset="33.3%" stop-color="#ffffff"/>
+                      <stop offset="33.3%" stop-color="#1a219c"/>
+                      <stop offset="66.6%" stop-color="#1a219c"/>
+                      <stop offset="66.6%" stop-color="#f51b1b"/>
+                      <stop offset="100%" stop-color="#f51b1b"/>
+        
+                    </linearGradient>
+
+                <g id="MAP">
+                    <g transform="scale(1) translate(0, 0)">
+                        {% for country in geo_map %}
+                            {% if country.is_presence_country %}
+                            <path class="about__pin jsPartner" fill="{{ country.fill_color }}" d="{{ country.path }}" stroke="{{ country.stroke_color }}" stroke-width="{{ country.stroke_width }}" id="{{ country.country_id }}" data-name="{{ country.data_name }}"></path>
+                            {% else %}
+                            <path d="{{ country.path }}" fill="#fff" stroke="{{ country.stroke_color }}" stroke-width="{{ country.stroke_width }}" data-name="{{ country.data_name }}" id="{{ country.country_id }}"></path>
+                            {% endif %}
+                        {% endfor %}
+                    </g>
+                </g>
+                </svg>
+          </div>
+          <div itemprop="articleBody" class="about__text">
+            {{ object.content|safe }}
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+</div>
+{% endblock content %}

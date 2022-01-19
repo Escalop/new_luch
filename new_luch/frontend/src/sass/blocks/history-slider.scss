@@ -1,0 +1,143 @@
+.history-slider {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    background-color: $light-gray;
+    position: absolute;
+    top: -20px;
+    left: 0;
+  }
+}
+
+.history-slider__label {
+  color: $black;
+  font-size: 22px;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 10.5px;
+    height: 10.5px;
+    background-color: $blue;
+    position: absolute;
+    left: 50%;
+    top: -23px;
+    cursor: pointer;
+    border-radius: 50px;
+    z-index: 1;
+
+    @media #{$max-width-mobile-max2} {
+      width: 7px;
+      height: 7px;
+      top: -21px;
+    }
+  }
+ 
+  &::after  {
+    content: "";
+    display: none;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: $white;
+    position: absolute;
+    left: 50%;
+    top: -33px;
+    cursor: pointer;
+    border-radius: 50px;
+    transform: translateX(-30%);
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.15);
+
+    @media #{$max-width-mobile-max2} {
+      width: 20px;
+      height: 20px;
+      top: -27px;
+    }
+  }
+  
+  &--first {
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      // left: 0;
+    }
+  }
+
+  &--last {
+    &::before {
+      left: auto;
+      right: 0;
+    }
+
+    
+    &::after {
+      left: auto;
+      right: -18px;
+
+      @media #{$max-width-mobile-max2} {
+        right: -12px;
+      }
+    }
+  }
+
+
+  @media #{$max-width-desktop} {
+    font-size: 20px;
+  }
+
+  @media #{$max-width-tablet} {
+    font-size: 16px;
+  }
+
+  @media #{$max-width-mobile} {
+    font-size: 13px;
+  }
+}
+
+.history-slider__label-text {
+  position: absolute;
+  // left: 50%;
+  transform: translateX(-50%);
+
+  @media #{$max-width-mobile-max} {
+    font-size: 13px;
+  }
+
+  &--first {
+    transform: translateX(0);
+  }
+
+  &--last {
+    right: 0;
+    left: auto;
+    transform: translateX(0);
+
+    @media #{$max-width-mobile-max} {
+      right: -10px;
+    }
+  }
+}
+
+.history-slider__control {
+  &:checked + .history-slider__label::after  {
+    display: block;
+  }
+}
+
+.history-slider__wrapper {
+  position: relative;
+}

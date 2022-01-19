@@ -1,0 +1,8 @@
+.main-slider {
+  cursor: pointer;
+  margin-bottom: 10px;
+
+  @media #{$max-width-desktop} {
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,665 @@
+.btn-text {
+    display: inline-block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    margin: 0;
+}
+
+.dropdown-menu_top {
+    top: auto!important;
+    bottom: 100%;
+}
+
+.calendar-line__date-line {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    /* align-items: stretch; */
+}
+
+.marin-fix {
+    margin: 0px 5px;
+}
+
+.block-list {
+    margin-left: 15px;
+}
+
+.row-field_text {
+    margin-left: 10px;
+}
+
+.block-list {
+    display: inline-block;
+}
+
+.width-full {
+    width: 100% !important;
+}
+
+.no-margin {
+    margin: 0px !important;
+}
+
+.admin-interface #header{
+    height: 110px;
+}
+
+div.breadcrumbs{
+    height: 62px;
+}
+
+#content h1{
+    margin-top: -72px;
+}
+
+.bid-header{
+    margin-bottom: 20px;
+}
+
+.bid-header__right-nav{
+    float: right;
+}
+
+.selected-count{
+    margin-right: 30px;
+}
+
+.bid-footer .btn-default{
+    margin-right: 20px;
+}
+
+.btn-arrows{
+    margin: 0 20px;
+}
+
+.text-rotate-90{
+    display: block;
+    min-height: 100px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    transform: rotate(-90deg);
+}
+
+.sessionDivCol{
+    width: 100%;
+    padding: 8px;
+    min-height: 35px;
+}
+
+.table-free-min-td{
+    position: relative;
+}
+
+.table-free-min-td .time-color{
+    position: absolute !important;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 3px;
+    padding-top: 0px;
+}
+
+.btn.btn-primary_color.btn-primary,
+.btn.btn-primary_color.btn-primary:hover{
+    color: #fff;
+}
+
+.side-tab{
+    margin-left: 30px;
+}
+.session-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    line-height: 1;
+    font-size: 12px;
+    padding-bottom: 3px !important;
+}
+
+.session-status_week {
+    max-width: 85px;
+}
+
+.session-status_0 {
+    background:#0000cc;
+}
+.session-status_1 {
+    background:#ff0000;
+}
+.session-status_2 {
+    background:#00ccff;
+}
+
+.session-status_3 {
+    background:#ffff00;
+    color: #000;
+}
+
+.session-status_4{
+    background:#ffff00;
+    color: #000;
+}
+
+.session-status_5{
+    background:#00cc00;
+}
+
+.session-status_6 {
+    background:#33ff99;
+}
+
+.session-status_7 {
+    background:#ff00cc;
+}
+
+.session-status_8 {
+    background-color: #000000;
+    color: #fff;
+}
+
+.time-color {
+    color: #fff;
+}
+
+.time-color_false {
+    color: #000;
+    background-color:#dadada;
+}
+
+.time-color_true {
+    color: #000;
+    background-color:#fff;
+}
+
+.time-color_green {
+    color: #fff;
+    background-color: #44B78B;
+}
+
+.time-color_gray {
+    background-color: gray
+}
+
+.time-color_blue {
+    background-color: blue;
+}
+
+.dynamic-table.table-bordered>tbody>tr>td{
+    padding: 0;
+    border-collapse: collapse;
+}
+
+.modal.fade.in{
+    display: block;
+    background: rgba(0, 0, 0, .5);
+}
+
+.modal-body {
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+form .control-label.control-label-center{
+    text-align: center;
+    padding-top: 0;
+}
+
+.form-user{
+    padding: 15px;
+}
+
+.table-fix tbody {
+    display: block;
+    height: 60vh;
+    overflow: auto;
+}
+
+
+.table-fix thead,
+.table-fix tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+.table-fix thead {
+    width: calc( 100% - 1em ) !important;
+}
+
+.edit-btn {
+    font-size: 12px !important;
+    margin-right: 10px;
+    padding: 0 !important;
+    background-color: rgba(0,0,0,0);
+    transition: all 0.3s ease;
+}
+
+.table-bordered td .btn{
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.link {
+    cursor: pointer;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/*---BIG-CALENDAR start---*/
+.big-calendar {
+    width: 100%;
+    display: block;
+    /* height: 60vh; */
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.calendar-event__title {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.table.calendar-table{
+    height: 100%;
+    margin: 0;
+}
+
+.calendar-table thead{
+    width: 100%;
+}
+
+.calendar-table tbody{
+    /* overflow: auto; */
+    /* height: calc(100% - 50px) */
+}
+
+.calendar-table__th-time{
+    width: 100px;
+}
+
+.calendar-table th,
+.calendar-table td{
+    padding: 8px;
+}
+
+.name-of-day{
+    text-align: center;
+}
+
+.name-of-day.day-weekend{
+    color: #ff0000;
+}
+
+.name-of-day>div {
+    cursor: pointer;
+}
+
+.events-pane{
+    height: 140px;
+}
+/*---BIG-CALENDAR end---*/
+
+.calendar-line {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.calendar-line__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: end;
+    justify-content: flex-end;
+}
+
+
+.calendar-line__time {
+    width: 100px;
+    max-width: 100px;
+    height: auto;
+    border: 1px solid #ddd;
+    min-width: 100px;
+}
+
+.calendar-line__card {
+    border: 1px solid #dadada;
+    max-width: 247px;
+    background-color: #fff;
+    min-height: 35px;
+    width: calc(100%/7);
+}
+
+.calendar-line__card_disable {
+    background-color: #dadada;
+    border: 1px solid #f0f0f0;
+    height: 100%;
+}
+
+.wrapper-calendar {
+    display: flex;
+}
+
+.calendar-event {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+
+.calendar-times{
+    display: inline-block;
+    border: 1px solid #ddd;
+    height: 150px;
+    width: 90px;
+}
+
+
+.line-border {
+    position: relative;
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+    border: 1px solid #000;
+}
+
+.line-border_close {
+    background-color: #c3c3c3;
+    border: 1px solid #dadada;
+}
+
+.col-users-list{
+    position: relative;
+}
+
+.col-users-list select{
+    width: calc(100% - 50px);
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.col-users-list .jsCustomerEvent{
+    max-width: 220px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.time-color_black {
+    color: #8c8c8c;
+}
+
+.timeblock-add {
+    margin-bottom: 15px;
+    background-color: #dadada;
+    color: #000;
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 0px .7em;
+    border: 2px solid #24c89b;
+    transition: all 0.3s linear;
+    margin-right: 5px;
+    margin-top: 3px;
+    line-height: 1;
+}
+
+.timeblock-add:hover {
+    background-color: #24c89b;
+    color: #fff;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+
+.user-modal .nav-tabs>li{
+    width: 25%;
+}
+
+.user-modal .buttons_right{
+    text-align: right;
+}
+.user-modal .buttons_left{
+    text-align: left;
+}
+.user-modal .buttons_right .btn:last-child{
+    margin-left: 15px;
+}
+.user-modal .header__phone{
+    float: right;
+    margin-right: 20px;
+    font-size: 18px;
+    line-height: 1.42857143;
+    font-weight: 500;
+}
+
+.calendar-line__header {
+    position: relative;
+    text-align: center;
+    min-height: 35px;
+}
+
+.timeblock-add_right {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.form-table,
+.form-table tr,
+.form-table td{
+    border: 0;
+}
+
+.form-table{
+    text-align: left;
+}
+
+.form-table label{
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+}
+
+.btn_margin {
+    margin-left: 5px;
+}
+
+.btn-username{
+    padding: 2px !important;
+    font-size: 12px !important;/*
+    margin-left: 10px !important;*/
+    background-color: #fff;
+}
+
+.order-col {
+    min-height: 25px;
+    position: static !important;
+    padding: 0px 5px;
+}
+
+.order-col_close {
+    background-color: #c3c3c3;
+}
+
+.width-td-fix {
+    width: 20%;
+}
+.table.statistic-table{
+    margin: 0;
+}
+.table.statistic-table thead{
+    width: 100% !important;
+}
+.table.statistic-table tbody{
+    height: auto;
+}
+.form-table input{
+    max-width: 110px;
+}
+.form-table .pad40{
+    padding-left: 40px;
+}
+.form-table .padL15{
+    padding-left: 15px;
+}
+
+.pagination-sprite{
+    text-align: center;
+}
+
+.tariff_color {
+    color: #000;
+}
+.tariff_color_0 {
+    color: plum;
+}
+
+.tariff_color_1 {
+    color: #000;
+}
+
+.tariff_color_2 {
+    color: blue;
+}
+
+.modal-dialog .session-status{
+    padding: 5px;
+    float: right;
+    min-width: 96px;
+}
+
+.admin-interface div.breadcrumbs{
+    background-color: #ff9200;
+}
+
+.row-fields{
+    display: flex;
+    flex-direction: row;
+    margin-top: 18px;
+}
+.row-fields.row-fields_last,
+.row-fields:first-child{
+    margin-top: 0;
+}
+.row-fields > label{
+    width: 25%;
+    padding-right: 15px;
+}
+.row-fields.label-width_50 > label,
+.row-fields.double > label{
+    width: 50%;
+    padding-right: 15px;
+}
+.row-field{
+    flex: 1;
+}
+
+.label-without_padding-t label.control-label{
+    padding-top: 0;
+}
+
+.row-field_text{
+    align-items: center;
+    display: flex;
+    height: 34px;
+    margin-bottom: -8px;
+}
+
+.row-fields .col-users-list{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.row-fields .select-wrap{
+    display: flex;
+    flex-grow: 1;
+}
+.row-fields .select-wrap select{
+    width: 100%;
+    margin: 0;
+}
+.row-fields .col-users-list .jsCustomerEvent{
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+}
+
+.row-fields.double{
+    width: 50%;
+    display: inline-flex;
+}
+
+.select2-container--default .select2-selection--single{
+    min-height: 34px;
+}
+
+.row-fields .btn{
+    height: 34px;
+}
+
+.modal .select2-container,
+.modal .select2.select2-container.select2-container--default.select2-container--below.select2-container--focus,
+.modal .select2-container--default .select2-search--inline .select2-search__field{
+    width: 100% !important;
+}
+
+.user-type {
+    color: #fff;
+    line-height: 1;
+    left: 5px;
+    top: 4px;
+    position: absolute;
+    z-index: 1;
+}
+
+.close_session {
+    margin-left: 15px!important;
+    margin-top: 0!important;
+}
+
+/* Удалить если надо вернуть разные цвета контрагентам */
+.username-color {
+    color: #000 !important;
+}
+
+#header .tabs ul ul {
+    z-index: 9000;
+}
+
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.user-type-one-day {
+    display: block;
+    text-align: center;
+}

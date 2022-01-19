@@ -1,0 +1,311 @@
+/* Месье Палетт */
+
+.first-page__palette {
+  margin-top: 5%;
+  /* position: absolute; */
+  margin-left: -20%;
+  width: 16%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  transition: 6s linear;
+  outline: none;
+}
+
+.first-page__palette--body {
+  position: absolute;
+  width: 100%;
+  z-index: 6;
+}
+
+.first-page__palette--hat {
+  width: 100%;
+  position: absolute;
+  top: -24.5%;
+  left: 4%;
+  min-height: auto;
+  z-index: 7;
+}
+
+.first-page__palette--eye {
+  position: absolute;
+  width: 18%;
+  top: 15%;
+  left: 55%;
+  min-height: auto;
+  z-index: 7;
+}
+
+.first-page__palette--eye-pupil {
+  position: absolute;
+  width: 18%;
+  top: 15%;
+  left: 55%;
+  min-height: auto;
+  z-index: 8;
+  transition: .4s;
+}
+
+/* Руки */
+
+.first-page__palette--left-hand {
+  position: absolute;
+  width: 42%;
+  top: 45%;
+  left: -12%;
+  min-height: auto;
+  z-index: 7;
+}
+
+
+.first-page__palette--right-hand {
+
+  width: 52%;
+  margin-top: 55%;
+  margin-left: 80%;
+  min-height: auto;
+  z-index: 1;
+}
+
+/* Ноги */
+
+.first-page__palette--left-leg {
+  position: absolute;
+  width: 16%;
+  top: 90%;
+  left: 32%;
+  min-height: auto;
+  z-index: 5;
+}
+
+
+.first-page__palette--right-leg {
+  position: absolute;
+  width: 18%;
+  top: 90%;
+  left: 60%;
+  min-height: auto;
+  z-index: 3;
+}
+
+/* Тень */
+
+.first-page__palette--shadow-main {
+  position: absolute;
+  width: 150%;
+  max-width: 200%;
+  min-height: auto;
+  bottom: -100%;
+  left: -10%;
+}
+
+.first-page__palette--shadow-right-leg {
+  position: absolute;
+  width: 21%;
+  bottom: -46%;
+  left: 58%;
+  min-height: auto;
+  z-index: 3;
+}
+
+.first-page__palette--shadow-left-leg {
+  position: absolute;
+  width: 18%;
+  bottom: -47%;
+  left: 32%;
+  min-height: auto;
+  z-index: 3;
+}
+
+.first-page__palette--shadow-hand {
+  position: absolute;
+  width: 41%;
+  bottom: -82%;
+  left: 109%;
+  min-height: auto;
+  z-index: 3;
+}
+
+.first-page__palette--blush {
+  position: absolute;
+  top: 27%;
+  left: 35%;
+  border-radius: 50%;
+  width: 25%;
+  height: 25%;
+  z-index: 15;
+  min-height: auto;
+  opacity: 0;
+  transition: .5s;
+}
+
+@media (max-width: 768px) {
+  .first-page__palette {
+    display: none;
+  }
+
+}
+
+
+.first-page__palette-main {
+  position: relative;
+  width: 150px;
+  height: 164px;
+}
+
+
+/* Анимации */
+
+/* Анимация Палетта при наведении: машет рукой, смотрит на пользователя */
+
+
+@keyframes hand{
+  30% {
+    transform: rotate(-40deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  70% {
+    transform: rotate(-40deg);
+  }
+  100% {
+    transform: rotate(2deg);
+  }
+}
+.first-page__palette:hover .first-page__palette--right-hand {
+    animation: hand 1.5s ease;
+    animation-iteration-count: 1;
+    transform-origin: 0 50%;
+  }
+
+@keyframes hand-shadow{
+  30% {
+    transform: rotate(40deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  70% {
+    transform: rotate(40deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
+}
+.first-page__palette:hover .first-page__palette--shadow-hand {
+
+
+  animation: hand-shadow 1.5s ease;
+  animation-iteration-count: 1;
+  transform-origin: 0 50%;
+}
+
+.first-page__palette:hover .first-page__palette--eye-pupil {
+  transform: translate(-18%, 7%);
+}
+
+.first-page__palette:hover .first-page__palette--blush {
+  opacity: 0.8;
+}
+
+.palette-block {
+  min-height: 10%;
+}
+
+.error {
+  display: flex;
+  width: 80%;
+  height: 75vh;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.error__content {
+  font-size: 24px;
+  color: #ffffff;
+  font-family: "Lifehack";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.error__links {
+  color: #ffffff;
+  font-family: "Lifehack";
+  display: flex;
+  justify-content: space-between;
+}
+
+.error__links a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.error__error {
+  font-size: 200px;
+ line-height: 1.2;
+}
+
+.error__text {
+  margin-bottom: 40px;
+}
+
+.error__links a:first-child {
+  margin-right: 15px;
+}
+.error__links a:last-child {
+  margin-left: 15px;
+}
+
+@media (max-width: 768px) {
+  .error__error {
+    font-size: 130px;
+  }
+
+  .error__content {
+    font-size: 20px;
+  }
+
+  .error__links {
+    flex-direction: column;
+  }
+
+  .error__links a{
+    margin-bottom: 15px;
+  }
+  .error__links a:first-child {
+    margin-right: 0;
+  }
+  .error__links a:last-child {
+    margin-left: 0;
+  }
+}
+
+@media all and (max-width: 1024px) and (orientation: landscape) {
+  .first-page__palette {
+    display: none;
+  }
+  .error__error {
+    font-size: 120px;
+  }
+  .error__content {
+    font-size: 20px;
+  }
+}
+
+@media all and (max-width: 768px) and (orientation: landscape) {
+  .error__error {
+    font-size: 90px;
+    margin-bottom: 0;
+  }
+  .error__content {
+    font-size: 18px;
+  }
+}

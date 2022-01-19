@@ -1,0 +1,83 @@
+{% load static %}
+{% load static %}
+{% load staticfiles %}
+{% load thumbnail %}
+    <div class="modal fade" id="modal-rating" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-left" role="document">
+            <div class="modal-content">
+                <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-scroll">
+                    <div class="ratings">
+                        <div class="modal-header">
+                            <div class="modal-title">Рейтинг участников</div>
+                            {% if user.is_authenticated %}
+                            <div class="modal-subtitle user-week-rating">Ваш ежемесячный рейтинг: {{user.rating}}</div>
+                            <div class="modal-subtitle user-total-rating">Ваш общий рейтинг: {{user.sum_rating}}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="modal-body" id="rating-not-auth" style="display: none;">
+
+                            <div class="modal-header">
+
+                                <div class="mx-auto"><img src="{% static 'promo/static/images/plane3.png' %}"></div>
+                                <div class="modal-noac__heading">нет аккаунта?</div>
+                                <p>Зарегистрируйтесь или войдите в аккаунт</p>
+
+                                <div class="headermob-left"><a class="headermob-menu__link" href="#"
+                                        data-dismiss="modal" data-toggle="modal"
+                                        data-target="#modal-reg">участвовать</a>
+                                    <a class="headermob-menu__link" href="#" data-dismiss="modal" data-toggle="modal"
+                                        data-target="#modal-log">Войти</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="modal-body" id="rating-list">
+                            <div class="rulz-item__text" style="margin: 0 auto;text-align: center; max-width: 70%; display: none;">
+                                В розыгрыше главного приза – путёвки в «Артек» – могут принять участие дети только от 8 до 17 лет. Нажмите на имя участника в списке, чтобы открыть его карточку и поддержать лайками
+                            </div>
+                            <div class="btabs__wrap">
+                                <ul class="btabs__list nav">
+                                    <li class="btabs__item"><a class="btabs__link active show" data-toggle="tab" id="week_rating_list">Ежемесячный</a></li>
+                                    <li class="btabs__item"><a class="btabs__link" data-toggle="tab" id="total_rating_list">Общий</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            {% if promo_config.is_over %}
+                                <div class="modal-noac">
+                                    <div class="modal-noac__heading promo-is-over">Конкурс окончен</div>
+                                </div>
+                            {% endif %}
+
+                            {% if not promo_config.is_started %}
+                                <div class="modal-noac">
+                                    <div class="modal-noac__heading promo-not-started">Регистрация участников и прием конкурсных работ стартует с {{ promo_config.start_date|date }}</div>
+                                </div>
+                            {% endif %}
+
+
+                            <div class="btabs__content">
+                                <div class="btabs__pane active show">
+                                    <table class="ratings-table">
+                                        <tr>
+                                            <th>Место</th>
+                                            <th>Имя участника</th>
+                                            <th>Баллы</th>
+                                        </tr>
+                                        <tr id="rating-item-placeholder" style="display: none;">
+                                            <td><span class="ratings-num"></span></td>
+                                            <td><a class="ratings-name user-detail" href="#" data-toggle="modal"
+                                                data-target="#modal-user"></a></td>
+                                            <td><span class="ratings-points"></span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,205 @@
+{% extends 'base_page.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load get_include_area %}
+{% block content %}
+<div class="wrapper">
+<section class="main-slider jsMainSlider">
+    {% if page_setting.is_active1 %}
+    <div class="main-image">
+      <img src="/media/{{ page_setting.baner_image1 }}">
+      <!-- <div class="main-image__slogan-block">
+        <svg class="main-image__svg" viewBox="-16 -5 700 77">
+          <defs>
+            <linearGradient id="rainbow" x1="100%" x2="0" y1="0" y2="0%" gradientUnits="userSpaceOnUse" >
+              <stop stop-color="#f8a245" offset="0%"/>
+              <stop stop-color="#d92251" offset="50%"/>
+              <stop stop-color="#6b2468" offset="100%"/>
+            </linearGradient>
+          </defs>
+          <text fill="url(#rainbow)">
+            <tspan class="main-image__text" x="0" dy="60">{{ page_setting.baner_text1 }}</tspan>
+          </text>
+        </svg>
+      </div> -->
+    </div>
+    {% endif %}
+    {% if page_setting.is_active2 %}
+    <div class="main-image">
+      <img src="/media/{{ page_setting.baner_image2 }}">
+      <!-- <div class="main-image__slogan-block">
+        <svg class="main-image__svg" viewBox="-16 -5 700 77">
+          <defs>
+            <linearGradient id="rainbow" x1="100%" x2="0" y1="0" y2="0%" gradientUnits="userSpaceOnUse" >
+              <stop stop-color="#f8a245" offset="0%"/>
+              <stop stop-color="#d92251" offset="50%"/>
+              <stop stop-color="#6b2468" offset="100%"/>
+            </linearGradient>
+          </defs>
+          <text fill="url(#rainbow)">
+            <tspan class="main-image__text" x="0" dy="60">{{ page_setting.baner_text2 }}</tspan>
+          </text>
+        </svg>
+      </div> -->
+    </div>
+    {% endif %}
+    {% if page_setting.is_active3 %}
+    <div class="main-image">
+      <img src="/media/{{ page_setting.baner_image3 }}">
+      <!-- <div class="main-image__slogan-block">
+        <svg class="main-image__svg" viewBox="-16 -5 700 77">
+          <defs>
+            <linearGradient id="rainbow" x1="100%" x2="0" y1="0" y2="0%" gradientUnits="userSpaceOnUse" >
+              <stop stop-color="#f8a245" offset="0%"/>
+              <stop stop-color="#d92251" offset="50%"/>
+              <stop stop-color="#6b2468" offset="100%"/>
+            </linearGradient>
+          </defs>
+          <text fill="url(#rainbow)">
+            <tspan class="main-image__text" x="0" dy="60">{{ page_setting.baner_text3 }}</tspan>
+          </text>
+        </svg>
+      </div> -->
+    </div>
+    {% endif %}
+    {% if page_setting.is_active4 %}
+    <div class="main-image">
+      <img src="/media/{{ page_setting.baner_image4 }}">
+      <!-- <div class="main-image__slogan-block">
+        <svg class="main-image__svg" viewBox="-16 -5 700 77">
+          <defs>
+            <linearGradient id="rainbow" x1="100%" x2="0" y1="0" y2="0%" gradientUnits="userSpaceOnUse" >
+              <stop stop-color="#f8a245" offset="0%"/>
+              <stop stop-color="#d92251" offset="50%"/>
+              <stop stop-color="#6b2468" offset="100%"/>
+            </linearGradient>
+          </defs>
+          <text fill="url(#rainbow)">
+            <tspan class="main-image__text" x="0" dy="60">{{ page_setting.baner_text4 }}</tspan>
+          </text>
+        </svg>
+      </div> -->
+    </div>
+    {% endif %}
+</section>
+<div class="page-main__content">
+  <section class="wrappings-product">
+    <div class="title-group">
+        <h2 class="page-main__content-title">Наша продукция</h2>
+        <p class="page-main__deco-title">Наша продукция</p>
+    </div>
+    <div class="wrappings-product__products">
+
+
+        {% if butt_conf.title_1  %}
+    <article itemscope itemtype="http://schema.org/Product" class="product wrappings-product__item jsFormShow">
+      <a href="#">
+        <div itemprop="image" class="product__photo" style="background-image: url('{{ butt_conf.image_url }}')"></div>
+        <div itemprop="name" class="product__title">{{ butt_conf.title_1 }}</div>
+        <div class="product__description">
+        </div>
+      </a>
+    </article>
+        {% endif %}
+    {% for tape in catalog %}
+    <article itemscope itemtype="http://schema.org/Product" class="product wrappings-product__item">
+      <a href="/wrappings/catalog?category={{ tape.id }}">
+        <div itemprop="image" class="product__photo" style="background-image: url('{{ tape.image_url }}')"></div>
+        <div itemprop="name" class="product__title">{{ tape.title }}</div>
+        <div class="product__description">
+        </div>
+      </a>
+    </article>
+
+    {% endfor %}
+  </div>
+  </section>
+    {% for news_item in news %}
+  <section itemscope itemtype="http://schema.org/NewsArticle" class="content-item">
+    <div class="content-item__block content-item__block">
+
+        {% if news_item.pk == news_first %}
+             <a href="/wrappings/news/">
+    <h2 class="content-item__title">Новости</h2>
+    <p class="content-item__deco-title">Новости</p>
+             </a>
+        {% endif %}
+        <a href="{{ news_item.get_absolute_url }}">
+      <!-- <div itemprop="image" class="content-item__photo content-item__photo--news"
+          style="background-image: url('{{ news_item.image_anons_tag }}')"></div> -->
+
+          <div class="preview-photo">
+            <img src="/static/img/placeholder.jpg">
+            <div class="preview-photo__photo" style="background-image: url('{{ news_item.image_anons_tag }}')"></div>
+          </div>
+
+      <div class="content-item__block-main">
+        <p itemprop="name" class="content-item__note">{{ news_item.title}}</p>
+        <div itemprop="articleBody" class="content-item__text">{{ news_item.content|safe|truncatechars_html:150 }}</div>
+        <span itemprop="dateline" class="content-item__date">{{ news_item.date_at|date:"d E Y" }}</span>
+      </div>
+        </a>
+    </div>
+
+  </section>
+{% endfor %}
+
+  <div class="content-item content-item__instruction">
+    <h2 class="content-item__title">Советы</h2>
+    <p class="content-item__deco-title">Советы</p>
+    <div class="jsSliderInstruction  slider-instruction">
+        {% for tip_item in tips %}
+    <!--<a href="{{ tip_item.get_absolute_url }}">-->
+      <div class="item content-item__slider-instruction-item">
+        <article itemscope itemtype="http://schema.org/Article" class="{% if tip_item.image %} {% else%} without-image {%endif%} content-item__block content-item__block--instruction">
+         
+          <div itemprop="image" class=" content-item__photo-absolute content-item__photo-absolute--wrappings"
+              style="background-image: url('{{ tip_item.image_tag }}')"></div>
+          <div class="content-item__block-main content-item__instruction-sector">
+            <!--<h2 itemprop="name" class="color-title">{{ tip_item.title }}</h2>-->
+                <svg class="content-item__svg" viewBox="0 10 240 77">
+                <defs>
+                  <linearGradient id="rainbow" x1="100%" x2="0" y1="0" y2="0%" gradientUnits="userSpaceOnUse" >
+                    <stop stop-color="#f8a245" offset="0%"/>
+                    <stop stop-color="#d92251" offset="80%"/>
+                    <stop stop-color="#6b2468" offset="100%"/>
+                  </linearGradient>
+                </defs>
+                <text fill="url(#rainbow)">
+                  <tspan class="content-item__svg-text" x="0" dy="60">{{ tip_item.title|truncatechars_html:10 }}</tspan>
+                </text>
+              </svg>
+            <p itemprop="alternativeHeadline" class="content-item__note">{{ tip_item.subtitle|truncatechars:64 }}</p>
+            <div itemprop="articleBody" class="content-item__text jsNoteMoreShow" data-modal="{{ tip_item.slug}}-{{ tip_item.id}}">{{ tip_item.content|safe|truncatechars_html:150 }}
+            </div>
+            <span class="content-item__more jsNoteMoreShow"  data-modal="{{ tip_item.slug}}-{{ tip_item.id}}">Подробнее</span>
+          </div>
+        </article>
+      </div>
+    <!--</a>-->
+        {% endfor %}
+  </div>
+
+      {% for tip_item in tips %}
+
+      <div class="modal jsNoteMore" id="{{ tip_item.slug }}-{{ tip_item.id }}">
+            <button type="button" class="modal__close jsNoteClose">+</button>
+            <div class="modal--brand {% if tip_item.image_tag %} {% else%} without-image {%endif%} ">
+                <div class="content-item__block-main content-item__brand-full">
+                    <div itemprop="image" class="content-item__brand-logo" style='background-image: url("{{ tip_item.image_tag }}")'></div>
+                    <div class="content-item__full-text">
+                        <p itemprop="articleBody">{{ tip_item.content|safe }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      {% endfor %}
+
+
+    </div>
+</div>
+
+
+{% include 'include/catalog_modal.html' with rows=rows%}
+
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% extends 'base_page.html' %}
+{load static}
+{% load staticfiles %}
+{% load get_include_area %}
+{% block title %}{{ object.title }}{% endblock title %}
+{% block content %}
+<div class="page-vertical">
+{% include 'partials/breadcrumbs.html' with breadcrumbs=breadcrumbs title=object.title %}
+<div class="wrapper">
+  <div itemscope itemtype="http://schema.org/NewsArticle" class="page-main_content page-main__content--new">
+    <div class="title-group">
+      <h2 itemprop="name" class="page-main__content-title">{{ object.title }}</h2>
+      <p class="page-main__deco-title">{{ object.title|truncatechars:40}}</p>
+    </div>
+    <section class="new-item new-cart">
+      <div class="new-item__photo new-item__photo-cart" style='background-image: url("{{ object.image_main_tag }}")'>
+        {% if object.is_zoo %}
+        {% else %}
+        <div itemprop="dateline" class="new-item__date">{{ object.date_at|date:"d E Y" }}</div>
+        {% endif %}
+
+      </div>
+{% comment %}
+
+      <!-- <div class="new-item__photo new-item__photo-cart" >
+          <div itemprop="dateline" class="new-item__date">09.12.2017</div>
+          <img src="{{ object.image_main_tag }}">
+        </div> -->
+{% endcomment %}
+      <div class="new-item__block-main new-item__block-main--cart">
+        <div itemprop="articleBody" class="new-item__text new-item__text--cart">
+        {{ object.content|safe }}
+          <br />
+          {% if object.video.is_active %}{{ object.video.media_tag|safe }}{% endif %}
+        </div>
+              <br />
+      <p class="other-articles">{% if prev_obj_url %}<a href="{{ prev_obj_url }}"> Предыдущая статья  </a>{% endif %}
+
+          {% if next_obj_url %}<a href="{{ next_obj_url }}">Следующая статья</a>{% endif %}</p>
+      </div>
+
+    </section>
+
+  </div>
+</div>
+
+</div>
+
+ {# {% get_include_area request 'ia_page_text' title='Текст в футере' content='Все права защищены &copy;' %} #}
+{% endblock content %}

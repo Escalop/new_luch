@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+{% load i18n %}
+{% load static %}
+{% load staticfiles %}
+{% load thumbnail %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'promo/static/icons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'promo/static/icons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'promo/static/icons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'promo/static/icons/site.webmanifest">
+    <link rel="mask-icon" href="{% static 'promo/static/icons/safari-pinned-tab.svg' %}" color="#40d761">
+    <link rel="shortcut icon" href="{% static 'promo/static/icons/favicon.ico' %}">
+    <meta name="msapplication-TileColor" content="#bbbbbb">
+    <meta name="msapplication-config" content="{% static 'promo/static/icons/browserconfig.xml">
+    <meta name="theme-color" content="#DDF5F9">
+    <meta name="description" content="Поделки создавай – подарки получай! Сделай поделку/рисунок с использованием материалов ТМ «Луч», проходи тесты и набирай баллы, собирая лайки за работу. Каждую неделю ты можешь получить подарок. Главный приз – путевка в «Артек» 2021!">
+    <title>Конкурс творческих работ с использованием материалов «Школа творчества» ТМ «Луч»</title>
+    <link href="{% static 'promo/static/css/style.css' %}" rel="stylesheet">
+    <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
+
+</head>
+
+<body>
+    <div class="root">
+        <header class="header header--closed">
+            <div class="header-wrap scene unselectable" id="scene" data-friction-x="0.1" data-friction-y="0.1" data-scalar-x="25" data-scalar-y="15">
+                <div class="header-plane1 parallax layer" data-depth="0.05"><img src="{% static 'promo/static/images/plane1.png' %}"></div>
+                <div class="header-ball parallax layer" data-depth="0.04"><img src="{% static 'promo/static/images/ball.png' %}"></div>
+                <div class="header-star parallax layer" data-depth="0.06"><img src="{% static 'promo/static/images/star.png' %}"></div>
+                <div class="header-plane2 parallax layer" data-depth="0.10"><img src="{% static 'promo/static/images/plane2.png' %}"></div>
+                <div class="header-house parallax layer" data-depth="0.05"><img src="{% static 'promo/static/images/house.png' %}"></div>
+                <div class="header-center">
+                    <div class="header-center__logo"><img src="{% static 'promo/static/images/logo.png' %}"></div>
+                    <div class="header-center__texts">
+                        <p>Конкурс «Школа творчества» завершён. Скоро стартует новый этап конкурса!</p>
+                        <p>СЛЕДИТЕ ЗА НАШИМИ НОВОСТЯМИ</p>
+<!--                        <div class="header-center__btns"><a class="btn" href="{% if promo_config.rules %}{{ promo_config.rules.url }}{% endif %}" target="_blank">Подписаться</a></div>-->
+                        <div class="header-center__btns"><a class="btn jsSubscribeShow" href="#"
+                                                            data-toggle="modal"
+                                                            data-target="#modal-subscribe">Подписаться</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-cloud1 parallax layer" data-depth="0.06"><img src="{% static 'promo/static/images/cloud1.png' %}"></div>
+                <div class="header-cloud2 parallax layer" data-depth="0.07"><img src="{% static 'promo/static/images/cloud2.png' %}"></div>
+                <div class="header-cloud3 parallax layer" data-depth="0.08"><img src="{% static 'promo/static/images/cloud3.png' %}"></div>
+                <div class="header-cloud4 parallax layer" data-depth="0.09"><img src="{% static 'promo/static/images/cloud4.png' %}"></div>
+            </div>
+            <div class="shares">
+                <div class="container">
+                    <div class="shares-heading">Поделиться проектом</div>
+                    <div class="shares-items">
+                        <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+                        <script src="https://yastatic.net/share2/share.js"></script>
+                        <a class="shares-item" onclick="Share.vk('URL','TITLE',`{% static 'promo/static/images/logo.png' %}`,'DESC')"><img src="{% static 'promo/static/images/vk.svg' %}"></a>
+                        <a class="shares-item" onclick="Share.facebook('URL','TITLE',`{% static 'promo/static/images/logo.png' %}`,'DESC')"><img src="{% static 'promo/static/images/fb.svg' %}"></a>
+                        <a class="shares-item" onclick="Share.ok('URL','DESC')"><img src="{% static 'promo/static/images/od.svg' %}"></a>
+                        <a class="shares-item" onclick="Share.tw('URL','TITLE',`{% static 'promo/static/images/logo.png' %}`,'DESC')"><img src="{% static 'promo/static/images/tw.svg' %}"></a></div>
+                </div>
+            </div>
+        </header>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-row">
+                    <div class="footer-left">2020 © <a href="https://www.luch-pk.ru/" target="_blank">ПК химический завод «Луч»</a></div>
+                    <div class="footer-middle"><a href="{% if promo_config.privacy_policy %}{{ promo_config.privacy_policy.url }}{% endif %}" target="_blank">Политика конфидециальности</a></div>
+                    <div class="footer-right">
+                        <a class="garpix" href="https://garpix.com/" target="_blank">Разработано <svg width="79" height="15" viewBox="0 0 79 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.4205 0.311279L13.76 14.6956H17.6666L18.495 12.4351H24.4674L25.2958 14.6956H29.2024L23.5266 0.311279H19.4205ZM19.6302 9.34806L21.1079 5.18939C21.2869 4.72505 21.4096 4.225 21.4863 3.73004C21.563 4.225 21.6806 4.72505 21.8647 5.18939L23.3424 9.34806H19.6302Z" fill="black"></path>
+                                <path d="M73.74 7.21005L69.2911 0.311279H64.2341L68.8819 7.21005L63.9322 14.6956H68.3709L71.3008 9.87363L74.2257 14.6956H78.6947L73.74 7.21005Z" fill="black"></path>
+                                <path d="M50.9394 0.311279H45.238V14.7109H49.0424V10.1899H50.9292C54.4881 10.1746 57.2084 9.04699 57.2084 5.25063C57.2033 1.45427 54.4983 0.311279 50.9394 0.311279ZM51.1235 6.89367H49.0372V3.59737H51.1184C52.2791 3.59737 53.3069 3.94435 53.3069 5.24041C53.3069 6.5314 52.2842 6.89367 51.1235 6.89367Z" fill="black"></path>
+                                <path d="M9.15802 11.6391C8.84103 11.7156 8.50863 11.7463 8.1763 11.7463C6.52977 11.7463 3.90662 11.0676 3.90662 7.5162C3.90662 4.56176 6.11046 3.35754 8.43196 3.35754C9.87903 3.35754 11.3312 3.76575 12.4153 4.50052V0.90317C10.9989 0.316371 9.49042 9.11001e-06 7.95126 9.11001e-06C3.92198 -0.00509351 0 2.13291 0 7.49578C0 12.7209 3.89128 14.9967 7.99731 14.9967C9.64383 14.9813 11.2545 14.665 12.7783 14.0322V6.78649H9.15802V11.6391Z" fill="black"></path>
+                                <path d="M39.8179 9.47048C41.4031 8.8377 42.5792 7.54165 42.5792 5.14852C42.5792 1.35217 39.5929 0.301025 36.663 0.301025H30.5831V14.6853H34.4028V10.0164H36.0493L39.4907 14.7006H43.7911L39.8179 9.47048ZM36.8317 6.92426H34.4028V3.59732H36.8164C37.9055 3.59732 38.6418 4.15351 38.6418 5.27098C38.6418 6.38338 37.9209 6.92426 36.8317 6.92426Z" fill="black"></path>
+                                <path d="M58.9827 14.6956H62.8023V0.311279H58.9827V14.6956Z" fill="black"></path>
+                                <path d="M73.8884 0.221191H78.2962V4.61965H73.8884V0.221191Z" fill="#F1B508"></path>
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="modal fade" id="modal-test" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-left" role="document">
+            <div class="modal-content">
+                <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-scroll">
+                    <div class="modal-form">
+                        <div class="modal-header">
+                            <div class="modal-title">Тест</div>
+                        </div>
+                        <div class="modal-body">
+                            <form class="testing">
+                                <div class="testing__head">Вопрос 1 из 15</div>
+                                <div class="testing__question">Кто из художников рисовал Страшилу из сказки «Волшебник Изумрудного города» более 400 раз и сделал более 150 рисунков Буратино?</div>
+                                <div class="testing__items">
+                                    <div class="testing-item">
+                                        <input type="radio" name="r1" id="an1">
+                                        <label class="testing-item__label" for="an1"><b>A</b><span>Дехтерёв В.А</span></label>
+                                    </div>
+                                    <div class="testing-item">
+                                        <input type="radio" name="r1" id="an2">
+                                        <label class="testing-item__label" for="an2"><b>B</b><span>Дехтерёв В.А</span></label>
+                                    </div>
+                                    <div class="testing-item">
+                                        <input type="radio" name="r1" id="an3">
+                                        <label class="testing-item__label" for="an3"><b>C</b><span>Савченко А.М.</span></label>
+                                    </div>
+                                    <!--  правильный ответ-->
+                                    <div class="testing-item testing-item--true">
+                                        <input type="radio" name="r1" id="an3">
+                                        <label class="testing-item__label" for="an3"><b>C</b><span>Савченко А.М.</span></label>
+                                    </div>
+                                    <!--  неправильный ответ-->
+                                    <div class="testing-item testing-item--false">
+                                        <input type="radio" name="r1" id="an3">
+                                        <label class="testing-item__label" for="an3"><b>C</b><span>Савченко А.М.</span></label>
+                                    </div>
+                                </div>
+                                <div class="testing__btm">
+                                    <button class="btn">Далее</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="testing">
+                            <div class="testing__head"><img src="{% static 'promo/static/images/lose.svg' %}"></div>
+                            <div class="testing__question">В ответах допущена ошибка, попробуйте пройти тест на следующей неделе</div>
+                            <div class="testing__btm">
+                                <button class="btn">Хорошо</button>
+                            </div>
+                        </div>
+                        <div class="testing">
+                            <div class="testing__head"><img src="{% static 'promo/static/images/win.svg' %}"></div>
+                            <div class="testing__question">Вы верно ответили на все 10 вопросов! В Ваш рейтинг начислено 10 баллов</div>
+                            <div class="testing__btm">
+                                <button class="btn">Отлично</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-log" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-left" role="document">
+            <div class="modal-content">
+                <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-scroll">
+                    <div class="modal-form">
+                        <div class="modal-header">
+                            <div class="modal-title">Войти</div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-error">Учетная запись с таким логином не обнаружена. Попробуйте ввести другой логин или свяжитесь с нами по телефону: <strong>+7 800 800-80-80</strong></div>
+                            <form class="form">
+                                <div class="form-group">
+                                    <div class="inputlabel">
+                                        <div class="inputlabel__label">Электронная почта</div>
+                                        <input class="inputlabel__input form-input" type="text" placeholder="*@*.*" required>
+                                        <div class="inputlabel__clear js-inputClear"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="inputlabel">
+                                        <div class="inputlabel__label">Пароль</div>
+                                        <input class="inputlabel__input form-input" type="password" placeholder="123123" required>
+                                        <div class="inputlabel__pass js-showPass"></div>
+                                    </div>
+                                </div>
+                                <div class="form-rowsc"><a href="#" data-toggle="modal" data-target="#modal-remind" data-dismiss="modal">Забыли пароль?</a>
+                                    <button class="btn">Войти</button>
+                                </div>
+                            </form>
+                            <div class="modal-noac">
+                                <div class="modal-noac__heading">нет аккаунта?</div>
+                                <div class="modal-noac__body">
+                                    <div class="joins-plane"><img src="{% static 'promo/static/images/plane3.png' %}"><a class="joins-plane__link" href="#">регистрация</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-reg" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-left" role="document">
+            <div class="modal-content">
+                <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-scroll">
+                    <div class="modal-form">
+                        <div class="modal-header">
+                            <div class="modal-title">Регистрация</div>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form">
+                                <div class="form-group">
+                                    <div class="inputlabel">
+                                        <div class="inputlabel__label">ФИО *</div>
+                                        <input class="inputlabel__input form-input" type="text" placeholder="Сидоров Иван Петрович" required>
+                                        <div class="inputlabel__clear js-inputClear"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="inputlabel">
+                                        <div class="inputlabel__label">Электронная почта *</div>
+                                        <input class="inputlabel__input form-input" type="text" placeholder="*@*.*" required>
+                                        <div class="inputlabel__clear js-inputClear"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="inputlabel">
+                                        <div class="inputlabel__label">Пароль *</div>
+                                        <input class="inputlabel__input form-input" type="password" placeholder="123123" required>
+                                        <div class="inputlabel__pass js-showPass"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="inputlabel">
+                                        <div class="inputlabel__label">Повторите пароль *</div>
+                                        <input class="inputlabel__input form-input" type="password" placeholder="123123" required>
+                                        <div class="inputlabel__pass js-showPass"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="inputlabel">
+                                        <div class="inputlabel__label">Город</div>
+                                        <input class="inputlabel__input form-input" type="text" placeholder="Укажите">
+                                        <div class="inputlabel__clear js-inputClear"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="inputlabel">
+                                        <div class="inputlabel__label">Номер телефона *</div>
+                                        <input class="inputlabel__input form-input" type="text" placeholder="+7 ### ### ## ##" required>
+                                        <div class="inputlabel__clear js-inputClear"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="inputlabel inputlabel--error">
+                                        <div class="inputlabel__error">Допускаются участники от 3 до 17 лет</div>
+                                        <div class="inputlabel__label">Дата рождения *</div>
+                                        <input class="inputlabel__input form-input" type="text" placeholder="01.01.2001" required>
+                                        <div class="inputlabel__clear js-inputClear"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-file" type="file" data-placeholder="Загрузить работу *" required>
+                                </div>
+                                <div class="modal-error">Размер файла <strong>не более 10МБ</strong>. <br>Формат <strong>jpg или png</strong>. <br>На фото с рисунком <strong>должна присутствовать продукция</strong> <a href="https://www.luch-pk.ru/creative/catalog/">торговой марки “ЛУЧ - Школа Творчества”</a></div>
+                                <div class="form-group">
+                                    <div class="form-checkbox">
+                                        <label class="form-checkbox__label">
+                                            <input class="checkbox" type="checkbox" name="ch01" checked><span>Соглашаюсь с условиями <a href="#">политики конфиденциальности</a></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn--full">ЗарегИстрироваться</button>
+                                </div>
+                            </form>
+                            <div class="modal-noac">
+                                <div class="modal-noac__heading">Уже регистрировались?</div>
+                                <div class="modal-noac__body">
+                                    <div class="joins-plane"><img src="{% static 'promo/static/images/plane3.png' %}"><a class="joins-plane__link" href="#">войти</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-remind" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-left" role="document">
+            <div class="modal-content">
+                <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-scroll">
+                    <div class="modal-form">
+                        <div class="modal-header">
+                            <div class="modal-title">Забыли пароль?</div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <div class="inputlabel">
+                                    <div class="inputlabel__label">Электронная почта</div>
+                                    <input class="inputlabel__input form-input" type="text" placeholder="" required>
+                                    <div class="inputlabel__clear js-inputClear"></div>
+                                </div>
+                            </div>
+                            <div class="form-end">
+                                <input class="btn btn--full" type="submit" value="Выслать пароль">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-rating" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-left" role="document">
+            <div class="modal-content">
+                <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-scroll">
+                    <div class="ratings">
+                        <div class="modal-header">
+                            <div class="modal-title">Рейтинг участников</div>
+                            <div class="modal-subtitle">Ваши баллы: 120</div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="btabs__wrap">
+                                <ul class="btabs__list nav">
+                                    <li class="btabs__item"><a class="btabs__link active show" data-toggle="tab" href="#pt1">Еженедельный</a></li>
+                                    <li class="btabs__item"><a class="btabs__link" data-toggle="tab" href="#pt2">Общий</a></li>
+                                </ul>
+                            </div>
+                            <div class="btabs__content">
+                                <div class="btabs__pane active show" id="pt1">
+                                    <table class="ratings-table">
+                                        <tr>
+                                            <th>Место</th>
+                                            <th>Имя участника</th>
+                                            <th>Баллы</th>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">1</span></td>
+                                            <td><a class="ratings-name" href="#" data-toggle="modal" data-target="#modal-user">Пирожков Миша</a></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">2</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">3</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">4</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">5</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">6</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">7</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">8</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">9</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">10</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">11</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">12</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">13</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">14</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">15</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="btabs__pane" id="pt2">
+                                    <table class="ratings-table">
+                                        <tr>
+                                            <th>Место</th>
+                                            <th>Имя участника</th>
+                                            <th>Баллы</th>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">1</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">2</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">3</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">4</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ratings-num">5</span></td>
+                                            <td><span class="ratings-name">Пирожков Миша</span></td>
+                                            <td><span class="ratings-points">98</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-book" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-left" role="document">
+            <div class="modal-content">
+                <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-scroll">
+                    <div class="book">
+                        <div class="book-header">
+                            <div class="book-title">Художник Л. В. Владимирский</div><img class="book-himg" src="{% static 'promo/static/images/modal-book.png' %}">
+                        </div>
+                        <div class="book-body">
+                            <div class="book-text">
+                                <div class="book-text__content">
+                                    <p>Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.</p><img src="{% static 'promo/static/images/text.jpg' %}">
+                                    <p>Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.</p>
+                                    <p>Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-prod" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-left" role="document">
+            <div class="modal-content">
+                <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-scroll">
+                    <div class="mprod">
+                        <div class="mprod-header">
+                            <div class="mprod-title">Пластилин</div>
+                        </div>
+                        <div class="mprod-body">
+                            <div class="mprod-text">
+                                <div class="mprod-text__content">
+                                    <p>Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.</p><img src="{% static 'promo/static/images/text.jpg' %}">
+                                    <p>Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.</p>
+                                    <p>Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-user" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-left" role="document">
+            <div class="modal-content">
+                <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-scroll">
+                    <div class="mprod">
+                        <div class="mprod-header">
+                            <div class="mprod-name">Константин константинопольский</div>
+                            <div class="mprod-age">Возраст: 8 лет</div>
+                        </div>
+                        <div class="mprod-body">
+                            <div class="mprod-wrap">
+                                <div class="gallery-items">
+                                    <div class="gallery-item"><a class="gallery-item__imgwrap" href="{% static 'promo/static/images/big.png' %}" data-fancybox="gallery" data-caption="Константин Константинопольский &lt;br&gt; Возраст: 8 лет"><img class="gallery-item__prize" src="{% static 'promo/static/images/sprize3.png' %}">
+                                            <div class="gallery-item__img" style="background-image: url({% static 'promo/static/images/normal.png)"></div>
+                                        </a>
+                                        <div class="gallery-item__content"><a class="gallery-item__like" href="#">348</a></div>
+                                    </div>
+                                    <div class="gallery-item"><a class="gallery-item__imgwrap" href="{% static 'promo/static/images/big.png' %}" data-fancybox="gallery" data-caption="Константин Константинопольский &lt;br&gt; Возраст: 8 лет"><img class="gallery-item__prize" src="{% static 'promo/static/images/sprize2.png' %}">
+                                            <div class="gallery-item__img" style="background-image: url({% static 'promo/static/images/normal.png)"></div>
+                                        </a>
+                                        <div class="gallery-item__content"><a class="gallery-item__like gallery-item__like--active" href="#">348</a></div>
+                                    </div>
+                                    <div class="gallery-item"><a class="gallery-item__imgwrap" href="{% static 'promo/static/images/big.png' %}" data-fancybox="gallery" data-caption="Константин Константинопольский &lt;br&gt; Возраст: 8 лет"><img class="gallery-item__prize" src="{% static 'promo/static/images/sprize2.png' %}">
+                                            <div class="gallery-item__img" style="background-image: url({% static 'promo/static/images/normal.png)"></div>
+                                        </a>
+                                        <div class="gallery-item__content"><a class="gallery-item__like" href="#">348</a></div>
+                                    </div>
+                                    <div class="gallery-item"><a class="gallery-item__imgwrap" href="{% static 'promo/static/images/big.png' %}" data-fancybox="gallery" data-caption="Константин Константинопольский &lt;br&gt; Возраст: 8 лет">
+                                            <div class="gallery-item__img" style="background-image: url({% static 'promo/static/images/normal.png)"></div>
+                                        </a>
+                                        <div class="gallery-item__content"><a class="gallery-item__like" href="#">348</a></div>
+                                    </div>
+                                    <div class="gallery-item"><a class="gallery-item__imgwrap" href="{% static 'promo/static/images/big.png' %}" data-fancybox="gallery" data-caption="Константин Константинопольский &lt;br&gt; Возраст: 8 лет">
+                                            <div class="gallery-item__img" style="background-image: url({% static 'promo/static/images/normal.png)"></div>
+                                        </a>
+                                        <div class="gallery-item__content"><a class="gallery-item__like" href="#">348</a></div>
+                                    </div>
+                                    <div class="gallery-item"><a class="gallery-item__imgwrap" href="{% static 'promo/static/images/big.png' %}" data-fancybox="gallery" data-caption="Константин Константинопольский &lt;br&gt; Возраст: 8 лет">
+                                            <div class="gallery-item__img" style="background-image: url({% static 'promo/static/images/normal.png)"></div>
+                                        </a>
+                                        <div class="gallery-item__content"><a class="gallery-item__like" href="#">348</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay jsOverlay" style="display: none;"></div>
+    <div class="modal jsSubscribe" style="display: none;">
+        <button type="button" class="modal__close jsSubscribeClose">+</button>
+        <div class="modal__title">Подписаться на рассылку</div>
+        <form class="modal__form" action="" method="POST">
+            {% csrf_token %}
+            <input name="form_name" value="emaillist" type="hidden">
+            <div class="modal__column modal__column--100">
+                <input class="modal__input" name="name" type="text" placeholder="Ваше имя*" required="">
+                <input class="modal__input modal__input" name="email" type="email" placeholder="Электронная почта*" required="">
+                <button class="button-blue modal__sbscr-btn" type="submit" name="submit" value="emaillist">Подписаться
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+</body>
+<script src="{% static 'promo/static/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'promo/static/js/bootstrap.js' %}"></script>
+<script src="{% static 'promo/static/js/swiper.min.js' %}"></script>
+{% comment %}
+<!--<script src="{% static 'promo/static/js/select2.full.min.js' %}"></script>-->
+<!--<script src="{% static 'promo/static/js/jquery.fancybox.min.js' %}"></script>-->
+{% endcomment %}
+<script src="{% static 'promo/static/js/script.js' %}"></script>
+<script src="https://unpkg.com/imask"></script>
+{% comment %}
+<!--<script type="text/javascript" src='{%  static "js/jquery-3.3.1.min.js" %}'></script>-->
+{% endcomment %}
+<script type="text/javascript" src='{%  static "js/slick.min.js" %}'></script>
+{% comment %}
+<!--<script src='{%  static "js/perfect-scrollbar.jquery.min.js" %}'></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>-->
+{% endcomment %}
+<script type="text/javascript" src='{%  static "js/script.js" %}'></script>
+
+
+
+</html>

@@ -1,0 +1,41 @@
+{% extends 'base_page.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load get_include_area %}
+
+{% block content %}
+<div class="page-vertical">
+{% include 'partials/breadcrumbs.html' with breadcrumbs=breadcrumbs title=object.title %}
+    <div class="wrapper">
+      <div class="page-main__content page-main__content--about">
+        <div class="title-group">
+          <h2 class="page-main__content-title">{{ page.parent.title }}</h2>
+          <p class="page-main__deco-title">{{ page.parent.title }}</p>
+        </div>
+        <section class="about">
+          <div class="about__filter-open jsAboutOpen">Разделы: <span class="about__filter-current">История</span></div>
+          {% if whereroot == 'creative' %}
+            {% include 'include/menu_about.html' with menu=menus.about_menu_creative %}
+          {% elif whereroot == 'en' %}
+            {% include 'include/menu_about.html' with menu=menus.about_menu_eng %}
+          {% else %}
+            {% include 'include/menu_about.html' with menu=menus.about_menu %}
+          {% endif %}
+            <div class="about__content">
+              <div class="about__section about__section--for-partners">
+                  {% for partner in objects %}
+                <div class="about__partners-item" >
+                  <a href="#" >
+                    <div class="about__partners-photo" style="background-image: url('{{ partner.image_tag }}')"></div>
+                    <p class="about__partners-title">{{ partner.title }}</p>
+                    <a href="{{ partner.site_url }}" class="about__partners-site">{{ partner.site_url|urlize }}</a>
+                  </a>
+                </div>
+                  {% endfor %}
+              </div>
+            </div>
+          </section>
+        </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends 'base_page.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load get_include_area %}
+
+{% block specific_styles %}
+<link href='{% static "css/maillist.css" %}' rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-vertical">
+{# {% if breadcrumbs.0 %}#}
+{#    {% include 'partials/breadcrumbs.html' with breadcrumbs=breadcrumbs title=object.title %}#}
+{# {% endif %}#}
+<div class="wrapper">
+    <div class="maillist" >
+        <br>
+        <br>
+    {% if res.success %}
+        <p class="maillist_title">Уважаемый пользователь!<br>
+
+            Вы отписались от новостной рассылки ПК химический завод "Луч"</p>
+        <br>
+        <br>
+        <p class="maillist_text">Для возобновления подписки воспользуйтесь формой <a href="#" class="maillist_link jsSubscribeShow">"Подписатся на рассылку"</a></p>
+    {% else %}
+        <p class="maillist_text" >Уважаемый пользователь, что то пошло не так:<br>
+        {{ res.msg }}</p>
+    {% endif %}
+    </div>
+</div>
+</div>
+ {# {% get_include_area request 'ia_page_text' title='Текст в футере' content='Все права защищены &copy;' %} #}
+{% endblock content %}

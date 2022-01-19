@@ -1,0 +1,90 @@
+{% extends 'base_page.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load get_include_area %}
+
+{% block content %}
+<div class="page-vertical">
+{% include 'partials/breadcrumbs.html' with breadcrumbs=breadcrumbs title=object.title %}
+<div class="wrapper">
+  <div class="page-main__content page-main__content--about">
+    <div class="title-group">
+      <h2 class="page-main__content-title">{{ page.title }}</h2>
+      <p class="page-main__deco-title">{{ page.title }}</p>
+    </div>
+    <section class="about">
+      <div class="about__filter-open jsAboutOpen">Разделы: <span class="about__filter-current">История</span></div>
+          {% if whereroot == 'creative' %}
+            {% include 'include/menu_about.html' with menu=menus.about_menu_creative %}
+          {% elif whereroot == 'en' %}
+            {% include 'include/menu_about.html' with menu=menus.about_menu_eng %}
+          {% else %}
+            {% include 'include/menu_about.html' with menu=menus.about_menu %}
+          {% endif %}
+
+      <div class="about__content">
+
+
+
+        <div class="about__slider-wrap">
+          <div class="about__arrow-block about__arrow-block--prev">
+            <div class="about__arrow about__arrow--prev jsHistoryPrev"></div>
+          </div>
+          <div class="about__arrow-block about__arrow-block--next">
+            <div class="about__arrow about__arrow--next jsHistoryNext"></div>
+          </div>
+          <div class="about__content-slider single-item" id="slider-about">
+              {% for history_item in objects %}
+            <div class="about__section about__section--{{ history_item.order }}" aria-describedby="slick-slide00">
+                {% if history_item.video.is_active %}
+                    {{ history_item.video.media_tag_slider|safe }}
+                {% else %}
+                    <div class="about__picture" style="background-image: url('{{ history_item.image_tag }}')"></div>
+                {% endif %}
+            </div>
+              {% endfor %}
+          </div>
+
+      </div>
+
+
+            <div class="about__slider">
+              <div class="history-slider">
+                 {% for history_item in objects %}
+                  {% if forloop.first %}
+                    <input type="radio" name="history" id="{{ history_item.year }}" class="history-slider__control visually-hidden">
+                    <label class="history-slider__label history-slider__label--first" for="{{ history_item.year }}">
+                        <div class="history-slider__label-text history-slider__label-text--first">{{ history_item.year }}</div>
+                        <span class="history-slider__label-span">{{ history_item.year }}</span>
+                    </label>
+                  {% elif forloop.last %}
+                      <input type="radio" name="history" id="{{ history_item.year }}" class="history-slider__control visually-hidden" checked>
+                      <label class="history-slider__label history-slider__label--last" for="{{ history_item.year }}">
+                          <div class="history-slider__label-text history-slider__label-text--last">{{ history_item.year }}</div>
+                          <span class="history-slider__label-span">{{ history_item.year }}</span>
+                      </label>
+                  {% else %}
+                    <input type="radio" name="history" id="{{ history_item.year }}" class="history-slider__control visually-hidden">
+                    <label class="history-slider__label" for="{{ history_item.year }}"><div class="history-slider__label-text">{{ history_item.year }}</div>
+                      <span class="history-slider__label-span">{{ history_item.year }}</span>
+                    </label>
+                  {% endif %}
+                 {% endfor %}
+              </div>
+            </div>
+
+
+            <div class="single-item-content">
+                 {% for history_item in objects %}
+                <div class="about__text about__text--history">
+                    {{ history_item.content|safe }}
+                </div>
+                 {% endfor %}
+                </div>
+            </div>
+    </section>
+  </div>
+</div>
+</div>
+ {# {% get_include_area request 'ia_page_text' title='Текст в футере' content='Все права защищены &copy;' %} #}
+{% endblock content %}

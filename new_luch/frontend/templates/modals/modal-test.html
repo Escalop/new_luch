@@ -1,0 +1,72 @@
+{% load static %}
+{% load static %}
+{% load staticfiles %}
+{% load thumbnail %}
+<div class="modal fade" id="modal-test" question-num='' tabindex="-1" role="dialog" aria-hidden="true"
+        style="display: none;">
+        <div class="modal-dialog modal-dialog-left" role="document">
+            <div class="modal-content">
+                <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-scroll">
+                    <div class="modal-form">
+                        <div class="modal-header">
+                            <div class="modal-title">Тест</div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-noac" style="display: none;">
+                                <div class="modal-noac__heading">Тест доступен только авторизованным пользователям</div>
+                                <div class="modal-noac__body">
+                                    <div class="joins-plane"><img src="{% static 'promo/static/images/plane3.png' %}">
+                                        <a class="joins-plane__link" data-dismiss="modal" data-toggle="modal"
+                                            data-target="#modal-log" href="#">войти</a></div>
+                                </div>
+                            </div>
+
+                            <div class="testing" id="quiz-end-correct" style="display: none;">
+                                <div class="testing__head"><img src="{% static 'promo/static/images/win.svg' %}"></div>
+                                <div class="testing__question">Вы верно ответили на все 10 вопросов! В Ваш рейтинг начислено 10 баллов</div>
+                                <div class="testing__btm">
+                                    <button class="btn" data-dismiss="modal" data-toggle="modal">Отлично</button>
+                                </div>
+                            </div>
+
+
+                            <div class="testing" id="quiz-end-wrong" style="display: none;">
+                                <div class="testing__head"><img src="{% static 'promo/static/images/lose.svg' %}"></div>
+                                <div class="testing__question">В ответах допущена ошибка, попробуйте пройти тест на следующей неделе</div>
+                                <div class="testing__btm">
+                                    <button class="btn" data-dismiss="modal" data-toggle="modal">Хорошо</button>
+                                </div>
+                            </div>
+
+                            <div class="modal-noac" id="quiz-passed" style="display: none;">
+                                <div class="modal-noac__heading">Вы уже ответили на этот вопрос</div>
+                                <div class="modal-noac__body">
+                                    <div class="joins-plane"><img src="{% static 'promo/static/images/plane3.png' %}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <form class="testing">
+                                <div class="testing__head"></div>
+                                <div class="testing__question">
+                                </div>
+
+                                <div data-num='' id="placeholder-test-item" class="testing-item" style="display: none;">
+                                    <input data-num='' type="radio" name="r1" id="placeholder-id">
+                                    <label class="testing-item__label"
+                                        for="placeholder-id"><b>A</b><span></span></label>
+                                </div>
+
+                                <div class="testing__items">
+                                </div>
+                                <div class="testing__btm">
+                                    <button type="button" data-pk="" class="btn" id="test-confirm">Далее</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

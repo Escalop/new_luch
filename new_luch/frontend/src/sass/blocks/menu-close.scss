@@ -1,0 +1,21 @@
+.menu-close {
+  position: relative;
+  width: 32px;
+  height: 28px;
+
+  
+  &::before {
+    width: 90%;
+    top: 44%;
+    border-radius: 10px;
+    transform: rotate(45deg);
+    box-shadow: none;
+  }
+
+  &::after {
+    width: 90%;
+    top: 44%;
+    border-radius: 10px;
+    transform: rotate(-45deg);
+  }
+}

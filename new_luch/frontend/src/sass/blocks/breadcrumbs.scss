@@ -1,0 +1,12 @@
+.breadcrumbs {
+    padding: 12px 0;
+    opacity: 0.81;
+    background-color: $light-gray--80;
+    flex-grow: 1;
+    font-size: 14px;
+    flex-grow: 0;
+}
+
+.breadcrumbs__current {
+    color: $header-bg;
+}

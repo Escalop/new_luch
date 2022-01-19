@@ -1,0 +1,235 @@
+extends layout/_main
+
+block content
+    .headermob
+        a.headermob-logosm(href="#")
+            img(src="../static/images/logom.png")
+        .headermob-btn.js-showMenu <span></span> <b>МЕНЮ</b>
+        .headermob-wrap
+            .headermob-menu
+                .headermob-left
+                    .headermob-menu__link Ваши баллы: 120
+                    a.headermob-menu__link(href="#") Загрузить работу
+                    a.headermob-menu__link(href="#") Выйти
+                a.headermob-logol(href="#")
+                    imgg(src="../static/images/logom.png")
+                .headermob-right
+                    a.headermob-menu__link(href="gallery.html") галерея
+                    a.headermob-menu__link(href="#", data-toggle="modal", data-target="#modal-rating") рейтинг
+    header.header.header--autoheight
+        .header-wrap#scene(class="scene unselectable"
+        data-friction-x="0.1"
+        data-friction-y="0.1"
+        data-scalar-x="25"
+        data-scalar-y="15")
+            .header-plane1.parallax.layer(data-depth="0.05")
+                img(src="../static/images/plane1.png")
+                .header-plane1__links
+                    .header-plane1__link Ваши баллы: 120
+                    a.header-plane1__link(href="#") Загрузить работу
+                    a.header-plane1__link(href="#") Выйти
+            .header-ball.parallax.layer(data-depth="0.04")
+                img(src="../static/images/ball.png")
+                a.header-ball__link(href="gallery.html") галерея
+            .header-star.parallax.layer(data-depth="0.06")
+                img(src="../static/images/star.png")
+                a.header-star__link(href="#", data-toggle="modal", data-target="#modal-rating") рейтинг
+            .header-center
+                .header-center__logo
+                    img(src="../static/images/logo.png")
+                .header-center__heading Галерея работ
+            .header-cloud1.parallax.layer(data-depth="0.06")
+                img(src="../static/images/cloud1.png")
+            .header-cloud2.parallax.layer(data-depth="0.07")
+                img(src="../static/images/cloud2.png")
+            .header-cloud3.parallax.layer(data-depth="0.08")
+                img(src="../static/images/cloud3.png")
+            .header-cloud4.parallax.layer(data-depth="0.09")
+                img(src="../static/images/cloud4.png")
+    main.main
+        .gallery
+            .container
+                .gallery-heading Победители
+                .gallery-weeks
+                    .gallery-weeks__item
+                        a.btn.gallery-weeks__btn(href="#") 1 неделя
+                    .gallery-weeks__item
+                        a.btn.btn--border.gallery-weeks__btn(href="#") 2 неделя
+                    .gallery-weeks__item
+                        a.btn.btn--border.gallery-weeks__btn(href="#") 3 неделя
+                    .gallery-weeks__item
+                        a.btn.btn--border.gallery-weeks__btn(href="#") 4 неделя
+                    .gallery-weeks__item
+                        a.btn.btn--border.gallery-weeks__btn(href="#") 5 неделя
+                    .gallery-weeks__item
+                        a.btn.btn--border.gallery-weeks__btn(href="#") 6 неделя
+                .gallery-items
+                    .gallery-item
+                        a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                            img.gallery-item__prize(src="../static/images/sprize3.png")
+                            .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                        .gallery-item__content
+                            a.gallery-item__like(href="#") 348
+                            a.gallery-item__name(href="#", data-toggle="modal", data-target="#modal-user") Константин константинопольский
+                            .gallery-item__age Возраст: 8 лет
+                            .gallery-item__winner
+                    .gallery-item
+                        a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                            img.gallery-item__prize(src="../static/images/sprize2.png")
+                            .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                        .gallery-item__content
+                            a.gallery-item__like.gallery-item__like--active(href="#") 348
+                            a.gallery-item__name(href="#", data-toggle="modal", data-target="#modal-user") Константин константинопольский
+                            .gallery-item__age Возраст: 8 лет
+                            .gallery-item__winner
+                    .gallery-item
+                        a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                            img.gallery-item__prize(src="../static/images/sprize2.png")
+                            .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                        .gallery-item__content
+                            a.gallery-item__like(href="#") 348
+                            a.gallery-item__name(href="#", data-toggle="modal", data-target="#modal-user") Константин константинопольский
+                            .gallery-item__age Возраст: 8 лет
+                            .gallery-item__winner
+                    .gallery-item
+                        a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                            img.gallery-item__prize(src="../static/images/sprize1.png")
+                            .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                        .gallery-item__content
+                            a.gallery-item__like(href="#") 348
+                            a.gallery-item__name(href="#", data-toggle="modal", data-target="#modal-user") Константин константинопольский
+                            .gallery-item__age Возраст: 8 лет
+                            .gallery-item__winner
+                    .gallery-item
+                        a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                            img.gallery-item__prize(src="../static/images/sprize4.png")
+                            .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                        .gallery-item__content
+                            a.gallery-item__like.gallery-item__like--active(href="#") 348
+                            a.gallery-item__name(href="#", data-toggle="modal", data-target="#modal-user") Константин константинопольский
+                            .gallery-item__age Возраст: 8 лет
+                            .gallery-item__winner
+                    .gallery-item
+                        a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                            img.gallery-item__prize(src="../static/images/sprize4.png")
+                            .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                        .gallery-item__content
+                            a.gallery-item__like(href="#") 348
+                            a.gallery-item__name(href="#", data-toggle="modal", data-target="#modal-user") Константин константинопольский
+                            .gallery-item__age Возраст: 8 лет
+                            .gallery-item__winner
+        .gallery
+            .container
+                .gallery-heading Все участники
+                .gallery-top
+                    .gallery-search
+                        input.gallery-search__input.form-input(placeholder="Поиск участников")
+                        button.gallery-search__btn.btn
+                    .gallery-sort
+                        .gallery-sort__items
+                            .gallery-sort__item.btn.btn--border.desc <span>По дате</span>
+                            //.gallery-sort__item.btn.btn--border.asc <span>По дате</span>
+                            .gallery-sort__item.btn.btn--border <span>По рейтингу</span>
+                .gallery-items
+                    .gallery-item
+                        a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery2" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                            .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                        .gallery-item__content
+                            a.gallery-item__like(href="#") 348
+                            .gallery-item__name Константин константинопольский
+                            .gallery-item__age Возраст: 8 лет
+                    .gallery-item
+                        a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery2" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                            .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                        .gallery-item__content
+                            a.gallery-item__like.gallery-item__like--active(href="#") 348
+                            .gallery-item__name Константин константинопольский
+                            .gallery-item__age Возраст: 8 лет
+                    .gallery-item
+                        a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery2" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                            .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                        .gallery-item__content
+                            a.gallery-item__like(href="#") 348
+                            .gallery-item__name Константин константинопольский
+                            .gallery-item__age Возраст: 8 лет
+                    .gallery-item
+                        a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery2" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                            .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                        .gallery-item__content
+                            a.gallery-item__like(href="#") 348
+                            .gallery-item__name Константин константинопольский
+                            .gallery-item__age Возраст: 8 лет
+                    .gallery-item
+                        a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery2" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                            .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                        .gallery-item__content
+                            a.gallery-item__like.gallery-item__like--active(href="#") 348
+                            .gallery-item__name Константин константинопольский
+                            .gallery-item__age Возраст: 8 лет
+                    .gallery-item
+                        a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery2" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                            .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                        .gallery-item__content
+                            a.gallery-item__like(href="#") 348
+                            .gallery-item__name Константин константинопольский
+                            .gallery-item__age Возраст: 8 лет
+                    .gallery-item
+                        a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery2" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                            .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                        .gallery-item__content
+                            a.gallery-item__like(href="#") 348
+                            .gallery-item__name Константин константинопольский
+                            .gallery-item__age Возраст: 8 лет
+                    .gallery-item
+                        a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery2" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                            .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                        .gallery-item__content
+                            a.gallery-item__like.gallery-item__like--active(href="#") 348
+                            .gallery-item__name Константин константинопольский
+                            .gallery-item__age Возраст: 8 лет
+                    .gallery-item
+                        a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery2" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                            .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                        .gallery-item__content
+                            a.gallery-item__like(href="#") 348
+                            .gallery-item__name Константин константинопольский
+                            .gallery-item__age Возраст: 8 лет
+                .pagi
+                    //a(href="#").pagi-link.pagi-prev если назад или врепед нельзя стрелки скрываем
+                    a.pagi-link.pagi-link--active(href="#") 1
+                    a.pagi-link(href="#") 2
+                    a.pagi-link(href="#") 3
+                    a.pagi-link(href="#") 4
+                    a.pagi-link(href="#") 5
+                    a.pagi-link.pagi-next
+        .shares
+            .container
+                .shares-heading Поделиться проектом
+                .shares-items
+                    a.shares-item(href="#")
+                        img(src="../static/images/vk.svg")
+                    a.shares-item(href="#")
+                        img(src="../static/images/fb.svg")
+                    a.shares-item(href="#")
+                        img(src="../static/images/od.svg")
+                    a.shares-item(href="#")
+                        img(src="../static/images/in.svg")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

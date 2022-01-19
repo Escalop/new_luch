@@ -1,0 +1,30 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 28 28">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fafafa;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #d6d6d6;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-3 {
+        fill: #d6d6d6;
+      }
+    </style>
+  </defs>
+  <title>luch_icon_history</title>
+  <g>
+    <image width="1228" height="1158" transform="translate(-474.679 -552.165)" xlink:href="Снимок экрана 2018-12-22 в 12.54.41.png"/>
+    <rect class="cls-1" x="-194.572" y="-43.072" width="886.456" height="128.994"/>
+  </g>
+  <line class="cls-2" x1="-179.09" y1="14.047" x2="656.654" y2="14.047"/>
+  <g>
+    <circle class="cls-3" cx="14" cy="14" r="14"/>
+    <circle class="cls-1" cx="13.988" cy="14.004" r="8" transform="translate(-3.305 4.374) rotate(-15.922)"/>
+  </g>
+</svg>

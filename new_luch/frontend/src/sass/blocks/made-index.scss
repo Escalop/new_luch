@@ -1,0 +1,27 @@
+.made-index {
+  color: $white;
+  margin-top: 10px;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 3%;
+  right: 5%;
+font-size: 14px;
+
+  &:hover {
+    opacity:1;
+  }
+}
+
+.made-index__icon {
+  font-size: 0;
+  line-height: 0;
+}
+
+.made-index__icon-img {
+  width: 60px;
+  height: auto;
+  margin-left: 10px;
+
+}

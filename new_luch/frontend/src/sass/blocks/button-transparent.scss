@@ -1,0 +1,25 @@
+.button-transparent {
+  text-align: center;
+  background-color: transparent;
+  padding: 15px;
+  border-radius: 3px;
+  border: 1px solid $blue;
+  color: $blue;
+  cursor: pointer;
+  transition:.2s;
+  outline: none;
+
+  @media #{$max-width-tablet} {
+    padding: 6px;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 0 0 2px $blue;
+  }
+
+  &:active {
+    box-shadow: inset 0 0 0 2px $blue--60;
+    border: 1px solid $blue--60;
+  }
+}

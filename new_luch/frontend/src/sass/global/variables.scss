@@ -1,0 +1,57 @@
+$white: #ffffff;
+$white--30: rgba(255, 255, 255, 0.3);
+$white--60: rgba(255, 255, 255, 0.6);
+$light-gray: #d8d8d8;
+$gray: #979797;
+$light-gray--40: rgba(216, 216, 216, 0.4);
+$light-gray--80: rgba(216, 216, 216, 0.8);
+$black: #000000;
+$black--04: rgba(0, 0, 0, 0.04);
+$black--20: rgba(0, 0, 0, 0.2);
+$black--50: rgba(0, 0, 0, 0.5);
+$black--70: rgba(0, 0, 0, 0.7);
+$nav-item: #033e7b;
+$header-bg: #0052a7;
+$header-bg-light: #009bff;
+$footer-link: #2b7dde;
+$more: #4a90e2;
+$blue: #2b7dde;
+$blue--20: rgba(43, 125, 222, 0.2);
+$blue--60: rgba(43, 125, 222, 0.6);
+$blue--80: rgba(43, 125, 222, 0.8);
+$blue--95: rgba(43, 125, 222, 0.95);
+$light-blue: #c5e3f0;
+$title-color: #363636;
+$footer-base: #dedede;
+$gradient-1: #f8a245;
+$gradient-2: #d92251;
+$gradient-3: #6b2468;
+$red: #d0021b;
+$orange: #f5a623;
+$yellow: #f8e71c;
+$braun: #8b572a;
+$green: #7ed321;
+$violet: #9013fe;
+
+$mobile: 320px;
+$mobile-max: 425px;
+$mobile-max2: 570px;
+$tablet: 768px;
+$tablet2: 960px;
+$desktop: 1120px;
+$desktop-max1: 1240px;
+$desktop-max2: 1440px;
+$desktop-max3: 1600px;
+$max-width-mobile: "(max-width: #{$mobile})";
+$max-width-mobile-max: "(max-width: #{$mobile-max})";
+$max-width-mobile-max2: "(max-width: #{$mobile-max2})";
+$max-width-tablet: "(max-width: #{$tablet})";
+$max-width-tablet2: "(max-width: #{$tablet2})";
+$max-width-desktop: "(max-width: #{$desktop})";
+$max-width-desktop-max1: "(max-width: #{$desktop-max1})";
+$max-width-desktop-max2: "(max-width: #{$desktop-max2})";
+$max-width-desktop-max3: "(max-width: #{$desktop-max3})";
+
+@mixin size($size) {
+  width: calc(-20px + 100% / 12 * #{$size});
+}

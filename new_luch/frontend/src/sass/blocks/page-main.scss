@@ -1,0 +1,139 @@
+.page-main {
+  // background-image: url("/img/bg-main@2x.png");
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  line-height: normal;
+  display: flex;
+  min-height: 100%;
+}
+
+.page-main__content {
+  // @include size(12);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-right: -20px;
+  padding-bottom: 60px;
+
+  &--new,
+  &--about {
+    position: relative;
+    padding-top: 43px;
+  }
+
+  &--contacts {
+    padding-top: 43px;
+
+    @media #{$max-width-desktop-max2} {
+      padding-top: 30px;
+      padding-left: 60px;
+      padding-right: 40px;
+    }
+
+    @media #{$max-width-tablet} {
+      padding-top: 20px;
+      margin-right: -10px;
+    }
+
+    @media #{$max-width-mobile-max2} {
+      padding-left: 30px;
+      padding-right: 0;
+    }
+
+    @media #{$max-width-mobile-max} {
+      padding-left: 0;
+    }
+  }
+
+  &--catalog {
+    position: relative;
+    padding-top: 43px;
+    margin-right: -40px;
+  }
+
+  &--new {
+    padding-top: 25px;
+  }
+
+  @media #{$max-width-mobile-max2} {
+    &--new {
+      padding-top: 15px;
+    }
+  }
+}
+
+.page-main__deco-title {
+  position: absolute;
+  font-size: 50px;
+  font-weight: bold;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: $black--04;
+  left: 30px;
+  bottom: -10px;
+
+  @media #{$max-width-tablet} {
+    font-size: 40px;
+    bottom: -7px;
+    left: 10px;
+  }
+
+  @media #{$max-width-mobile-max2} {
+    font-size: 30px;
+    bottom: -7px;
+  }
+}
+
+.page-main__content-title {
+  font-size: 35px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: $title-color;
+  top: 45px;
+  left: 0;
+
+  @media #{$max-width-desktop} {
+    font-size: 30px;
+  }
+
+  @media #{$max-width-tablet} {
+    font-size: 22px;
+  }
+}
+
+.page-main__catalog-top {
+  position: relative;
+  @include size(12);
+}
+
+.page-main__catalog-icons {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+
+  @media #{$max-width-mobile-max2} {
+    display: none;
+  }
+}
+
+.page-main__catalog-icon {
+  width: 25px;
+  height: 25px;
+  transition: .2s;
+
+  &:first-child {
+    margin-right: 20px;
+  }
+
+  &:hover,
+  &:focus {
+    opacity:0.5;
+  }
+}

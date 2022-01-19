@@ -1,0 +1,230 @@
+{% extends 'base_page.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="wrapper">
+{#<section class="main-image" style="background-image: url('static/img/main-image@2x.jpg')">#}
+{#  <div class="main-image__slogan-block">#}
+{#    <p class="main-image__slogan-text">Скидка 25% на акварель</p>#}
+{#  </div>#}
+{#</section>#}
+<section class="main-slider jsMainSlider">
+
+    {% if page_setting.is_active1 %}
+        <a target="_blank" href="{% if page_setting.is_link1 %}http://{{ page_setting.baner_link1 }}{% else %}#{% endif %}">
+            <div class="main-image">
+                {% if page_setting.baner_image1 %}
+                    <img src="/media/{{ page_setting.baner_image1 }}">
+                {% endif %}
+            </div>
+        </a>
+    {% endif %}
+
+    {% if page_setting.is_active2 %}
+        <a target="_blank" href="{% if page_setting.is_link2 %}http://{{ page_setting.baner_link2 }}{% else %}#{% endif %}">
+            <div class="main-image">
+                {% if page_setting.baner_image2 %}
+                    <img src="/media/{{ page_setting.baner_image2 }}">
+                {% endif %}
+            </div>
+        </a>
+    {% endif %}
+
+    {% if page_setting.is_active3 %}
+        <a target="_blank" href="{% if page_setting.is_link3 %}http://{{ page_setting.baner_link3 }}{% else %}#{% endif %}">
+            <div class="main-image">
+                {% if page_setting.baner_image3 %}
+                    <img src="/media/{{ page_setting.baner_image3 }}">
+                {% endif %}
+            </div>
+        </a>
+    {% endif %}
+
+    {% if page_setting.is_active4 %}
+        <a target="_blank" href="{% if page_setting.is_link4 %}http://{{ page_setting.baner_link4 }}{% else %}#{% endif %}">
+            <div class="main-image">
+                {% if page_setting.baner_image4 %}
+                    <img src="/media/{{ page_setting.baner_image4 }}">
+                {% endif %}
+            </div>
+        </a>
+    {% endif %}
+
+</section>
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for item in object.carousel_items.all %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <a href="{{ item.get_link }}">
+                        <img class="d-block w-100" src="{{ item.image.url }}" alt="{{ item.title }}">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+<div class="page-main__content">
+  <div  class="content-item content-item__brand">
+    <h2 class="content-item__title content-item__title--brand">Наши бренды</h2>
+    <p class="content-item__deco-title content-item__deco-title--brand">Наши бренды</p>
+    <div class="jsSliderBrand ">
+        {% for brand in brands %}
+      <div class="item content-item__slider-brand-item">
+        <article itemscope itemtype="http://schema.org/Article" class="content-item__block content-item__block--brand ">
+          <div class="content-item__slider-item content-item__slider-item--brand jsBrandItem">
+            <div   data-modal="{{ brand.slug}}-{{ brand.id}}" itemprop="image" class="jsBrandMoreShow content-item__photo-absolute content-item__photo-absolute--brand" style="background-image: url('{{ brand.image_tag }}')"></div>
+            <div class="content-item__block-main content-item__brand-sector">
+              <div  data-modal="{{ brand.slug}}-{{ brand.id}}" itemprop="image" class="jsBrandMoreShow content-item__brand-logo" style='background-image: url("{{ brand.image2_tag }}")'></div>
+                <div itemprop="articleBody" data-modal="{{ brand.slug}}-{{ brand.id}}" class="content-item__text jsBrandMoreShow">{{ brand.content|safe|truncatechars_html:240 }}
+                </div>
+                <span class="content-item__more jsBrandMoreShow" data-modal="{{ brand.slug}}-{{ brand.id}}">Подробнее</span>
+              </div>
+          </div>
+        </article>
+      </div>
+        {% endfor %}
+    </div>
+  </div>
+        {% for brand in brands %}
+            <div class="modal jsBrandMore" id="{{ brand.slug}}-{{ brand.id}}">
+            <button type="button" class="modal__close jsBrandMoreClose">+</button>
+            <div class="modal--brand {% if brand.image2_tag %} {% else%} without-image {%endif%} ">
+                <div class="content-item__block-main content-item__brand-full">
+                    <div itemprop="image" class="content-item__brand-logo" style='background-image: url("{{ brand.image2_tag }}")'></div>
+                    <div itemprop="articleBody" class="content-item__full-text">{{ brand.content|safe }}</div>
+                </div>
+                <img itemprop="image" class="content-item__photo-full" src="{{ brand.image_tag }}">
+            </div>
+             </div>
+        {% endfor %}
+    <div class="content-item content-item__instruction">
+      <h2 class="content-item__title">Родителям</h2>
+      <p class="content-item__deco-title">Родителям</p>
+      <div class="jsSliderInstruction">
+          {% for tip in tips %}
+        <div class="item content-item__slider-instruction-item" >
+          <article itemscope itemtype="http://schema.org/Article" class="{% if tip.image_tag %} {% else%} without-image {%endif%} content-item__block content-item__block--instruction">
+            <div data-modal="{{ tip.slug }}-{{ tip.id }}" itemprop="image" class="jsNoteMoreShow content-item__photo-absolute content-item__photo-absolute--instruction"
+                style='background-image: url("{{ tip.image_tag }}")'></div>
+            <div class="content-item__block-main content-item__instruction-sector">
+                 <svg class="content-item__svg" viewBox="0 10 240 77">
+                <defs>
+                  <linearGradient id="rainbow" x1="100%" x2="0" y1="0" y2="0%" gradientUnits="userSpaceOnUse" >
+                    <stop stop-color="#f8a245" offset="0%"/>
+                    <stop stop-color="#d92251" offset="80%"/>
+                    <stop stop-color="#6b2468" offset="100%"/>
+                  </linearGradient>
+                </defs>
+                <text fill="url(#rainbow)">
+                  <tspan class="content-item__svg-text" x="0" dy="60">{{ tip.title|truncatechars:10 }}</tspan>
+                </text>
+              </svg>
+              <p itemprop="alternativeHeadline" class="content-item__note">{{ tip.subtitle|truncatechars:64 }}</p>
+              <div itemprop="articleBody" class="content-item__text jsNoteMoreShow" data-modal="{{ tip.slug }}-{{ tip.id }}">{{ tip.content|safe|truncatechars_html:150 }}
+              </div>
+                <span class="content-item__more jsNoteMoreShow" data-modal="{{ tip.slug }}-{{ tip.id }}">Подробнее</span>
+            </div>
+          </article>
+        </div>
+        {% endfor %}
+      </div>
+
+
+  </div>
+{% for tip in tips %}
+        <div class="modal jsNoteMore" id="{{ tip.slug }}-{{ tip.id }}">
+            <button type="button" class="modal__close jsNoteClose">+</button>
+            <div class="modal--brand {% if tip.image_tag %} {% else%} without-image {%endif%}">
+                <div class="content-item__block-main content-item__brand-full">
+                    <div itemprop="image" class="content-item__brand-logo" style='background-image: url("{{ tip.image_tag }}")'></div>
+                    <div class="content-item__full-text">
+                        <p itemprop="articleBody">{{ tip.content|safe }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endfor %}
+
+     {% for news_item in news %}
+      <section itemscope itemtype="http://schema.org/NewsArticle" class="content-item content-item__news">
+
+            {% if news_item.pk == news_first %}
+                <a href="/creative/news/">
+        <h2 class="content-item__title">Новости</h2>
+        <p class="content-item__deco-title">Новости</p>
+                </a>
+            {% endif %}
+          <a href="{{ news_item.get_absolute_url }}">
+        <div class="content-item__block content-item__block--news">
+          <!-- <div itemprop="image" class="content-item__photo content-item__photo--news"
+              style="background-image: url('{{ news_item.image_anons_tag }}')"></div> -->
+
+              <div class="preview-photo">
+                <img src="/static/img/placeholder.jpg">
+                <div class="preview-photo__photo" style="background-image: url('{{ news_item.image_anons_tag }}')"></div>
+              </div>
+    
+          <div class="content-item__block-main">
+            <p itemprop="name" class="content-item__note">{{ news_item.title }}</p>
+            <div itemprop="articleBody" class="content-item__text">{{ news_item.content|safe|truncatechars_html:150 }}</div>
+            <span itemprop="dateline" class="content-item__date">{{ news_item.date_at|date:"d E Y" }}</span>
+          </div>
+        </div>
+         </a>
+      </section>
+    {% endfor %}
+
+    <div class="content-item content-item__new-item">
+        <a href="/creative/newitem/">
+      <h2 class="content-item__title">Новинки</h2>
+      <p class="content-item__deco-title">Новинки</p>
+        </a>
+      <div class="jsSliderNewItem">
+          {% for new_item in newitems %}
+              <div>
+        <div class="item content-item__slider-new-item">
+          <article itemscope itemtype="http://schema.org/Article" class="content-item__block content-item__block--new-item">
+            <a href="{{ new_item.get_absolute_url }}"> 
+              <div itemprop="image" class="content-item__photo-absolute content-item__photo-absolute--new-product"
+                  style='background-image: url("{{ new_item.image_anons_tag }}")'></div>
+            </a>
+            <div class="content-item__block-main content-item__block-main--bottom">
+              <a href="{{ new_item.get_absolute_url }}">
+                <svg class="color-small__svg" viewBox="0 10 700 77">
+                  <defs>
+                    <linearGradient id="rainbow" x1="100%" x2="0" y1="0" y2="0%" gradientUnits="userSpaceOnUse" >
+                      <stop stop-color="#f8a245" offset="0%"/>
+                      <stop stop-color="#d92251" offset="80%"/>
+                      <stop stop-color="#6b2468" offset="100%"/>
+                    </linearGradient>
+                  </defs>
+                  <text fill="url(#rainbow)">
+                    <tspan class="content-item__svg-text" x="0" dy="60">{{ new_item.title|truncatechars:30 }}</tspan>
+                  </text>
+                </svg>
+              </a>
+              <div itemprop="description" class="content-item__text content-item__text--bottom">{{ new_item.content|safe|truncatechars_html:120 }}</div>
+            </div>
+          </article>
+        </div>
+              </div>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

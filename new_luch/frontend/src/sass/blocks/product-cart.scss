@@ -1,0 +1,168 @@
+.product-cart {
+  display: flex;
+  padding-top: 72px;
+  padding-bottom: 50px;
+
+  @media #{$max-width-desktop} {
+    flex-direction: column;
+  }
+
+
+  @media #{$max-width-tablet} {
+    padding-top: 36px;
+  }
+}
+
+.product-cart__photos {
+  width: 35%;
+}
+
+.product-cart__description {
+  width: 60%;
+  padding-left: 10%;
+
+  @media #{$max-width-desktop} {
+    width: 100%;
+    padding-left: 0;
+  }
+}
+
+.product-cart__title {
+  font-size: 35px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: $black;
+  margin-bottom: 12px;
+
+
+  @media #{$max-width-mobile-max2} {
+    font-size: 28px;
+  }
+}
+
+.product-cart__article {
+  color: $black--50;
+  font-size: 18px;
+}
+
+.product-cart__text {
+  padding: 22px 0;
+  color: $black;
+}
+
+.product-cart__parametr {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 38px;
+
+  @media #{$max-width-desktop} {
+    padding-bottom: 22px;
+  }
+}
+
+.product-cart__parameter-title {
+  color: $black;
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 12px;
+}
+
+.product-cart__colors-list {
+  list-style: none;
+  padding-top: 8px;
+  display: flex;
+  height: 30px;
+}
+
+.product-cart__colors-item{
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+
+  &--red {
+    background-color: $red;
+  }
+
+  &--orange {
+    background-color: $orange;
+  }
+
+  &--yellow {
+    background-color: $yellow;
+  }
+
+  &--braun {
+    background-color: $braun;
+  }
+
+  &--green {
+    background-color: $green;
+  }
+
+  &--violet {
+    background-color: $violet;
+  }
+}
+
+.product-cart__price {
+    color: $blue;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.product-cart__quantity {
+  width: 190px;
+  padding: 15px;
+  border-radius: 4px;
+  border: solid 1px $gray;
+  background-color: transparent;
+}
+
+.product-cart__photo  {
+  width: 100%;
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  padding: 15px 0;
+  outline: none;
+
+  &:first-child,
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &--active {
+    width: 100%;
+    height: 300px;
+    margin-top: 70px;
+    background-size: contain;
+  }
+}
+
+.product-cart__photo-nav {
+  background-size: contain;
+  outline: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 15%;
+  cursor: pointer;
+}
+
+.product-cart__slider {
+  width: 40%;
+
+  @media #{$max-width-desktop} {
+    width: 100%;
+  }
+}
+
+.product-cart__group-element {
+  width: 100%;
+  outline: none;
+}

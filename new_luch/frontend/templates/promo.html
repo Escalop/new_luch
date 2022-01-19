@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+{% load static %}
+{% load recaptcha3 %}
+{% load staticfiles %}
+{% load solo_tags %}
+{% get_solo 'options.SiteConfiguration' as site_config %}
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'promo/icons/apple-touch-icon.png' %}">
+
+  <link rel="icon" type="image/png" sizes="64x64" href="{% static 'promo/icons/64x64.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'promo/icons/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'promo/icons/favicon-16x16.png' %}">
+
+  <link rel="manifest" href="{% static 'promo/icons/site.webmanifest' %}">
+  <link rel="mask-icon" href="{% static 'promo/icons/safari-pinned-tab.svg' %}" color="#5bbad5">
+
+  <link rel="shortcut icon" href="{% static 'promo/icons/favicon.ico' %}">
+
+  <meta name="msapplication-TileColor" content="#1b4299">
+  <meta name="msapplication-config" content="{% static 'promo/icons/browserconfig.xml' %}">
+  <meta name="theme-color" content="#1B4299">
+
+  <title>{{object.seo_title|default:"ПК химический завод «Луч» - Рисуем улыбки на ваших лицах!" }}</title>
+  <meta name="keywords" content="{{object.seo_title}}">
+  <meta name="description" content="{{object.seo_description}}">
+  <meta property="og:title" content="{{object.seo_title}}">
+  <meta property="og:description" content="{{object.seo_description}}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{object.get_absolute_url}}">
+  <meta property="og:image" content="{% static 'promo/images/logo.png' %}">
+  <meta property="og:site_name" content="{{object.title}}">
+  <meta property="og:locale" content="ru_RU">
+  <link rel="canonical" href="{{ object.get_absolute_url }}" />
+  <link href="{% static 'promo/css/style.css' %}" rel="stylesheet">
+    <meta name="yandex-verification" content="10bcc4e1684c8b44"/>
+    {{ site_config.scripts|safe }}
+  {% recaptcha_init %}
+
+  {% recaptcha_ready action_name='homepage' %}
+</head>
+<body>
+
+
+<div class="root">
+  <section class="welcome">
+    <div class="container">
+      <a href="https://luch-pk.ru" target="_blank" class="welcome-logo"></a>
+      <div class="welcome-gifts"></div>
+      <div class="welcome-girl"></div>
+      <div class="welcome-slogan"></div>
+    </div>
+  </section>
+  <section class="sform">
+    <div class="container">
+      <div class="sform-heading">
+        Выиграйте главный приз <br>
+        подарочный сертификат от турфирмы <br>
+        <span>на 100<b>.</b>000 рублей</span>
+      </div>
+
+      <form class="sform-block jsParticipant" method="post" action="/api/participant/">
+        {% if current_drawing %}
+        {% csrf_token %}
+        <input type="hidden" id="captcha_public" value="{{ capthca_public_key }}">
+        <div class="sform-block-heading">Станьте участником розыгрыша!</div>
+        <div class="sform-block-heading2" id="text_1">Зарегистрируйте промокод до 25 числа текущего месяца</div>
+        <div class="sform-block-heading2" id="text_2"></div>
+        <div class="sform-row">
+          <div class="sform-col">
+              <div class="sform-label">Название компании</div>
+              <input name="company_name" type="text" class="form-input" placeholder="Название компании" required>
+          </div>
+          <div class="sform-col">
+              <div class="sform-label">Город</div>
+              <input name="city" type="text" class="form-input" placeholder="Город" required>
+          </div>
+          <div class="sform-col">
+              <div class="sform-label">Ваше имя</div>
+              <input name="name" type="text" class="form-input" placeholder="Ваше имя" required>
+          </div>
+          <div class="sform-col">
+              <div class="sform-label">Номер телефона</div>
+              <input name="phone" type="text" class="form-input" placeholder="+7 (999) 999-99-99" required>
+          </div>
+          <div class="sform-col">
+              <div class="sform-label">Промо-код</div>
+              <input name="promo_code" type="text" class="form-input" placeholder="6 цифр/букв" required>
+          </div>
+          <div class="sform-col">
+              <div class="sform-label">Электронная почта</div>
+              <input name="email" type="email" class="form-input" placeholder="mail@mail.com" required>
+          </div>
+          {{ form.recaptcha }}
+        </div>
+        <div class="sform-btm">
+          <div class="sform-rulz">
+            <div class="form-checkbox">
+              <input type="checkbox" required class="checkbox" checked>
+              <label class="form-checkbox__label">С <a class="underline" href="#" data-toggle="modal" data-target="#modal-rules">правилами акции</a> соглашаюсь
+              </label>
+            </div>
+          </div>
+          <button class="sform-btn btn"  >Отправить код</button>
+          <!--<button class="sform-btn btn" data-toggle="modal" data-target="#modal-success">Отправить код</button>-->
+
+        </div>
+        {% else %}
+        <div class="sform-block-heading">Уважаемые участники!</div>
+        <div class="sform-block-heading2" >Регистрация промо-кодов завершена. Результаты будут подведены 26 числа.</div>
+        <div class="sform-block-heading2" >Регистрация на новый розыгрыш начнется с  1 числа.</div>
+        {% endif %}
+      </form>
+
+    </div>
+  </section>
+  <section class="gifts">
+    <div class="container">
+      <div class="gifts-heading">Каждый месяц разыгрывается 12 подарков*</div>
+      <div class="gifts-items">
+        <img src="{% static 'promo/images/prize2.png' %}" alt="" class="gifts-item">
+        <img src="{% static 'promo/images/prize1.png' %}" alt="" class="gifts-item">
+        <img src="{% static 'promo/images/prize4.png' %}" alt="" class="gifts-item">
+        <img src="{% static 'promo/images/prize3.png' %}" alt="" class="gifts-item">
+        <img src="{% static 'promo/images/prize5.png' %}" alt="" class="gifts-item">
+        <img src="{% static 'promo/images/prize6.png' %}" alt="" class="gifts-item">
+      </div>
+    </div>
+  </section>
+
+  <section class="tables">
+    {% if conf.show_winners %}
+    <div class="container">
+      <div class="tables-heading">Списки победителей</div>
+      <div class="tables-block">
+        {% with last_drawing.get_super_winner as sw %}
+        {% if conf.show_super_winners and sw %}
+        <div class="tables-head">Победитель по итогам {{ last_drawing.date_at|date:"Y" }} года</div>
+        <div class="tables-row">
+          <div class="tables-code">Код {{ sw.promo_code }}</div>
+          <div class="tables-prize">Подарок "Сертификат на 100 000 рублей!"</div>
+        </div>
+        {% endif %}
+        {% endwith %}
+        <div class="tables-head">Победители по итогам {{ last_drawing.date_at|date:"E" }}</div>
+        {% for item in last_drawing.get_winners %}
+        <div class="tables-row">
+          <div class="tables-code">Код {{ item.promo_code }}</div>
+          <div class="tables-prize">Подарок {% if item.prizes.all.count > 0 %}“{{ item.prizes.all.first }}”{% endif %}</div>
+        </div>
+        {% endfor %}
+        {% if done_drawings.count > 0 %}
+        <div class="tables-btm">
+          <a href="#" class="tables-btn btn btn--border" data-toggle="modal" data-target="#modal-prizers">Победители предыдущих розыгрышей</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    <div class="tables-foot">
+      <img src="{% static 'promo/images/foot-left.png' %}" alt="" class="tables-foot__left">
+      <div class="tables-foot__center">
+        <a href="https://luch-pk.ru" target="_blank"><img src="{% static 'promo/images/foot-center.svg' %}" alt="" class="tables-foot__logo"></a>
+        <div class="tables-foot__phone">+7 (4852) 260-261</div>
+      </div>
+      <img src="{% static 'promo/images/foot-right.png' %}" alt="" class="tables-foot__right">
+    </div>
+  </section>
+</div>
+
+
+<div class="modal fade" id="modal-prizers" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Победители предыдущих розыгрышей</h4>
+        <button type="button" class="close btn" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {% for drawing in done_drawings %}
+        <div class="stables-block">
+          <div class="stables-head">Победители по итогам {{ drawing.date_at|date:"E" }}</div>
+          {% for item in drawing.get_winners %}
+          <div class="stables-row">
+            <div class="stables-code">Код {{ item.promo_code }}</div>
+            <div class="stables-prize">Подарок {% if item.prizes.all.count > 0 %}“{{ item.prizes.all.first }}”{% endif %}</div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endfor %}
+       </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modal-success" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Ваш промо-код успешно зарегистрирован!</h4>
+        <button type="button" id="close_thx" class="close btn" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>В случае выигрыша, вы получите уведомление на указанный адрес электронной почты, с детальными инструкциями и списком документов для получения приза.</p>
+
+        <p>Итоги ежемесячного розыгрыша призов можно также отслеживать самостоятельно на сайте <a href="https://promo.luch-pk.ru" class="underline">promo.luch-pk.ru</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modal-rules" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Правила участия</h4>
+        <button type="button" class="close btn" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>1. В розыгрыше призов могут принять участие клиенты, осуществляющие закупки у партнёров компании «Луч», участвующих в акции. </p>
+
+        <p>2. Основанием для участия в розыгрыше является промокод, предоставленный клиенту партнёром компании «Луч» при условии, что тот выполнил условия участия в акции. О подробных условиях участия в акции клиентов информируют партнёры компании «Луч», участвующие в акции.</p>
+
+        <p>3. Полученный промокод регистрируется на промосайте компании (<a href="https://promo.luch-pk.ru" class="underline">promo.luch-pk.ru</a>) до 25 числа каждого месяца.</p>
+
+        <p>4. 26 числа каждого месяца, на основании зарегистрированных промокодов с помощью случайной выборки чисел,  проводится розыгрыш призов.
+
+        <p>5. Ежемесячно разыгрывается 12 призов:
+          <ul>
+            <li>микроволновая печь - 2 шт</li>
+            <li>холодильник в офис - 2 шт</li>
+            <li>лазерный принтер - 2 шт</li>
+            <li>видеопроектор - 2 шт</li>
+            <li>уничтожитель бумаг (шредер) - 2 шт</li>
+            <li>кулер для воды – 2 шт</li>
+          </ul>
+        </p>
+        <p>6. 26 декабря среди всех зарегистрировавшихся пользователей будет разыгран подарочный сертификат от турфирмы на 100 тыс. рублей.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript" src="{% static 'promo/js/jquery-3.3.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'promo/js/bootstrap.js' %}"></script>
+<script type="text/javascript" src="{% static 'promo/js/script.js' %}"></script>
+<script type="text/javascript" src="{% static 'promo/js/form.js' %}"></script>
+</body>
+</html>

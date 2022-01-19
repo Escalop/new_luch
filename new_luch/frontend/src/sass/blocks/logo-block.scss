@@ -1,0 +1,49 @@
+.logo-block {
+  font-family: "Lifehack";
+  font-size: 25px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 90px;
+  color: $white;
+  cursor: pointer;
+  outline: none;
+
+  @media #{$max-width-desktop-max1} {
+    margin-left: 50px;
+  }
+
+  @media #{$max-width-tablet} {
+    display: none;
+  }
+}
+
+.logo-block__slogan {
+  margin: 0 0 10px 0;
+
+  @media #{$max-width-desktop-max2} {
+    font-size: 22px;
+    margin-top: -10px;
+  }
+
+  @media #{$max-width-desktop} {
+    display: none;
+  }
+}
+
+.logo-block img {
+  @media #{$max-width-desktop-max2} {
+    width: 100px;
+    height: auto;
+  }
+
+  @media #{$max-width-desktop} {
+    width: 90px;
+  }
+}

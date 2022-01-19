@@ -1,0 +1,61 @@
+{% extends 'base_page.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load get_include_area %}
+
+{% block content %}
+
+<div class="page-vertical">
+{% include 'partials/breadcrumbs.html' with breadcrumbs=breadcrumbs title=object.title %}
+<div class="wrapper">
+  <div class="page-main__content page-main__content--new">
+    <div class="title-group">
+      <h2 class="page-main__content-title">Творческая мастерская</h2>
+      <p class="page-main__deco-title">Творческая мастерская</p>
+    </div>
+         <!-- <div class="page-main__catalog-pages" style="text-align: right;">
+      <p>{% if pages > 1%}Страницы: {% for page_index in paginator %}
+        <a href=".?page={{ page_index }}&objects_on_page={{ objects_on_page }}" {% if page == page_index%} style="color: #033e7b;"{%endif%}>{{page_index}}</a>
+        {% endfor %}{% endif %} Сообщений на странице:
+        {% for itemcount in pagination_variants %}
+        <a href=".?objects_on_page={{ itemcount }}" {% if objects_on_page == itemcount%} style="color: #033e7b;"{%endif%}>{{itemcount}} </a>{% endfor %}</p><br />
+      </div> -->
+    {% for object in objects %}
+    <div itemscope itemtype="http://schema.org/NewsArticle" class="new-item" onclick="window.open(`{{ object.get_absolute_url }}`);">
+
+        <div class="new-item__photo" style="background-image: url( '{{ object.image_tag }}')">
+          <div itemprop="dateline" class="new-item__date">{{ object.date_at|date:"d E Y" }}</div>
+        </div>
+        <div class="new-item__block-main">
+          <p itemprop="name" class="new-item__note">{{ object.title }}</p>
+          <div itemprop="articleBody" class="new-item__text">
+            {{ object.content|safe|truncatewords_html:60 }}
+          </div>
+        </div>
+
+    </div>
+    {% endfor %}
+    {% if pages > 1%}
+        <div class="page-main__catalog-pages">
+          {% for page_index in paginator %}
+              {% if page == page_index %}
+                <span aria-current="page-main__page" class="page-main__page-numbers current">{{ page }}</span>
+              {% elif page_index == '...' %}
+                <span class="page-main__page-numbers dots">…</span>
+              {% else %}
+                <a class="page-main__page-numbers" href=".?page={{ page_index }}">{{ page_index }}</a>
+              {% endif %}
+          {% endfor %}
+          <!--<a class="page-main__page-numbers" href="#">3</a>-->
+          <!--<span class="page-main__page-numbers dots">…</span>-->
+          <!--<a class="page-main__page-numbers" href="#">58</a>-->
+          {% if page < pages %}
+          <a class="next page-main__page-numbers" href=".?page={{ page|add:"1" }}">Далее →</a>
+          {% endif %}
+        </div>
+    {% endif %}
+  </div>
+</div>
+</div>
+ {# {% get_include_area request 'ia_page_text' title='Текст в футере' content='Все права защищены &copy;' %} #}
+{% endblock content %}

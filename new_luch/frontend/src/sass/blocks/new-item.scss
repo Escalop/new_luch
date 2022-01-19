@@ -1,0 +1,144 @@
+.new-item {
+  display: flex;
+  width: 100%;
+  height: 384px;
+  background-color: $white;
+  border-radius: 4px;
+  position: relative;
+  margin-bottom: 20px;
+  transition: .4s;
+
+  @media #{$max-width-desktop} {
+    flex-direction: column;
+    height: 650px;
+  }
+  
+  @media #{$max-width-tablet} {
+    height: 600px;
+  }
+
+  &:hover,
+  &focus {
+    box-shadow: 0 3px 10px 3px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.new-item__photo {
+  width: 50%;
+  height: 100%;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  &--cart {
+    height: 384px;
+    width: 100%;
+  }
+
+  @media #{$max-width-desktop} {
+    width: 100%;
+    height: 400px;
+  }
+
+  @media #{$max-width-tablet} {
+    height: 250px;
+  }
+}
+
+.new-item__photo-cart {
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 384px;
+  width: 100%;
+
+  @media #{$max-width-desktop} {
+    height: 300px;
+  }
+
+  @media #{$max-width-tablet} {
+    height: 210px;
+  }
+
+  @media #{$max-width-mobile-max} {
+    height: 170px;
+  }
+
+  @media #{$max-width-mobile} {
+    height: 140px;
+  }
+}
+
+.new-item__block-main {
+  width: 50%;
+  padding: 25px 45px 25px 30px;
+  padding-bottom: 20px;
+
+
+  @media #{$max-width-desktop} {
+    width: 100%;
+  }
+
+  @media #{$max-width-tablet} {
+    padding: 20px;
+  }
+
+  &--cart {
+    width: 100%;
+    padding: 45px 0 20px 0;
+
+    @media #{$max-width-tablet} {
+      padding-top: 25px;
+    }
+  }
+}
+
+.new-item__note {
+  font-size: 22px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: $black;
+  margin-bottom: 18px;
+  max-height: 78px;
+  overflow: hidden;
+
+  @media #{$max-width-tablet} {
+    font-size: 20px;
+  }
+}
+
+.new-item__date {
+  color: $white;
+  padding: 10px 18px;
+  background-color: $blue;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.new-item__text {
+  max-height: 249px;
+  overflow: hidden;
+
+  @media #{$max-width-desktop} {
+  max-height: 170px;
+  }
+
+  @media #{$max-width-tablet} {
+    max-height: 300px;
+  }
+
+  &--cart {
+    color: $black;
+    height: auto;
+    max-height: 100%;
+  }
+}
+
+.new-item__text p {
+  padding-bottom: 15px;
+}

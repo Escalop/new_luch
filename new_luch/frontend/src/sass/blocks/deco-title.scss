@@ -1,0 +1,19 @@
+.deco-title {
+  position: absolute;
+  font-size: 50px;
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: $black--04;
+  left: 30px;
+  top: 52px;
+
+  @media #{$max-width-tablet} {
+    font-size: 42px;
+    top: 28px;
+    left: 10px;
+  }
+}

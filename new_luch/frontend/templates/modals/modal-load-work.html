@@ -1,0 +1,76 @@
+{% load static %}
+    <div class="modal fade" id="modal-load-work" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-left" role="document">
+            <div class="modal-content">
+                <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-scroll">
+                    <div class="modal-form" id="load-work-modal">
+                        <div class="modal-header">
+                            <div class="modal-title">Загрузить работу</div>
+                        </div>
+                        {% if promo_config.is_over %}
+                            <div class="modal-noac">
+                                <div class="modal-noac__heading">Конкурс окончен</div>
+                            </div>
+
+                        {% elif not promo_config.is_started %}
+                            <div class="modal-noac">
+                                <div class="modal-noac__heading promo-not-started">Регистрация участников и прием конкурсных работ стартует с {{ promo_config.start_date|date }}</div>
+                            </div>
+                        {% else %}
+
+                            {% if not current_competition %}
+                                {% if next_competition %}
+                                    <div class="modal-noac">
+                                    <div class="modal-noac__heading promo-not-started">Прием конкурсных работ стартует с {{ next_competition.start_date|date:"j E H:i" }}</div>
+                                    </div>
+                                {% else %}
+                                    <div class="modal-noac">
+                                    <div class="modal-noac__heading promo-not-started">Еженедельный конкурс пока не начался</div>
+                                    </div>
+                                {% endif %}
+                            {% else %}
+
+                        <div class="modal-body">
+                            <div class="modal-error" id="load-work-errors">Размер файла
+                                <strong>не более 10МБ</strong>. <br>Формат <strong>jpg
+                                    или png</strong>. <br>На фото с рисунком <strong>должна присутствовать
+                                    продукция</strong> <a href="https://www.luch-pk.ru/creative/catalog/"><u>торговой марки “ЛУЧ - Школа Творчества”</u></a></div>
+
+                            <div class="modal-form" id="load-work-sucess" style="display: none;">
+                                <div class="modal-body">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Работа успешно загружена!</h4>
+                                            <p>Ваша работа появится в галерее после модерации.</p>
+
+                                            <div class="modal-noac__body">
+                                                <div class="joins-plane"><img src="{% static 'promo/static/images/plane3.png' %}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form class="form" id="load-work-form">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input name="file" accept=".png,.jpg, .jpeg" class="form-file" type="file"
+                                        data-placeholder="Загрузить работу *" required>
+                                </div>
+                                <div class="modal-noac">
+                                    <div class="modal-noac__heading"> <button type="submit" id="loadwork-submit-btn" class="btn">загрузить
+                                            работу</button></div>
+                                    <!-- <div align="center" data-dismiss="modal"><a class="headermob-menu__link">пропустить
+                                            шаг</a></div> -->
+                                </div>
+                            </form>
+                        </div>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>

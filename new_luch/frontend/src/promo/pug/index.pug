@@ -1,0 +1,377 @@
+extends layout/_main
+
+block content
+    .headermob
+        a.headermob-logosm(href="#")
+            img(src="../static/images/logom.png")
+        .headermob-btn.js-showMenu <span></span> <b>МЕНЮ</b>
+        .headermob-wrap
+            .headermob-menu
+                .headermob-left
+                    a.headermob-menu__link(href="#", data-toggle="modal", data-target="#modal-reg") участвовать
+                    a.headermob-menu__link(href="#", data-toggle="modal", data-target="#modal-log") Войти
+                a.headermob-logol(href="#")
+                    imgg(src="../static/images/logom.png")
+                .headermob-right
+                    a.headermob-menu__link(href="gallery.html") галерея
+                    a.headermob-menu__link(href="#", data-toggle="modal", data-target="#modal-rating") рейтинг
+    header.header
+        .header-wrap#scene(class="scene unselectable"
+        data-friction-x="0.1"
+        data-friction-y="0.1"
+        data-scalar-x="25"
+        data-scalar-y="15")
+            .header-plane1.parallax.layer(data-depth="0.05")
+                img(src="../static/images/plane1.png")
+                .header-plane1__links
+                    a.header-plane1__link(href="#", data-toggle="modal", data-target="#modal-reg") участвовать
+                    a.header-plane1__link(href="#", data-toggle="modal", data-target="#modal-log") Войти
+            .header-ball.parallax.layer(data-depth="0.04")
+                img(src="../static/images/ball.png")
+                a.header-ball__link(href="gallery.html") галерея
+            .header-star.parallax.layer(data-depth="0.06")
+                img(src="../static/images/star.png")
+                a.header-star__link(href="#", data-toggle="modal", data-target="#modal-rating") рейтинг
+            .header-plane2.parallax.layer(data-depth="0.10")
+                img(src="../static/images/plane2.png")
+            .header-house.parallax.layer(data-depth="0.05")
+                img(src="../static/images/house.png")
+            .header-center
+                .header-center__logo
+                    img(src="../static/images/logo.png")
+                .header-center__text Конкурс творческих работ с использованием материалов «Школа творчества» ТМ «Луч»
+                .header-center__btns
+                    a.btn(href="#") Смотреть видеоуроки
+            .header-cloud1.parallax.layer(data-depth="0.06")
+                img(src="../static/images/cloud1.png")
+            .header-cloud2.parallax.layer(data-depth="0.07")
+                img(src="../static/images/cloud2.png")
+            .header-cloud3.parallax.layer(data-depth="0.08")
+                img(src="../static/images/cloud3.png")
+            .header-cloud4.parallax.layer(data-depth="0.09")
+                img(src="../static/images/cloud4.png")
+            .header-cloudb
+                img(src="../static/images/cloud5.png")
+                .header-cloudb__links
+                    .header-cloudb__link лети вниз
+    main.main
+        .rulz
+            .container
+                .rulz-top
+                    .rulz-top__left
+                        h2.rulz-heading Условия Участия
+                        .rulz-text 25 декабря жюри конкурса определит три лучшие конкурсные работы, которые будут награждены главными призами.
+                    .rulz-top__right(class="scene unselectable"
+                    data-friction-x="0.1"
+                    data-friction-y="0.1"
+                    data-scalar-x="25"
+                    data-scalar-y="25")
+                        .rulz-top__mothership.layer(data-depth="0.25")
+                            img(src="../static/images/mothership.png")
+                .rulz-items
+                    .rulz-item
+                        .rulz-item__nums(class="scene unselectable"
+                        data-friction-x="0.1"
+                        data-friction-y="0.1"
+                        data-scalar-x="35"
+                        data-scalar-y="35")
+                            .rulz-item__num 1
+                            .rulz-item__cloud.layer(data-depth="0.09")
+                                img(src="../static/images/cloud2.png")
+                        .rulz-item__content
+                            .rulz-item__heading Создай <br>творческую работу
+                            .rulz-item__text С использованием материалов «Школа творчества» ТМ «Луч»
+                    .rulz-item
+                        .rulz-item__nums(class="scene unselectable"
+                        data-friction-x="0.1"
+                        data-friction-y="0.1"
+                        data-scalar-x="25"
+                        data-scalar-y="15")
+                            .rulz-item__num 2
+                            .rulz-item__cloud.layer(data-depth="0.11")
+                                img(src="../static/images/cloud2.png")
+                        .rulz-item__content
+                            .rulz-item__heading Пройди регистрацию на сайте и загрузи работу
+                            .rulz-item__text На фото должна присутствовать продукция из серии «Школа творчества» ТМ «Луч»
+                    .rulz-item
+                        .rulz-item__nums(class="scene unselectable"
+                        data-friction-x="0.1"
+                        data-friction-y="0.1"
+                        data-scalar-x="35"
+                        data-scalar-y="25")
+                            .rulz-item__num 3
+                            .rulz-item__cloud.layer(data-depth="0.05")
+                                img(src="../static/images/cloud2.png")
+                        .rulz-item__content
+                            .rulz-item__heading Набирай дополнительные баллы и получай призы
+                            .rulz-item__text За каждую новую загруженную работу добавляется 10 баллов (при условии, что в работе присутствует продукция из серии «Школа творчества»)
+        .joins
+            .container
+                .joins-wrap(class="scene unselectable"
+                data-friction-x="0.1"
+                data-friction-y="0.1"
+                data-scalar-x="55"
+                data-scalar-y="15")
+                    .joins-plane.layer(data-depth="0.10")
+                        img(src="../static/images/plane3.png")
+                        a.joins-plane__link(href="#") участвовать
+                .joins-text  Участвуя в конкурсе, вы соглашаетесь <a href="#">с правилами конкурса</a>, а также соглашаетесь на обработку персональных данных.
+        .prizes
+            .container
+                .prizes-heading  Поделки создавай - подарки получай!
+                .prizes-text ПРИЗЫ КАЖДУЮ НЕДЕЛЮ
+                .prizes-middle(class="scene unselectable"
+                data-friction-x="0.1"
+                data-friction-y="0.1"
+                data-scalar-x="55"
+                data-scalar-y="45")
+                    .prizes-items
+                        .prizes-item.prizes-item--1
+                            .prizes-item__count 3 Сертификата еженедельно
+                            .prizes-item__img
+                                img(src="../static/images/prize1.png")
+                            .prizes-item__text Сертификат на исполнение желаний от издательства МИФ
+                        .prizes-item.prizes-item--2
+                            .prizes-item__count 2 Сертификата еженедельно
+                            .prizes-item__img
+                                img(src="../static/images/prize2.png")
+                            .prizes-item__text Сертификат Ozon <br>«Побалуй себя»
+                        .prizes-item.prizes-item--3
+                            .prizes-item__count 1 рюкзак еженедельно
+                            .prizes-item__img
+                                img(src="../static/images/prize3.png")
+                            .prizes-item__text Рюкзак <a href="https://www.grizzlyshop.ru/" target="_blank">GRIZZLY</a> <br>с наполнением товарами от компании «Луч»
+                    .prizes-main
+                        .prizes-main__left
+                            .prizes-main__top главный приз
+                            .prizes-main__name Путевка <br>в летний лагерь <br> <span>СЕЗОН 2021</span>
+                            .prizes-main__info Победители конкурса, которые получат три главных приза, будут выбраны жюри из зарегистрированных работ участников в возрасте от 8 до 17 лет.
+                        .prizes-main__right
+                            img.prizes-main__logo(src="../static/images/prize-main-logo.svg")
+                    .prizes-cloud1.layer(data-depth="0.10")
+                        img(src="../static/images/cloud6.png")
+                    .prizes-cloud2.layer(data-depth="0.15")
+                        img(src="../static/images/cloud6.png")
+                    .prizes-cloud3.layer(data-depth="0.04")
+                        img(src="../static/images/cloud7.png")
+        .edu
+            .container
+                .edu-top
+                    .edu-top__left
+                        .edu-heading обучение
+                        .edu-imgs(class="scene unselectable"
+                        data-friction-x="0.1"
+                        data-friction-y="0.1"
+                        data-scalar-x="35"
+                        data-scalar-y="25")
+                            .edu-img1.layer(data-depth="0.17")
+                                img(src="../static/images/edu-cloud1.png")
+                            .edu-img2.layer(data-depth="0.05")
+                                img(src="../static/images/edu-bear.png")
+                            .edu-img3.layer(data-depth="0.12")
+                                img(src="../static/images/edu-cloud2.png")
+                    .edu-top__right
+                        .edu-text
+                            p Дорогой друг! А знаешь ли ты, что над иллюстрациями к твоим любимым книгам и мультфильмам трудились талантливые художники? Они, как и ты, рисовали карандашами, красками, лепили пластилином. Именно об этих людях мы расскажем тебе.
+                            p И возможно, когда ты вырастешь, твоя любовь к творчеству не пройдёт и из тебя вырастет замечательный художник, иллюстратор, мультипликатор или просто добрый и хороший человек.
+                        .edu-miniheading Читай, проходи тест, получай дополнительные баллы, увеличивай шансы на победу
+                .edu-items(class="scene unselectable"
+                data-friction-x="0.1"
+                data-friction-y="0.1"
+                data-scalar-x="25"
+                data-scalar-y="25")
+                    .edu-items__cloud1.layer(data-depth="0.1")
+                        img(src="../static/images/cloud6.png")
+                    .edu-items__cloud2.layer(data-depth="0.1")
+                        img(src="../static/images/cloud6.png")
+                    a.edu-item(href="#" data-toggle='modal' data-target="#modal-book")
+                        .edu-item__name Художник Б. А. Дехтерёв
+                        .edu-item__btns
+                            .edu-item__btn.btn.btn--white читать
+                    a.edu-item(href="#" data-toggle='modal' data-target="#modal-book")
+                        .edu-item__name Художник Л. В. Владимирский
+                        .edu-item__btns
+                            .edu-item__btn.btn.btn--white читать
+                    a.edu-item(href="#" data-toggle='modal' data-target="#modal-book")
+                        .edu-item__name Художник И. Я. Билибин
+                        .edu-item__btns
+                            .edu-item__btn.btn.btn--white читать
+                    a.edu-item(href="#" data-toggle='modal' data-target="#modal-book")
+                        .edu-item__name Художник Н. А. Устинов
+                        .edu-item__btns
+                            .edu-item__btn.btn.btn--white читать
+                    a.edu-item(href="#" data-toggle='modal' data-target="#modal-book")
+                        .edu-item__name Художник Б. А. Дехтерёв
+                        .edu-item__btns
+                            .edu-item__btn.btn.btn--white читать
+                    a.edu-item(href="#" data-toggle='modal' data-target="#modal-book")
+                        .edu-item__name Художник Л. В. Владимирский
+                        .edu-item__btns
+                            .edu-item__btn.btn.btn--white читать
+                    a.edu-item(href="#" data-toggle='modal' data-target="#modal-book")
+                        .edu-item__name Художник И. Я. Билибин
+                        .edu-item__btns
+                            .edu-item__btn.btn.btn--white читать
+                    a.edu-item(href="#" data-toggle='modal' data-target="#modal-book")
+                        .edu-item__name Художник Н. А. Устинов
+                        .edu-item__btns
+                            .edu-item__btn.btn.btn--white читать
+                    a.edu-item(href="#" data-toggle='modal' data-target="#modal-book")
+                        .edu-item__name Художник Б. А. Дехтерёв
+                        .edu-item__btns
+                            .edu-item__btn.btn.btn--white читать
+                    a.edu-item(href="#" data-toggle='modal' data-target="#modal-book")
+                        .edu-item__name Художник Л. В. Владимирский
+                        .edu-item__btns
+                            .edu-item__btn.btn.btn--white читать
+                    a.edu-item(href="#" data-toggle='modal' data-target="#modal-book")
+                        .edu-item__name Художник И. Я. Билибин
+                        .edu-item__btns
+                            .edu-item__btn.btn.btn--white читать
+                    a.edu-item(href="#" data-toggle='modal' data-target="#modal-book")
+                        .edu-item__name Художник Н. А. Устинов
+                        .edu-item__btns
+                            .edu-item__btn.btn.btn--white читать
+        .tests
+            .container
+                .tests-top
+                    .tests-top__left(class="scene unselectable"
+                    data-friction-x="0.1"
+                    data-friction-y="0.1"
+                    data-scalar-x="25"
+                    data-scalar-y="25")
+                        .tests-top__mothership.layer(data-depth="0.1")
+                            img(src="../static/images/mothership2.png")
+                    .tests-top__right
+                        .tests-heading тест
+                        .tests-text Пройди тест и получи дополнительные баллы. Увеличивай шансы на победу!
+                .tests-items
+                    a.tests-item(href="#" data-target="#modal-test" data-toggle="modal")
+                        .tests-item__top
+                            .tests-item__num <span>1</span>
+                            .tests-item__topright
+                                .tests-item__done Тест пройден
+                        .tests-item__name Кто из художников рисовал  Страшилу из сказки «Волшебник Изумрудного города» более 400 раз и сделал более 150 рисунков Буратино?
+                        .tests-item__btns
+                            .tests-item__btn.btn.btn--white Ответить
+                    a.tests-item(href="#" data-target="#modal-test" data-toggle="modal")
+                        .tests-item__top
+                            .tests-item__num <span>2</span>
+                            .tests-item__topright
+                                .tests-item__notdone Тест не пройден
+                        .tests-item__name Кто из художников рисовал  Страшилу из сказки «Волшебник Изумрудного города» более 400 раз и сделал более 150 рисунков Буратино?
+                        .tests-item__btns
+                            .tests-item__btn.btn.btn--white Ответить
+                    a.tests-item(href="#" data-target="#modal-test" data-toggle="modal")
+                        .tests-item__top
+                            .tests-item__num <span>3</span>
+                        .tests-item__name Кто из художников рисовал  Страшилу из сказки «Волшебник Изумрудного города» более 400 раз и сделал более 150 рисунков Буратино?
+                        .tests-item__btns
+                            .tests-item__btn.btn.btn--white Ответить
+                    a.tests-item(href="#" data-target="#modal-test" data-toggle="modal")
+                        .tests-item__top
+                            .tests-item__num <span>4</span>
+                        .tests-item__name Кто из художников рисовал  Страшилу из сказки «Волшебник Изумрудного города» более 400 раз и сделал более 150 рисунков Буратино?
+                        .tests-item__btns
+                            .tests-item__btn.btn.btn--white Ответить
+                    a.tests-item(href="#" data-target="#modal-test" data-toggle="modal")
+                        .tests-item__top
+                            .tests-item__num <span>5</span>
+                        .tests-item__name Кто из художников рисовал  Страшилу из сказки «Волшебник Изумрудного города» более 400 раз и сделал более 150 рисунков Буратино?
+                        .tests-item__btns
+                            .tests-item__btn.btn.btn--white Ответить
+                    a.tests-item(href="#" data-target="#modal-test" data-toggle="modal")
+                        .tests-item__top
+                            .tests-item__num <span>6</span>
+                        .tests-item__name Кто из художников рисовал  Страшилу из сказки «Волшебник Изумрудного города» более 400 раз и сделал более 150 рисунков Буратино?
+                        .tests-item__btns
+                            .tests-item__btn.btn.btn--white Ответить
+                    a.tests-item(href="#" data-target="#modal-test" data-toggle="modal")
+                        .tests-item__top
+                            .tests-item__num <span>7</span>
+                        .tests-item__name Кто из художников рисовал  Страшилу из сказки «Волшебник Изумрудного города» более 400 раз и сделал более 150 рисунков Буратино?
+                        .tests-item__btns
+                            .tests-item__btn.btn.btn--white Ответить
+                    a.tests-item(href="#" data-target="#modal-test" data-toggle="modal")
+                        .tests-item__top
+                            .tests-item__num <span>8</span>
+                        .tests-item__name Кто из художников рисовал  Страшилу из сказки «Волшебник Изумрудного города» более 400 раз и сделал более 150 рисунков Буратино?
+                        .tests-item__btns
+                            .tests-item__btn.btn.btn--white Ответить
+                    a.tests-item(href="#" data-target="#modal-test" data-toggle="modal")
+                        .tests-item__top
+                            .tests-item__num <span>9</span>
+                        .tests-item__name Кто из художников рисовал  Страшилу из сказки «Волшебник Изумрудного города» более 400 раз и сделал более 150 рисунков Буратино?
+                        .tests-item__btns
+                            .tests-item__btn.btn.btn--white Ответить
+                    a.tests-item(href="#" data-target="#modal-test" data-toggle="modal")
+                        .tests-item__top
+                            .tests-item__num <span>10</span>
+                        .tests-item__name Кто из художников рисовал  Страшилу из сказки «Волшебник Изумрудного города» более 400 раз и сделал более 150 рисунков Буратино?
+                        .tests-item__btns
+                            .tests-item__btn.btn.btn--white Ответить
+        .prods
+            .container
+                .prods-wrap(class="scene unselectable"
+                data-friction-x="0.1"
+                data-friction-y="0.1"
+                data-scalar-x="25"
+                data-scalar-y="25")
+                    .prods-logo
+                        img(src="../static/images/logo.png")
+                    a.prods-cloud.prods-cloud--1.layer(data-depth="0.05" href="#" data-toggle='modal' data-target="#modal-prod")
+                        img(src="../static/images/cloud8.png")
+                        .prods-cloud__text Бумага
+                    a.prods-cloud.prods-cloud--2.layer(data-depth="0.08" href="#" data-toggle='modal' data-target="#modal-prod")
+                        img(src="../static/images/cloud8.png")
+                        .prods-cloud__text восковые мелки
+                    a.prods-cloud.prods-cloud--3.layer(data-depth="0.11" href="#" data-toggle='modal' data-target="#modal-prod")
+                        img(src="../static/images/cloud8.png")
+                        .prods-cloud__text Акварель
+                    a.prods-cloud.prods-cloud--4.layer(data-depth="0.09" href="#" data-toggle='modal' data-target="#modal-prod")
+                        img(src="../static/images/cloud8.png")
+                        .prods-cloud__text гуашь
+                    a.prods-cloud.prods-cloud--5.layer(data-depth="0.06" href="#" data-toggle='modal' data-target="#modal-prod")
+                        img(src="../static/images/cloud8.png")
+                        .prods-cloud__text Для творчества
+                    a.prods-cloud.prods-cloud--6.layer(data-depth="0.05" href="#" data-toggle='modal' data-target="#modal-prod")
+                        img(src="../static/images/cloud8.png")
+                        .prods-cloud__text клей
+                    a.prods-cloud.prods-cloud--7.layer(data-depth="0.07" href="#" data-toggle='modal' data-target="#modal-prod")
+                        img(src="../static/images/cloud8.png")
+                        .prods-cloud__text карандаши
+                    a.prods-cloud.prods-cloud--8.layer(data-depth="0.04" href="#" data-toggle='modal' data-target="#modal-prod")
+                        img(src="../static/images/cloud8.png")
+                        .prods-cloud__text Пластилин
+        .shares
+            .container
+                .shares-heading Поделиться проектом
+                .shares-items
+                    a.shares-item(href="#")
+                        img(src="../static/images/vk.svg")
+                    a.shares-item(href="#")
+                        img(src="../static/images/fb.svg")
+                    a.shares-item(href="#")
+                        img(src="../static/images/od.svg")
+                    a.shares-item(href="#")
+                        img(src="../static/images/in.svg")
+
+        .upbtn.js-Up
+            img(src="../static/images/cloud1.png")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,92 @@
+.main-image {
+  position:relative;
+  width: 100%;
+  background-color: $header-bg-light;
+  background-size: cover;
+  background-position: top center;
+  margin-top: 30px;
+}
+
+.main-image__slogan-block {
+  background-color: $white;
+  border-radius: 4px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.15);
+  padding: 0px 24px;
+  position: absolute;
+  left: 28px;
+  bottom: 29px;
+  min-width: 56%;
+  max-height: 60px;
+
+  @media #{$max-width-desktop-max1} {
+    padding: 10px 20px;
+  }
+
+  @media #{$max-width-tablet2} {
+    padding: 8px;
+    left: 0;
+    bottom: 0;
+    border-radius: 0;
+    width: 100%;
+  }
+
+  @media #{$max-width-mobile-max} {
+    padding: 5px;
+    width: 100%
+  }
+}
+
+.main-image__svg {
+  width: 100%;
+  display: block;
+  margin: -14px 0 0;
+  max-height: 60px;
+
+  @media #{$max-width-tablet2} {
+    height: 30px;
+  }
+}
+
+.main-image__text {
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  @media #{$max-width-tablet2} {
+  }
+}
+
+// .main-image__slogan-text {
+//   text-transform: uppercase;
+//   background: linear-gradient(267deg, $gradient-1, $gradient-2 49%, $gradient-3);
+//   background: -webkit-gradient(linear, 267deg, $gradient-1, $gradient-2 49%, $gradient-3);
+//   -webkit-background-clip: text;
+//   background: -moz-linear-gradient(linear, 267deg, $gradient-1, $gradient-2 49%, $gradient-3);
+//   background: -webkit-linear-gradient(linear, 267deg, $gradient-1, $gradient-2 49%, $gradient-3);
+//   background: -o-linear-gradient(linear, 267deg, $gradient-1, $gradient-2 49%, $gradient-3);
+//   background: -ms-linear-gradient(linear, 267deg, $gradient-1, $gradient-2 49%, $gradient-3);
+//   background: linear-gradient(linear, 267deg, $gradient-1, $gradient-2 49%, $gradient-3);
+//   font-size: 40px;
+//   font-weight: bold;
+//   font-style: normal;
+//   font-stretch: normal;
+//   line-height: normal;
+//   letter-spacing: normal;
+//   text-align: left;
+//   -webkit-background-clip: text;
+//   background-clip: text;
+//   -webkit-text-fill-color: transparent;
+
+//   @media #{$max-width-desktop-max1} {
+//     font-size: 34px;
+//   }
+
+//   @media #{$max-width-tablet} {
+//     font-size: 22px;
+//   }
+
+//   @media #{$max-width-mobile-max} {
+//     font-size: 16px;
+//     text-align: center;
+//   }
+// }

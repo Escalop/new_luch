@@ -1,0 +1,38 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 28 28">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fafafa;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #d6d6d6;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-3 {
+        fill: #d6d6d6;
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="5.986" y1="14.004" x2="21.99" y2="14.004" gradientTransform="translate(4.378 -3.3) rotate(15.922)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#188eea"/>
+      <stop offset="1" stop-color="#0a38a4"/>
+    </linearGradient>
+  </defs>
+  <title>luch_icon_history</title>
+  <g>
+    <image width="1228" height="1158" transform="translate(-681.012 -552.165)" xlink:href="Снимок экрана 2018-12-22 в 12.54.41.png"/>
+    <rect class="cls-1" x="-400.905" y="-43.072" width="886.456" height="128.994"/>
+  </g>
+  <line class="cls-2" x1="-385.423" y1="14.047" x2="450.322" y2="14.047"/>
+  <g>
+    <circle class="cls-3" cx="14" cy="14" r="14"/>
+    <circle class="cls-4" cx="13.988" cy="14.004" r="8" transform="translate(-3.305 4.374) rotate(-15.922)"/>
+  </g>
+</svg>

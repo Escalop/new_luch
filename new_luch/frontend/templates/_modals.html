@@ -1,0 +1,346 @@
+<div class="modal fade" id="modal-test" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-left" role="document">
+        <div class="modal-content">
+            <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-scroll">
+                <div class="modal-form">
+                    <div class="modal-header">
+                        <div class="modal-title">Тест</div>
+                    </div>
+                    <div class="modal-body">
+                        <form class="testing">
+                            <div class="testing__head">Вопрос 1 из 15</div>
+                            <div class="testing__question">Кто из художников рисовал Страшилу из сказки «Волшебник Изумрудного города» более 400 раз и сделал более 150 рисунков Буратино?</div>
+                            <div class="testing__items">
+                                <div class="testing-item">
+                                    <input type="radio" name="r1" id="an1" />
+                                    <label class="testing-item__label" for="an1"><b>A</b><span>Дехтерёв В.А</span></label>
+                                </div>
+                                <div class="testing-item">
+                                    <input type="radio" name="r1" id="an2" />
+                                    <label class="testing-item__label" for="an2"><b>B</b><span>Дехтерёв В.А</span></label>
+                                </div>
+                                <div class="testing-item">
+                                    <input type="radio" name="r1" id="an3" />
+                                    <label class="testing-item__label" for="an3"><b>C</b><span>Савченко А.М.</span></label>
+                                </div>
+                                <!--  правильный ответ-->
+                                <div class="testing-item testing-item--true">
+                                    <input type="radio" name="r1" id="an3" />
+                                    <label class="testing-item__label" for="an3"><b>C</b><span>Савченко А.М.</span></label>
+                                </div>
+                                <!--  неправильный ответ-->
+                                <div class="testing-item testing-item--false">
+                                    <input type="radio" name="r1" id="an3" />
+                                    <label class="testing-item__label" for="an3"><b>C</b><span>Савченко А.М.</span></label>
+                                </div>
+                            </div>
+                            <div class="testing__btm">
+                                <button class="btn">Далее</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-log" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-left" role="document">
+        <div class="modal-content">
+            <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-scroll">
+                <div class="modal-form">
+                    <div class="modal-header">
+                        <div class="modal-title">Войти</div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-error">Учетная запись с таким логином не обнаружена. Попробуйте ввести другой логин или свяжитесь с нами по телефону: <strong>+7 800 800-80-80</strong></div>
+                        <form class="form">
+                            <div class="form-group">
+                                <div class="inputlabel">
+                                    <div class="inputlabel__label">Электронная почта</div>
+                                    <input class="inputlabel__input form-input" type="text" placeholder="*@*.*" required="required" />
+                                    <div class="inputlabel__clear js-inputClear"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="inputlabel">
+                                    <div class="inputlabel__label">Пароль</div>
+                                    <input class="inputlabel__input form-input" type="password" placeholder="123123" required="required" />
+                                    <div class="inputlabel__pass js-showPass"></div>
+                                </div>
+                            </div>
+                            <div class="form-rowsc"><a href="#" data-toggle="modal" data-target="#modal-remind" data-dismiss="modal">Забыли пароль?</a>
+                                <button class="btn">Войти</button>
+                            </div>
+                        </form>
+                        <div class="modal-noac">
+                            <div class="modal-noac__heading">нет аккаунта?</div>
+                            <div class="modal-noac__body">
+                                <div class="joins-plane"><img src="../static/images/plane3.png" /><a class="joins-plane__link" href="#">регистрация</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-reg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-left" role="document">
+        <div class="modal-content">
+            <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-scroll">
+                <div class="modal-form">
+                    <div class="modal-header">
+                        <div class="modal-title">Регистрация</div>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form">
+                            <div class="form-group">
+                                <div class="inputlabel">
+                                    <div class="inputlabel__label">ФИО *</div>
+                                    <input class="inputlabel__input form-input" type="text" placeholder="Сидоров Иван Петрович" required="required" />
+                                    <div class="inputlabel__clear js-inputClear"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="inputlabel">
+                                    <div class="inputlabel__label">Электронная почта *</div>
+                                    <input class="inputlabel__input form-input" type="text" placeholder="*@*.*" required="required" />
+                                    <div class="inputlabel__clear js-inputClear"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="inputlabel">
+                                    <div class="inputlabel__label">Пароль *</div>
+                                    <input class="inputlabel__input form-input" type="password" placeholder="123123" required="required" />
+                                    <div class="inputlabel__pass js-showPass"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="inputlabel">
+                                    <div class="inputlabel__label">Повторите пароль *</div>
+                                    <input class="inputlabel__input form-input" type="password" placeholder="123123" required="required" />
+                                    <div class="inputlabel__pass js-showPass"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="inputlabel">
+                                    <div class="inputlabel__label">Город</div>
+                                    <input class="inputlabel__input form-input" type="text" placeholder="Укажите" />
+                                    <div class="inputlabel__clear js-inputClear"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="inputlabel">
+                                    <div class="inputlabel__label">Номер телефона *</div>
+                                    <input class="inputlabel__input form-input" type="text" placeholder="+7 ### ### ## ##" required="required" />
+                                    <div class="inputlabel__clear js-inputClear"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="inputlabel">
+                                    <div class="inputlabel__label">Дата рождения *</div>
+                                    <input class="inputlabel__input form-input" type="text" placeholder="01.01.2001" required="required" />
+                                    <div class="inputlabel__clear js-inputClear"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-file" type="file" data-placeholder="Загрузить работу *" required="required" />
+                            </div>
+                            <div class="modal-error">Размер файла <strong>не более 10МБ</strong>. <br>Формат <strong>jpg или png</strong>. <br>На фото с рисунком <strong>должна присутствовать продукция</strong> <a href="https://www.luch-pk.ru/creative/catalog/">торговой марки “ЛУЧ - Школа Творчества”</a></div>
+                            <div class="form-group">
+                                <div class="form-checkbox">
+                                    <label class="form-checkbox__label">
+                                        <input class="checkbox" type="checkbox" name="ch01" checked="checked" /><span>Соглашаюсь с условиями <a href="#">политики конфиденциальности</a></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn--full">ЗарегИстрироваться</button>
+                            </div>
+                        </form>
+                        <div class="modal-noac">
+                            <div class="modal-noac__heading">Уже регистрировались?</div>
+                            <div class="modal-noac__body">
+                                <div class="joins-plane"><img src="../static/images/plane3.png" /><a class="joins-plane__link" href="#">войти</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-remind" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-left" role="document">
+        <div class="modal-content">
+            <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-scroll">
+                <div class="modal-form">
+                    <div class="modal-header">
+                        <div class="modal-title">Забыли пароль?</div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="inputlabel">
+                                <div class="inputlabel__label">Электронная почта</div>
+                                <input class="inputlabel__input form-input" type="text" placeholder="" required="required" />
+                                <div class="inputlabel__clear js-inputClear"></div>
+                            </div>
+                        </div>
+                        <div class="form-end">
+                            <input class="btn btn--full" type="submit" value="Выслать пароль" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-rating" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-left" role="document">
+        <div class="modal-content">
+            <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-scroll">
+                <div class="ratings">
+                    <div class="modal-header">
+                        <div class="modal-title">Рейтинг участников</div>
+                    </div>
+                    <div class="modal-body">
+                        <table class="ratings-table">
+                            <tr>
+                                <th>Место</th>
+                                <th>Имя участника</th>
+                                <th>Баллы</th>
+                            </tr>
+                            <tr>
+                                <td><span class="ratings-num">1</span></td>
+                                <td><span class="ratings-name">Пирожков Миша</span></td>
+                                <td><span class="ratings-points">98</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="ratings-num">2</span></td>
+                                <td><span class="ratings-name">Пирожков Миша</span></td>
+                                <td><span class="ratings-points">98</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="ratings-num">3</span></td>
+                                <td><span class="ratings-name">Пирожков Миша</span></td>
+                                <td><span class="ratings-points">98</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="ratings-num">4</span></td>
+                                <td><span class="ratings-name">Пирожков Миша</span></td>
+                                <td><span class="ratings-points">98</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="ratings-num">5</span></td>
+                                <td><span class="ratings-name">Пирожков Миша</span></td>
+                                <td><span class="ratings-points">98</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="ratings-num">6</span></td>
+                                <td><span class="ratings-name">Пирожков Миша</span></td>
+                                <td><span class="ratings-points">98</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="ratings-num">7</span></td>
+                                <td><span class="ratings-name">Пирожков Миша</span></td>
+                                <td><span class="ratings-points">98</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="ratings-num">8</span></td>
+                                <td><span class="ratings-name">Пирожков Миша</span></td>
+                                <td><span class="ratings-points">98</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="ratings-num">9</span></td>
+                                <td><span class="ratings-name">Пирожков Миша</span></td>
+                                <td><span class="ratings-points">98</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="ratings-num">10</span></td>
+                                <td><span class="ratings-name">Пирожков Миша</span></td>
+                                <td><span class="ratings-points">98</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="ratings-num">11</span></td>
+                                <td><span class="ratings-name">Пирожков Миша</span></td>
+                                <td><span class="ratings-points">98</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="ratings-num">12</span></td>
+                                <td><span class="ratings-name">Пирожков Миша</span></td>
+                                <td><span class="ratings-points">98</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="ratings-num">13</span></td>
+                                <td><span class="ratings-name">Пирожков Миша</span></td>
+                                <td><span class="ratings-points">98</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="ratings-num">14</span></td>
+                                <td><span class="ratings-name">Пирожков Миша</span></td>
+                                <td><span class="ratings-points">98</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="ratings-num">15</span></td>
+                                <td><span class="ratings-name">Пирожков Миша</span></td>
+                                <td><span class="ratings-points">98</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-book" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-left" role="document">
+        <div class="modal-content">
+            <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-scroll">
+                <div class="book">
+                    <div class="book-header">
+                        <div class="book-title">Художник Л. В. Владимирский</div><img class="book-himg" src="../static/images/modal-book.png" />
+                    </div>
+                    <div class="book-body">
+                        <div class="book-text">
+                            <div class="book-text__content">
+                                <p>Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.</p><img src="../static/images/text.jpg" />
+                                <p>Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.</p>
+                                <p>Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-prod" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-left" role="document">
+        <div class="modal-content">
+            <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-scroll">
+                <div class="mprod">
+                    <div class="mprod-header">
+                        <div class="mprod-title">Пластилин</div>
+                    </div>
+                    <div class="mprod-body">
+                        <div class="mprod-text">
+                            <div class="mprod-text__content">
+                                <p>Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.</p><img src="../static/images/text.jpg" />
+                                <p>Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.</p>
+                                <p>Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

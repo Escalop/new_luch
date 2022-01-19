@@ -1,0 +1,11 @@
+<div class="about__filter jsAboutMenu">
+          {% for item in menu %}
+              {% if item.is_active %}
+                {% if where == item.title %}
+                    <a href="{{ item.get_link }}" class="about__filter-item  about__active-link">{{ item.title }}</a>
+                {% else %}
+                    <a href="{{ item.get_link }}" class="about__filter-item">{{ item.title }}</a>
+                {% endif %}
+              {% endif %}
+          {% endfor %}
+</div>

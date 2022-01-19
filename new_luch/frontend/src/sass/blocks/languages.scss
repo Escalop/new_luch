@@ -1,0 +1,39 @@
+.languages {
+  margin-bottom: 35px;
+
+  @media #{$max-width-desktop-max1} {
+    margin-bottom: 15px;
+    order: 2;
+    align-self: flex-end;
+  }
+  //
+  //@media #{$max-width-tablet} {
+  //  position: absolute;
+  //  top: 20px;
+  //  left: 30px;
+  //}
+
+  @media #{$max-width-mobile-max2} {
+    position: relative;
+    top: 0;
+  }
+}
+
+.languages__active {
+  font-weight: bold;
+}
+
+.languages__item {
+  color: $white;
+  cursor: pointer;
+  transition:.4s;
+
+  &:hover,
+  &:focus {
+    color: $white--60;
+  }
+
+  &:active {
+    color: $white--30;
+  }
+}

@@ -1,0 +1,50 @@
+{% load static %}
+<div class="modal fade" id="modal-remind" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-left" role="document">
+            <div class="modal-content">
+                <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-scroll">
+                    <div class="modal-form">
+
+                        <form id="password-reset-form">
+                            <div class="modal-header">
+                                <div class="modal-title">Забыли пароль?</div>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="modal-form" id="pass-reset-sucess" style="display: none;">
+                                    <div class="modal-body">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <p class="modal-title">Данные для восстановления аккаунта отправлены на
+                                                    почту</p>
+                                                <div class="modal-noac__body">
+                                                    <div class="joins-plane"><img src="{% static 'promo/static/images/plane3.png' %}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="modal-error" style="display: none;" id="pass-reset-error"></div>
+                                <div class="form-group">
+                                    <div class="inputlabel">
+                                        <div class="inputlabel__label">Электронная почта</div>
+                                        <input name="email" class="inputlabel__input form-input" type="text"
+                                            placeholder="*@*.*" required>
+                                        <div class="inputlabel__clear js-inputClear"></div>
+                                    </div>
+                                </div>
+                                <div class="form-end">
+                                    <input class="btn btn--full" id="pwrd-reset-btn" type="submit" value="Выслать пароль">
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

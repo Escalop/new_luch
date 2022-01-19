@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+{% load i18n %}
+{% load static %}
+{% load staticfiles %}
+{% load thumbnail %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'promo/static/icons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'promo/static/icons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'promo/static/icons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'promo/static/icons/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'promo/static/icons/safari-pinned-tab.svg' %}" color="#40d761">
+    <link rel="shortcut icon" href="{% static 'promo/static/icons/favicon.ico' %}">
+    <meta name="msapplication-TileColor" content="#bbbbbb">
+    <meta name="msapplication-config" content="{% static 'promo/static/icons/browserconfig.xml' %}">
+    <meta name="theme-color" content="#DDF5F9">
+    <meta name="description" content="Поделки создавай – подарки получай! Сделай поделку/рисунок с использованием материалов ТМ «Луч», проходи тесты и набирай баллы, собирая лайки за работу. Каждую неделю ты можешь получить подарок. Главный приз – путевка в «Артек» 2022!">
+    <title>Конкурс творческих работ с использованием материалов «Школа творчества» ТМ «Луч»</title>
+    <link href="{% static 'promo/static/css/style.css' %}" rel="stylesheet">
+    <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
+</head>
+
+<body>
+<!-- Kanzoboz.ru counter-->
+<a href="https://kanzoboz.ru/?rate=50817"></a>
+<!--/ Kanzoboz.ru counter-->
+    <div class="root">
+
+        <div class="headermob"><a class="headermob-logosm" href="https://www.luch-pk.ru/"><img src="{% static 'promo/static/images/logom.png' %}"></a>
+            <div class="headermob-btn js-showMenu"><span></span> <b>МЕНЮ</b></div>
+            <div class="headermob-wrap">
+                <div class="headermob-menu">
+                    {% if user.is_authenticated %}
+                    <div class="headermob-left">
+                        <a class="headermob-menu__link" data-toggle="modal" data-target="#modal-load-work">Загрузить
+                            работу</a>
+                        <a class="headermob-menu__link" href="{% url 'logout' %}">Выйти</a>
+                    </div>
+                    {% else %}
+
+                    <div class="headermob-left"><a class="headermob-menu__link" href="#" data-toggle="modal"
+                            data-target="#modal-reg">участвовать</a><a class="headermob-menu__link" href="#"
+                            data-toggle="modal" data-target="#modal-log">Войти</a>
+                    </div>
+
+                    {% endif %}
+                    <a class="headermob-logol" href="#">
+                        <imgg src="{% static 'promo/static/images/logom.png' %}"></imgg>
+                    </a>
+
+                    <!--                <div class="header-ball parallax layer" data-depth="0.04"><img src="{% static 'promo/static/images/ball.png' %}"><a-->
+                    <!--                        class="header-ball__link" href="./gallery">галерея</a></div>-->
+                    <div class="headermob-right"><a class="headermob-menu__link" href="./gallery">галерея</a><a
+                            class="headermob-menu__link" href="#" data-toggle="modal"
+                            data-target="#modal-rating">рейтинг</a></div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <header class="header">
+            <div class="header-wrap scene unselectable" id="scene" data-friction-x="0.1" data-friction-y="0.1"
+                data-scalar-x="25" data-scalar-y="15">
+                <div class="header-plane1 parallax layer" data-depth="0.05"><img src="{% static 'promo/static/images/plane1.png' %}">
+                    <div class="header-plane1__links">
+                        {% if user.is_authenticated %}
+                        <a class="header-plane1__link" href="{% url 'logout' %}">Выйти</a>
+                        <a class="header-plane1__link" data-toggle="modal" data-target="#modal-load-work">Загрузить
+                            работу</a>
+                        {% else %}
+                        <a class="header-plane1__link" href="#" data-toggle="modal"
+                            data-target="#modal-reg">участвовать</a>
+                        <a class="header-plane1__link" href="#" data-toggle="modal" data-target="#modal-log">Войти</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="header-ball parallax layer" data-depth="0.04"><img src="{% static 'promo/static/images/ball.png' %}"><a
+                        class="header-ball__link" href="./gallery">галерея</a></div>
+                <div class="header-star parallax layer" data-depth="0.06"><img src="{% static 'promo/static/images/star.png' %}"><a
+                        class="header-star__link" href="#" data-toggle="modal" data-target="#modal-rating">рейтинг</a>
+                </div>
+                <div class="header-plane2 parallax layer" data-depth="0.10"><img src="{% static 'promo/static/images/plane2.png' %}">
+                </div>
+                <div class="header-house parallax layer" data-depth="0.05"><img src="{% static 'promo/static/images/house.png' %}"></div>
+                <div class="header-center">
+                    <div class="header-center__logo"><img src="{% static 'promo/static/images/logo.png' %}"></div>
+                    <div class="header-center__text">Конкурс творческих работ с использованием материалов «Школа
+                        творчества»
+                        ТМ «Луч»
+                    </div>
+                    <div class="header-center__btns"><a class="btn" href="{{promo_config.youtube_link}}"
+                            target="_blank">Смотреть видеоуроки</a></div>
+                </div>
+                <div class="header-cloud1 parallax layer" data-depth="0.06"><img src="{% static 'promo/static/images/cloud1.png' %}">
+                </div>
+                <div class="header-cloud2 parallax layer" data-depth="0.07"><img src="{% static 'promo/static/images/cloud2.png' %}">
+                </div>
+                <div class="header-cloud3 parallax layer" data-depth="0.08"><img src="{% static 'promo/static/images/cloud3.png' %}">
+                </div>
+                <div class="header-cloud4 parallax layer" data-depth="0.09"><img src="{% static 'promo/static/images/cloud4.png' %}">
+                </div>
+                <div class="header-cloudb"><img src="{% static 'promo/static/images/cloud5.png' %}">
+                    <div class="header-cloudb__links">
+                        <div class="header-cloudb__link"><a
+                                onclick="document.getElementById('main-anchor').scrollIntoView({behavior: 'smooth'});">лети
+                                вниз</a></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <a id="main-anchor"></a>
+        <main class="main">
+        <h1 class="hidden">Скрытый заголовок H1</h1>
+            <div class="rulz">
+                <div class="container">
+                    <div class="rulz-top">
+                        <div class="rulz-top__left">
+                            <h2 class="rulz-heading">Условия Участия</h2>
+                            <div class="rulz-text">
+                                {{ promo_config.block_rules }}
+                            </div>
+                        </div>
+                        <div class="rulz-top__right scene unselectable" data-friction-x="0.1" data-friction-y="0.1"
+                            data-scalar-x="25" data-scalar-y="25">
+                            <div class="rulz-top__mothership layer" data-depth="0.25"><img
+                                    src="{% static 'promo/static/images/mothership.png' %}"></div>
+                        </div>
+                    </div>
+                    <div class="rulz-items">
+                        <div class="rulz-item">
+                            <div class="rulz-item__nums scene unselectable" data-friction-x="0.1" data-friction-y="0.1"
+                                data-scalar-x="35" data-scalar-y="35">
+                                <div class="rulz-item__num">1</div>
+                                <div class="rulz-item__cloud layer" data-depth="0.09"><img
+                                        src="{% static 'promo/static/images/cloud2.png' %}"></div>
+                            </div>
+
+                            <div class="rulz-item__content">
+                                <div class="rulz-item__heading">Создай <br>творческую работу</div>
+                                <div class="rulz-item__text">
+                                    {{ promo_config.block_rules_stage1 }}
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="rulz-item">
+                            <div class="rulz-item__nums scene unselectable" data-friction-x="0.1" data-friction-y="0.1"
+                                data-scalar-x="25" data-scalar-y="15">
+                                <div class="rulz-item__num">2</div>
+                                <div class="rulz-item__cloud layer" data-depth="0.11"><img
+                                        src="{% static 'promo/static/images/cloud2.png' %}"></div>
+                            </div>
+
+                            <div class="rulz-item__content">
+                                <div class="rulz-item__heading">Пройди регистрацию на сайте и загрузи работу</div>
+                                <div class="rulz-item__text">
+                                    {{ promo_config.block_rules_stage2 }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rulz-item">
+                            <div class="rulz-item__nums scene unselectable" data-friction-x="0.1" data-friction-y="0.1"
+                                data-scalar-x="35" data-scalar-y="25">
+                                <div class="rulz-item__num">3</div>
+                                <div class="rulz-item__cloud layer" data-depth="0.05"><img
+                                        src="{% static 'promo/static/images/cloud2.png' %}"></div>
+                            </div>
+                            <div class="rulz-item__content">
+                                <div class="rulz-item__heading">Набирай дополнительные баллы и получай призы</div>
+                                <div class="rulz-item__text">
+                                    {{ promo_config.block_rules_stage3 }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="joins">
+                <div class="container">
+                    <div class="joins-wrap scene unselectable" data-friction-x="0.1" data-friction-y="0.1"
+                        data-scalar-x="55" data-scalar-y="15">
+                        <div class="joins-plane layer" data-depth="0.10"><img src="{% static 'promo/static/images/plane3.png' %}"><a
+                                class="joins-plane__link" data-dismiss="modal" data-toggle="modal"
+                                data-target={% if user.is_authenticated %}"#modal-load-work">
+                                {% else %}"#modal-reg"{% endif %}
+                                href="">участвовать</a></div>
+                    </div>
+                    <div class="joins-text"> Участвуя в конкурсе, вы соглашаетесь <a href="{% if promo_config.rules %}{{ promo_config.rules.url }}{% endif %}" target="_blank">с
+                            правилами конкурса</a> и с <a href="{% if promo_config.privacy_policy %}{{ promo_config.privacy_policy.url }}{% endif %}" target="_blank">условиями</a> политики защиты персональных данных.
+                    </div>
+                </div>
+            </div>
+            <div class="prizes">
+                <div class="container">
+                    <div class="prizes-heading"> Поделки создавай - подарки получай!</div>
+                    <div class="prizes-text">ПРИЗЫ КАЖДЫЙ МЕСЯЦ</div>
+                    <div class="prizes-middle scene unselectable" data-friction-x="0.1" data-friction-y="0.1"
+                        data-scalar-x="55" data-scalar-y="45">
+                        <div class="prizes-items">
+                            <!-- <div class="prizes-item prizes-item--1">
+                                <div class="prizes-item__count">3 Сертификата еженедельно</div>
+                                <div class="prizes-item__img"><img src="{% static 'promo/static/images/prize1.png' %}"></div>
+                                <div class="prizes-item__text">Сертификат на исполнение желаний от книжного издательства
+                                </div>
+                            </div> -->
+                            <div class="prizes-item prizes-item--2">
+                                <div class="prizes-item__count">5 Сертификатов ежемесячно</div>
+                                <div class="prizes-item__img"><img src="{% static 'promo/static/images/prize2.png' %}"></div>
+                                <div class="prizes-item__text">Сертификат Ozon <br>«Побалуй себя»</div>
+                            </div>
+                            <div class="prizes-item prizes-item--3">
+                                <div class="prizes-item__count">5 Комплектов материалов для творчества луч</div>
+                                <div class="prizes-item__img"><img src="{% static 'promo/static/images/prize3.png' %}"></div>
+                                <!-- <div class="prizes-item__text">Рюкзак <a href="https://www.grizzlyshop.ru/"
+                                        target="_blank">GRIZZLY</a>
+                                    <br>с наполнением товарами от компании «Луч»
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="prizes-main">
+                            <div class="prizes-main__left">
+                                <div class="prizes-main__top">главный приз</div>
+                                <div class="prizes-main__name">Путевка <br>в лагерь <br> <span>СЕЗОН 2022</span>
+                                </div>
+                                <div class="prizes-main__info">{% if promo_config.block_grand_prize %}{{ promo_config.block_grand_prize }}{% endif %}
+                                </div>
+                            </div>
+<!--                            <div class="prizes-main__right"><img class="prizes-main__logo"-->
+<!--                                    src="{% static 'promo/static/images/prize-main-logo.svg' %}"></div>-->
+                                <div class="prizes-main__right"><h1>Артек</h1></div>
+                        </div>
+                        <div class="prizes-cloud1 layer" data-depth="0.10"><img src="{% static 'promo/static/images/cloud6.png' %}"></div>
+                        <div class="prizes-cloud2 layer" data-depth="0.15"><img src="{% static 'promo/static/images/cloud6.png' %}"></div>
+                        <div class="prizes-cloud3 layer" data-depth="0.04"><img src="{% static 'promo/static/images/cloud7.png' %}"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="edu">
+                <div class="container">
+                    <div class="edu-top">
+                        <div class="edu-top__left">
+                            <div class="edu-heading">обучение</div>
+                            <div class="edu-imgs scene unselectable" data-friction-x="0.1" data-friction-y="0.1"
+                                data-scalar-x="35" data-scalar-y="25">
+                                <div class="edu-img1 layer" data-depth="0.17"><img
+                                        src="{% static 'promo/static/images/edu-cloud1.png' %}">
+                                </div>
+                                <div class="edu-img2 layer" data-depth="0.05"><img src="{% static 'promo/static/images/edu-bear.png' %}">
+                                </div>
+                                <div class="edu-img3 layer" data-depth="0.12"><img
+                                        src="{% static 'promo/static/images/edu-cloud2.png' %}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edu-top__right">
+                            <div class="edu-text">
+                                <p>Дорогой друг! А знаешь ли ты, что над иллюстрациями к твоим любимым книгам
+                                    и мультфильмам
+                                    трудились талантливые художники? Они, как и ты, рисовали карандашами, красками,
+                                    лепили
+                                    пластилином. Именно об этих людях мы расскажем тебе.</p>
+                                <p>И возможно, когда ты вырастешь, твоя любовь к творчеству не пройдёт и из тебя
+                                    вырастет
+                                    замечательный художник, иллюстратор, мультипликатор или просто добрый и хороший
+                                    человек.</p>
+                            </div>
+                            <div class="edu-miniheading">Читай, проходи тест, получай дополнительные баллы, увеличивай
+                                шансы
+                                на победу
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edu-items scene unselectable" data-friction-x="0.1" data-friction-y="0.1"
+                        data-scalar-x="25" data-scalar-y="25">
+                        <div class="edu-items__cloud1 layer" data-depth="0.1"><img src="{% static 'promo/static/images/cloud6.png' %}">
+                        </div>
+                        <div class="edu-items__cloud2 layer" data-depth="0.1"><img src="{% static 'promo/static/images/cloud6.png' %}">
+                        </div>
+                        {% for book in books %}
+                        </a><a class="edu-item" href="#" data-num={{book.pk}} data-toggle="modal"
+                            data-target="#modal-book">
+                            <div class="edu-item__name">{{book.author}}</div>
+                            <div class="edu-item__btns">
+                                <div class="edu-item__btn btn btn--white">читать</div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="tests">
+                <div class="container">
+                    <div class="tests-top">
+                        <div class="tests-top__left scene unselectable" data-friction-x="0.1" data-friction-y="0.1"
+                            data-scalar-x="25" data-scalar-y="25">
+                            <div class="tests-top__mothership layer" data-depth="0.1"><img
+                                    src="{% static 'promo/static/images/mothership2.png' %}"></div>
+                        </div>
+                        <div class="tests-top__right">
+                            <div class="tests-heading">тест</div>
+                            <div class="tests-text">Пройди тест и получи дополнительные баллы. Увеличивай шансы на
+                                победу!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tests-items" data-count="{{questions.count}}">
+                        {% for question in questions %}
+                        
+                        <a class="tests-item" data-num="{{forloop.counter}}" data-pk="{{question.pk}}"
+                            {% if user in question.passed_wrong.all or user in question.passed_correct.all%}
+                                style="pointer-events: none;"
+                            {% endif %}
+                            data-toggle="modal">
+                            <!-- <div class="tests-item__num" data-pk="{{question.pk}}">
+                                <span>{{ forloop.counter }}</span>
+                            </div> -->
+                            
+                            <div class="tests-item__top" data-pk="{{question.pk}}">
+                                <div class="tests-item__num" data-pk="{{question.pk}}"><span>{{ forloop.counter }}</span></div>
+                                <div class="tests-item__topright">
+                                    {% if user in question.passed_wrong.all %}
+                                        <div class="tests-item__notdone">Неправильно</div>
+                                    {% elif user in question.passed_correct.all %}
+                                        <div class="tests-item__done">Правильно</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            
+
+                            <div class="tests-item__name" data-pk="{{question.pk}}">
+                                Вопрос {{ forloop.counter }}. {{ question.label }}
+                            </div>
+                            <div class="tests-item__btns" data-pk="{{question.pk}}">
+                                <div class="tests-item__btn btn btn--white quiz-ans-button"
+                                    data-num="{{forloop.counter}}" data-pk="{{question.pk}}">Ответить
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="prods">
+                <div class="container">
+                    <div class="prods-wrap scene unselectable" data-friction-x="0.1" data-friction-y="0.1"
+                        data-scalar-x="25" data-scalar-y="25">
+                        <div class="prods-logo"><img src="{% static 'promo/static/images/logo.png' %}"></div>
+
+                        {% for product in products %}
+                        <a class="prods-cloud prods-cloud--{{forloop.counter}} layer" data-depth="0.05" href="#"
+                            data-num={{product.pk}} data-toggle="modal" data-target="#modal-prod"><img
+                                src="{% static 'promo/static/images/cloud8.png' %}">
+                            <div class="prods-cloud__text">{{product.title}}</div>
+                        </a>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+            <div class="shares">
+                <div class="container">
+                    <div class="shares-heading">Поделиться проектом</div>
+                    <div class="shares-items">
+                        <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+                        <script src="https://yastatic.net/share2/share.js"></script>
+                        <a class="shares-item" onclick="Share.vk('URL','TITLE',`{% static 'promo/static/images/logo.png' %}`,'DESC')"><img src="{% static 'promo/static/images/vk.svg' %}"></a>
+                        <a class="shares-item" onclick="Share.facebook('URL','TITLE',`{% static 'promo/static/images/logo.png' %}`,'DESC')"><img src="{% static 'promo/static/images/fb.svg' %}"></a>
+                        <a class="shares-item" onclick="Share.ok('URL','DESC', `{% static 'promo/static/images/logo.png' %}`)"><img src="{% static 'promo/static/images/od.svg' %}"></a>
+                        <a class="shares-item" onclick="Share.tw('URL','TITLE',`{% static 'promo/static/images/logo.png' %}`,'DESC')"><img src="{% static 'promo/static/images/tw.svg' %}"></a></div>
+                </div>
+            </div>
+            <div class="upbtn js-Up"><img src="{% static 'promo/static/images/cloud1.png' %}"></div>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-row">
+                    <div class="footer-left">2021 © <a href="https://www.luch-pk.ru/" target="_blank">ПК химический завод «Луч»</a></div>
+                    <div class="footer-middle"><a href="{% if promo_config.privacy_policy %}{{ promo_config.privacy_policy.url }}{% endif %}">Политика конфидециальности</a></div>
+                    <div class="footer-right">
+                        <a class="garpix" href="https://garpix.com/" target="_blank">Разработано
+                            <svg width="79" height="15" viewBox="0 0 79 15" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19.4205 0.311279L13.76 14.6956H17.6666L18.495 12.4351H24.4674L25.2958 14.6956H29.2024L23.5266 0.311279H19.4205ZM19.6302 9.34806L21.1079 5.18939C21.2869 4.72505 21.4096 4.225 21.4863 3.73004C21.563 4.225 21.6806 4.72505 21.8647 5.18939L23.3424 9.34806H19.6302Z"
+                                    fill="black"></path>
+                                <path
+                                    d="M73.74 7.21005L69.2911 0.311279H64.2341L68.8819 7.21005L63.9322 14.6956H68.3709L71.3008 9.87363L74.2257 14.6956H78.6947L73.74 7.21005Z"
+                                    fill="black"></path>
+                                <path
+                                    d="M50.9394 0.311279H45.238V14.7109H49.0424V10.1899H50.9292C54.4881 10.1746 57.2084 9.04699 57.2084 5.25063C57.2033 1.45427 54.4983 0.311279 50.9394 0.311279ZM51.1235 6.89367H49.0372V3.59737H51.1184C52.2791 3.59737 53.3069 3.94435 53.3069 5.24041C53.3069 6.5314 52.2842 6.89367 51.1235 6.89367Z"
+                                    fill="black"></path>
+                                <path
+                                    d="M9.15802 11.6391C8.84103 11.7156 8.50863 11.7463 8.1763 11.7463C6.52977 11.7463 3.90662 11.0676 3.90662 7.5162C3.90662 4.56176 6.11046 3.35754 8.43196 3.35754C9.87903 3.35754 11.3312 3.76575 12.4153 4.50052V0.90317C10.9989 0.316371 9.49042 9.11001e-06 7.95126 9.11001e-06C3.92198 -0.00509351 0 2.13291 0 7.49578C0 12.7209 3.89128 14.9967 7.99731 14.9967C9.64383 14.9813 11.2545 14.665 12.7783 14.0322V6.78649H9.15802V11.6391Z"
+                                    fill="black"></path>
+                                <path
+                                    d="M39.8179 9.47048C41.4031 8.8377 42.5792 7.54165 42.5792 5.14852C42.5792 1.35217 39.5929 0.301025 36.663 0.301025H30.5831V14.6853H34.4028V10.0164H36.0493L39.4907 14.7006H43.7911L39.8179 9.47048ZM36.8317 6.92426H34.4028V3.59732H36.8164C37.9055 3.59732 38.6418 4.15351 38.6418 5.27098C38.6418 6.38338 37.9209 6.92426 36.8317 6.92426Z"
+                                    fill="black"></path>
+                                <path d="M58.9827 14.6956H62.8023V0.311279H58.9827V14.6956Z" fill="black"></path>
+                                <path d="M73.8884 0.221191H78.2962V4.61965H73.8884V0.221191Z" fill="#F1B508"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    {% load static %}
+<div class="modal fade" id="modal-test" question-num='' tabindex="-1" role="dialog" aria-hidden="true"
+        style="display: none;">
+        <div class="modal-dialog modal-dialog-left" role="document">
+            <div class="modal-content">
+                <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-scroll">
+                    <div class="modal-form">
+                        <div class="modal-header">
+                            <div class="modal-title">Тест</div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-noac" style="display: none;">
+                                <div class="modal-noac__heading">Тест доступен только авторизованным пользователям</div>
+                                <div class="modal-noac__body">
+                                    <div class="joins-plane"><img src="{% static 'promo/static/images/plane3.png' %}">
+                                        <a class="joins-plane__link" data-dismiss="modal" data-toggle="modal"
+                                            data-target="#modal-log" href="#">войти</a></div>
+                                </div>
+                            </div>
+
+                            <div class="testing" id="quiz-end-correct" style="display: none;">
+                                <div class="testing__head"><img src="{% static 'promo/static/images/win.svg' %}"></div>
+                                <div class="testing__question">Вы верно ответили на все 10 вопросов! В Ваш рейтинг начислено 10 баллов</div>
+                                <div class="testing__btm">
+                                    <button class="btn" data-dismiss="modal" data-toggle="modal">Отлично</button>
+                                </div>
+                            </div>
+
+
+                            <div class="testing" id="quiz-end-wrong" style="display: none;">
+                                <div class="testing__head"><img src="{% static 'promo/static/images/lose.svg' %}"></div>
+                                <div class="testing__question">В ответах допущена ошибка, попробуйте пройти тест на следующей неделе</div>
+                                <div class="testing__btm">
+                                    <button class="btn" data-dismiss="modal" data-toggle="modal">Хорошо</button>
+                                </div>
+                            </div>
+
+                            <div class="modal-noac" id="quiz-passed" style="display: none;">
+                                <div class="modal-noac__heading">Вы уже ответили на этот вопрос</div>
+                                <div class="modal-noac__body">
+                                    <div class="joins-plane"><img src="{% static 'promo/static/images/plane3.png' %}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <form class="testing">
+                                <div class="testing__head"></div>
+                                <div class="testing__question">
+                                </div>
+
+                                <div data-num='' id="placeholder-test-item" class="testing-item" style="display: none;">
+                                    <input data-num='' type="radio" name="r1" id="placeholder-id">
+                                    <label class="testing-item__label"
+                                        for="placeholder-id"><b>A</b><span></span></label>
+                                </div>
+
+                                <div class="testing__items">
+                                </div>
+                                <div class="testing__btm">
+                                    <button type="button" data-pk="" class="btn" id="test-confirm">Далее</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+    {% include 'modals/modal-book.html' %}
+    {% include 'modals/modal-load-work.html' %}
+    {% include 'modals/modal-log.html' %}
+    {% include 'modals/modal-pass-change.html' %}
+    {% include 'modals/modal-rating.html' %}
+    {% include 'modals/modal-reg.html' %}
+    {% include 'modals/modal-remind.html' %}
+<!--    {% include 'modals/modal-test.html' %}-->
+    {% include 'modals/modal-user.html' %}
+    {% include 'modals/modal-verify-profile.html' %}
+
+    <div class="modal fade" id="modal-prod" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-left" role="document">
+            <div class="modal-content">
+                <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-scroll">
+                    <div class="mprod">
+                        <div class="mprod-header">
+                            <div class="mprod-title"></div>
+                        </div>
+                        <div class="mprod-body">
+                            <div class="mprod-text">
+                                <div class="mprod-text__content">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="{% static 'promo/static/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'promo/static/js/bootstrap.js' %}"></script>
+<!--<script src="{% static 'promo/static/js/swiper.min.js' %}"></script>-->
+<!--<script src="{% static 'promo/static/js/select2.full.min.js' %}"></script>-->
+<script src="{% static 'promo/static/js/jquery.fancybox.min.js' %}"></script>
+<script src="{% static 'promo/static/js/moment.js' %}"></script>
+<script src="{% static 'promo/static/js/date_picker.js' %}"></script>
+<script src="{% static 'promo/static/js/script.js' %}"></script>
+<script src="https://unpkg.com/imask"></script>
+
+
+</html>

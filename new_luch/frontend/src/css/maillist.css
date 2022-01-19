@@ -1,0 +1,16 @@
+.maillist {
+  text-align: center;
+  padding: 20px 0;
+  color: #000;
+}
+
+.maillist_text {
+  font-size: 20px;
+}
+.maillist_title {
+  font-size: 25px;
+}
+.maillist_link {
+  color: #00AEEF;
+  font-size: 20px;
+}

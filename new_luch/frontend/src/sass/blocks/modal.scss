@@ -1,0 +1,138 @@
+.modal {
+  position: fixed;
+  background-color: $white;
+  border-radius: 4px;
+  width: 50%;
+  max-width: 720px;
+  max-height: 100vh;
+  flex-direction: column;
+  padding: 30px 50px 50px 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  display: none;
+
+  &--form {
+    width: 60%;
+    max-width: 100%;
+  }
+
+  @media #{$max-width-desktop} {
+    padding: 25px;
+    width: 600px;
+  }
+
+  @media #{$max-width-tablet} {
+    width: 80%;
+     overflow: scroll;
+  }
+}
+
+.modal__brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__title {
+  font-size: 30px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: $black;
+  margin-bottom: 35px;
+
+  @media #{$max-width-desktop} {
+    font-size: 25px;
+    margin-bottom: 25px;
+  }
+}
+
+.modal__form {
+  display: flex;
+
+  @media #{$max-width-tablet} {
+    flex-direction: column;
+  }
+}
+
+.modal__column {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  &--1 {
+    margin-right: 20px;
+  }
+
+  @media #{$max-width-tablet} {
+    width: 100%;
+  }
+
+  &--100 {
+    width: 100%;
+  }
+}
+
+.modal__input {
+  border: 1px solid $light-gray;
+  border-radius: 4px;
+  color: $black--50;
+  font-size: 16px;
+  padding: 15px;
+  margin-bottom: 15px;
+  outline: none;
+
+  &--textarea {
+    flex-grow: 1;
+  }
+
+  &--email {
+    margin-bottom: 0;
+  }
+
+  @media #{$max-width-tablet} {
+    &--email {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media #{$max-width-tablet} {
+    font-size: 14px;
+  }
+}
+
+.modal__close {
+  color: $white;
+  font-size: 32px;
+  background-color: transparent;
+  border: none;
+  transform: rotate(45deg);
+  position: absolute;
+  top: -25px;
+  right: -20px;
+  cursor: pointer;
+  outline: none;
+
+  @media #{$max-width-tablet} {
+    color: $black;
+    top: 0;
+    right: 20px;
+  }
+}
+.modal__sbscr-btn {
+  width: 50%;
+
+  @media #{$max-width-desktop} {
+    width: 100%;
+  }
+}
+
+.modal__text {
+  color: $black;
+  font-weight: bold;
+  margin-bottom: 20px;
+}

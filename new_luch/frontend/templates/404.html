@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load get_include_area %}
+{% block title_bp %}Луч{% endblock title_bp %}
+{% block content_bp %}
+<div class="perfect-scroll">
+<main class="page-main">
+
+<div class="first-page">
+<div class="first-page__logo">
+  <img src='{% static "img/logo.png"%}' width="275" height="230">
+</div>
+<section class="error">
+
+  <div class="first-page__palette jsPalette">
+    <div class="first-page__palette-main  display-none">
+      <img class="first-page__palette--body" src='{% static "img/palette/palette-body.png"%}'>
+      <img class="first-page__palette--hat" src='{% static "img/palette/hat.png"%}'>
+      <img class="first-page__palette--eye" src='{% static "img/palette/eye.png" %}'>
+      <img class="first-page__palette--eye-pupil" src='{% static "img/palette/eye-pupil.png" %}'>
+      <img class="first-page__palette--left-hand" src='{% static "img/palette/hand-left.png" %}'>
+      <img class="first-page__palette--right-hand" src='{% static "img/palette/hand-right.png" %}'>
+      <img class="first-page__palette--left-leg" src='{% static "img/palette/leg-left.png" %}'>
+      <img class="first-page__palette--right-leg" src='{% static "img/palette/leg-right.png" %}'>
+      <img class="first-page__palette--shadow-main" src='{% static "img/palette/shadow-main.png" %}'>
+      <img class="first-page__palette--shadow-left-leg" src='{% static "img/palette/shadow-left-leg.png" %}'>
+      <img class="first-page__palette--shadow-right-leg" src='{% static "img/palette/shadow-right-leg.png" %}'>
+      <img class="first-page__palette--shadow-hand" src='{% static "img/palette/shadow-hand.png" %}'>
+      <img class="first-page__palette--blush" src='{% static "img/palette/blush.png" %}'>
+    </div>
+  </div>
+
+<div class="error__content">
+  <p class="error__error">404</p>
+  <p class="error__text">Такой страницы не существует</p>
+  <div class="error__links">
+    <a href="/creative/">Материалы для творчества</a>
+    <a href="/wrappings/">Упаковочные материалы</a>
+  </div>
+</div>
+</section>
+
+<a href="https://garpix.com" class="made-index">Создание сайтов <span class="made-index__icon" href="#">Гарпикс
+    <img class="made-index__icon-img" src='{% static "img/logo_garpix.png" alt="Гарпикс"%}'></span>
+  </a>
+</div>
+</main>
+</div>
+{% endblock content_bp %}
+
+{% block specific_for_page_scripts %}
+<script>
+  var countLoad = 0;
+function preloadImages() {
+  for (var i = 0; i < arguments.length; i++) {
+    var image = new Image();
+    var totalImages = arguments.length;
+
+    image.src = arguments[i];
+    image.onload = function () {
+      countLoad++;
+      if(totalImages == countLoad){
+        $('.first-page__palette-main').removeClass('display-none');
+      }
+    }
+  }
+}
+
+
+preloadImages(
+  '{% static "img/palette/palette-body.png" %}',
+  '{% static "img/palette/hat.png" %}',
+  '{% static "img/palette/eye.png" %}',
+  '{% static "img/palette/eye-pupil.png" %}',
+  '{% static "img/palette/hand-left.png" %}',
+  '{% static "img/palette/hand-right.png" %}',
+  '{% static "img/palette/leg-left.png" %}',
+  '{% static "img/palette/leg-right.png" %}',
+  '{% static "img/palette/shadow-main.png" %}',
+  '{% static "img/palette/shadow-left-leg.png" %}',
+  '{% static "img/palette/shadow-right-leg.png" %}',
+  '{% static "img/palette/shadow-hand.png" %}',
+  '{% static "img/palette/blush.png" %}'
+);
+</script>
+{% endblock %}
+
+

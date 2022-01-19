@@ -1,0 +1,128 @@
+{% extends 'base_page.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load get_include_area %}
+{% block content %}
+<div class="page-vertical">
+{% include 'partials/breadcrumbs.html' with breadcrumbs=breadcrumbs title=object.title %}
+<div class="wrapper">
+  <div class="page-main_content page-main__content--contacts">
+    <div class="title-group">
+      <h2 class="page-main__content-title">{{ page.title }}</h2>
+      <p class="page-main__deco-title">{{ page.title }}</p>
+    </div>
+    <section itemscope itemtype="http://schema.org/Organization" class="contacts">
+        <div class="contacts__column contacts__column--company">
+          <div class="contacts__about-company">
+            <h2 itemprop="name" class="contacts__about-title">{{ obj.title }}</h2>
+            <div class="contacts__about-row">
+                <p class="contacts__parameter">{% if whereroot == 'en' %}Address{% else %}Адрес{% endif %}</p>
+                <p itemprop="address" class="contacts__value">{{ obj.location }}</p>
+              </div>
+              <div class="contacts__about-row">
+                <p class="contacts__parameter">{% if whereroot == 'en' %}Phone{% else %}Телефон{% endif %}</p>
+                <p itemprop="telephone" class="contacts__value">{{ obj.phone }}</p>
+              </div>
+          </div>
+        {#          <a href="#"class="button-blue contacts__about-btn jsFeedbackShow">{% if whereroot == 'en' %}Contact to us{% else %}Связаться с нами{% endif %}</a>#}
+        </div>
+
+        <div class="contacts__column contacts__column--manager contacts__manager-wrap">
+          <div class="contacts__contacts-block">
+              <div id="to"></div>
+            <p class="contacts__note">{% if whereroot == 'en' %}Choise department{% elif whereroot == 'wrappings' %}Отдел продаж: {% else %}Выберите интересующий отдел{% endif %}</p>
+            {% if whereroot == 'wrappings' %}
+              <div itemprop="employee" itemscope="" itemtype="http://schema.org/Person" class="contacts__manager">
+               <div class="contacts__manager-about">
+                <p itemprop="telephone" class="contacts__value contacts__value--manager">Телефон: {{ default_dept.department_phone }}</p>
+                 <br />
+                <a href="#"class="button-blue jsFeedbackShow" onclick="form_mark = document.getElementById('feedback_to'); form_mark.value='1:{{ default_dept.id }}'">{% if whereroot == 'en' %}Contact to us{% else %}Написать{% endif %}</a>
+              </div>
+              </div>
+            {% else %}
+              <!--</div>-->
+              
+            <select class="contacts__select" name="department" onchange="location.href = this.value">
+                {% for dept in department_list  %}
+              <option class="contacts__option" {% if selected_department == dept.id %}selected{% endif %} value="?id={{ dept.id }}#contacts">{{ dept.title }}</option>
+                {% endfor %}
+            </select>
+            <div itemprop="employee" itemscope="" itemtype="http://schema.org/Person" class="contacts__manager">
+              <div class="contacts__manager-about">
+                <p itemprop="telephone" class="contacts__value contacts__value--manager">{% if whereroot == 'en' %}Phone: {% else %}Телефон: {% endif %}{{ default_dept.department_phone }}</p>
+              <br />
+                <a href="#"class="button-blue jsFeedbackShow" onclick="form_mark = document.getElementById('feedback_to'); form_mark.value='1:{{ default_dept.id }}';">
+                    {% if whereroot == 'en' %}Contact to us{% else %}Написать{% endif %}</a>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="contacts__column contacts__column--manager  contacts__manager-wrap">
+          <div id="contacts" class="contacts__contacts-block">
+          {% if show_area_contacts %}
+            <p class="contacts__note">{% if whereroot == 'en' %}Any questions? Ask manager at your area!{% else %}По всем вопросам, связанным с оптовыми заказами, обращайтесь к менеджеру Вашей области{% endif %}</p>
+            <select class="contacts__select" name="department" onchange="location.href = this.value">
+                {% for area in area_contacts  %}
+              <option class="contacts__option" {% if selected_area == area.code %}selected{% endif %} value="?area={{ area.code }}&id={{ default_dept.id }}#contacts">{{ area.title }}</option>
+                {% endfor %}
+            </select>
+              {% for manager in shown_contacts %}
+                <div itemprop="employee" itemscope="" itemtype="http://schema.org/Person" class="contacts__manager">
+                  <div class="contacts__manager-photo" style='background-image:url("{{ manager.image_tag }}")'></div>
+                  <div class="contacts__manager-about">
+                    <p class="contacts__manager-name"><span itemprop="familyName">{{ manager.get_name_last_name.last_name }}</span> <span itemprop="name">{{ manager.get_name_last_name.name }}</span></p>
+                    <p itemprop="jobTitle" class="contacts__parameter contacts__parameter--manager">{{ manager.position }}</p>
+                    <p itemprop="telephone" class="contacts__value contacts__value--manager">{{ manager.phone }}</p>
+                   <br />
+                    <a href="#"class="button-blue jsFeedbackShow" onclick="form_mark = document.getElementById('feedback_to'); form_mark.value='2:{{ manager.id }}'">{% if whereroot == 'en' %}Contact to us{% else %}Написать{% endif %}</a>
+                  </div>
+                </div>
+              {% endfor %}
+          {% elif show_country_contacts %}
+              <p class="contacts__note">{% if whereroot == 'en' %}Any questions? Ask manager at your area!{% else %}По всем вопросам, связанным с оптовыми заказами, обращайтесь к менеджеру Вашей области{% endif %}</p>
+            <select class="contacts__select" name="department" onchange="location.href = this.value">
+                {% for area in countries  %}
+              <option class="contacts__option" {% if selected_area == area.country_id %}selected{% endif %} value="?country={{ area.country_id }}&id={{ default_dept.id }}">{{ area.data_name }} ({{area.country_id}})</option>
+                {% endfor %}
+            </select>
+              {% for manager in shown_contacts %}
+                <div itemprop="employee" itemscope="" itemtype="http://schema.org/Person" class="contacts__manager">
+                  <div class="contacts__manager-photo" style='background-image:url("{{ manager.image_tag }}")'></div>
+                  <div class="contacts__manager-about">
+                    <p class="contacts__manager-name"><span itemprop="familyName">{{ manager.get_name_last_name.last_name }}</span> <span itemprop="name">{{ manager.get_name_last_name.name }}</span></p>
+                    <p itemprop="jobTitle" class="contacts__parameter contacts__parameter--manager">{{ manager.position }}</p>
+                    <p itemprop="telephone" class="contacts__value contacts__value--manager">{{ manager.phone }}</p>
+                   <br />
+                    <a href="#"class="button-blue jsFeedbackShow" onclick="form_mark = document.getElementById('feedback_to'); form_mark.value='2:{{ manager.id }}'">{% if whereroot == 'en' %}Contact to us{% else %}Написать{% endif %}</a>
+                  </div>
+                </div>
+                {% endfor %}
+              {% else %}
+              {% if show_persons %}
+              <p class="contacts__note">{% if whereroot == 'en' %}Any questions? Ask manager!{% else %}По всем вопросам обращайтесь к менеджеру отдела{% endif %}</p>
+              {% for manager in shown_contacts %}
+                <div itemprop="employee" itemscope="" itemtype="http://schema.org/Person" class="contacts__manager">
+                  <div class="contacts__manager-photo" style='background-image:url("{{ manager.image_tag }}")'></div>
+                  <div class="contacts__manager-about">
+                    <p class="contacts__manager-name"><span itemprop="familyName">{{ manager.get_name_last_name.last_name }}</span> <span itemprop="name">{{ manager.get_name_last_name.name }}</span></p>
+                    <p itemprop="jobTitle" class="contacts__parameter contacts__parameter--manager">{{ manager.position }}</p>
+                    <p itemprop="telephone" class="contacts__value contacts__value--manager">{{ manager.phone }}</p>
+                   <br />
+                    <a href="#"class="button-blue jsFeedbackShow" onclick="form_mark = document.getElementById('feedback_to'); form_mark.value='2:{{ manager.id }}'">{% if whereroot == 'en' %}Contact to us{% else %}Написать{% endif %}</a>
+                  </div>
+                </div>
+              {% endfor %}
+              {% endif %}
+          {% endif %}
+          </div>
+        </div>
+      </section>
+  </div>
+</div>
+<section class="map" style='background-image:url("/static/img/map-stores.png")'>
+  <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A101500192aaf8c30a11cd9b9fd1e7c96cecc170bb5a5d4a869180fabec6d9da0&amp;source=constructor" width="100%" height="604" frameborder="0"></iframe>
+</section>
+</div>
+{% endblock content %}

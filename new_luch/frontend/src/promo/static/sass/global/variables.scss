@@ -1,0 +1,259 @@
+$w: #fff;
+$b: #13293D;
+$w25: rgba(255,255,255,.25);
+$w30: rgba(255,255,255,.3);
+$w50: rgba(255,255,255,.5);
+$b3: #F5F8FF;
+$gt: #838AA2;
+$gr: #219653;
+$gg: #B5CFE8;
+$bl: #424FB4;
+$bb: #12A5ED;
+$bd: #16324F;
+$bg: #F0F4F9;
+$bg2: #F6F7F8;
+$rd: #F85060;
+$brd: #DAE7F4;
+$b80: #333333;
+$b50: #808080;
+$b40: #999999;
+$b30: #B3B3B3;
+$b20: #cccccc;
+$text1: #1A2472;
+$text2: #505565;
+$text3: #8B90A0;
+
+$xxxs-width: 321.98px;
+$xxs-width: 359.98px;
+$xs-width: 567.98px;
+$sm-width: 767.98px;
+$md-width: 991.98px;
+$lg-width: 1289.98px;
+$xl-width: 1559.98px;
+$xxl-width: 1749.98px;
+
+@mixin xxl {
+    @media screen and (max-width: #{$xxl-width}) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media screen and (max-width: #{$xl-width}) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media screen and (max-width: #{$lg-width}) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media screen and (max-width: #{$md-width}) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media screen and (max-width: #{$sm-width}){
+        @content;
+    }
+}
+
+@mixin xs {
+    @media screen and (max-width: #{$xs-width}) {
+        @content;
+    }
+}
+
+@mixin xxs {
+    @media screen and (max-width: #{$xxs-width}) {
+        @content;
+    }
+}
+
+@mixin xxxs {
+    @media screen and (max-width: #{$xxs-width}) {
+        @content;
+    }
+}
+
+@mixin row($mr) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -#{$mr}px;
+    margin-right: -#{$mr}px;
+}
+
+@mixin row-flex() {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@mixin col($colsize, $mrg) {
+    width: calc(100% / 12 * #{$colsize} - #{$mrg*2}px - 0.1px);
+    margin-left: #{$mrg}px;
+    margin-right: #{$mrg}px;
+    word-wrap: break-word;
+}
+
+@mixin coloff($coloffset, $mrg2) {
+    margin-left: calc(100% / 12 * #{$coloffset} + #{$mrg2}px);
+}
+
+@mixin h($s) {
+    
+    @if $s == 1 {
+        @extend %heading;
+        font-size: 144px;
+        
+        @include xxl {
+            font-size: 124px;
+        }
+        @include xl {
+            font-size: 104px;
+        }
+        @include lg {
+        }
+        @include md {
+        }
+        @include sm {
+        }
+    } @else if $s == 2 {
+        @extend %heading;
+        font-size: 88px;
+        letter-spacing: -3px;
+    
+        @include xxl {
+            font-size: 78px;
+        }
+        @include xl {
+            font-size: 68px;
+        }
+        @include sm {
+            font-size: 48px;
+        }
+    } @else if $s == 3 {
+        @extend %heading;
+        font-size: 64px;
+        letter-spacing: -2px;
+        
+        @include xxl {
+            font-size: 54px;
+        }
+        @include xl {
+            font-size: 48px;
+        }
+        @include lg {
+        }
+        @include sm {
+            font-size: 42px;
+        }
+    } @else if $s == 4 {
+        @extend %heading;
+        font-size: 48px;
+        letter-spacing: -2px;
+        
+        @include xxl {
+            font-size: 44px;
+        }
+        @include xxl {
+            font-size: 38px;
+        }
+        @include sm {
+        }
+    }  @else if $s == 5 {
+        @extend %heading;
+        font-size: 32px;
+        letter-spacing: -1px;
+    
+        @include xl {
+            font-size: 30px;
+        }
+        @include sm {
+        }
+    } @else if $s == 6 {
+        @extend %heading;
+        font-family: 'Gilroy', sans-serif;
+        font-weight: 500;
+        line-height: 1.3;
+        font-size: 18px;
+    
+        @include xl {
+        }
+        @include sm {
+            font-size: 16px;
+        }
+    } @else {
+    
+    }
+}
+
+@mixin flex($ff) {
+    display: flex;
+    
+    @if $ff == lt {
+        justify-content: flex-start;
+        align-items: flex-start;
+    } @else if $ff == lc {
+        justify-content: flex-start;
+        align-items: center;
+    } @else if $ff == lb {
+        justify-content: flex-start;
+        align-items: flex-end;
+    } @else if $ff == ct {
+        justify-content: center;
+        align-items: flex-start;
+    } @else if $ff == cc {
+        justify-content: center;
+        align-items: center;
+    } @else if $ff == cb {
+        justify-content: center;
+        align-items: flex-end;
+    } @else if $ff == rt {
+        justify-content: flex-end;
+        align-items: flex-start;
+    } @else if $ff == rc {
+        justify-content: flex-end;
+        align-items: center;
+    } @else if $ff == rb {
+        justify-content: flex-end;
+        align-items: flex-end;
+    } @else if $ff == st {
+        justify-content: space-between;
+        align-items: flex-start;
+    } @else if $ff == sc {
+        justify-content: space-between;
+        align-items: center;
+    } @else if $ff == sb {
+        justify-content: space-between;
+        align-items: flex-end;
+    } @else if $ff == ls {
+        justify-content: flex-start;
+        align-items: stretch;
+    } @else if $ff == cs {
+        justify-content: center;
+        align-items: stretch;
+    } @else if $ff == rs {
+        justify-content: flex-end;
+        align-items: stretch;
+    } @else if $ff == ss {
+        justify-content: space-between;
+        align-items: stretch;
+    } @else if $ff == sn {
+        justify-content: space-between;
+        align-items: baseline;
+    } @else {
+    
+    }
+}
+
+@mixin flexcol($fw) {
+    @if $fw == w {
+        flex-flow: column wrap;
+    } @else if $fw == n {
+        flex-flow: column nowrap;
+    }
+}

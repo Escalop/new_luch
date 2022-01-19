@@ -1,0 +1,25 @@
+.button-blue {
+    border-radius: 3px;
+    border: solid 1px $white;
+    padding: 10px;
+    color: $white;
+    text-align: center;
+    background-color: $blue;
+    transition:.2s;
+    cursor: pointer;
+    outline: none;
+         border: solid 1px $blue;
+
+    @media #{$max-width-tablet} {
+      padding: 6px;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $blue--95;
+    }
+
+    &:active {
+      background-color: $blue--80;
+    }
+}

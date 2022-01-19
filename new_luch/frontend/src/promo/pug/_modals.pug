@@ -1,0 +1,353 @@
+#modal-test.modal.fade(tabindex="-1", role="dialog", aria-hidden="true")
+    .modal-dialog.modal-dialog-left(role="document")
+        .modal-content
+            button(type="button", class="modal-close", data-dismiss="modal", aria-label="Close")
+            .modal-scroll
+                .modal-form
+                    .modal-header
+                        .modal-title Тест
+                    .modal-body
+                        form.testing
+                            .testing__head Вопрос 1 из 15
+                            .testing__question Кто из художников рисовал  Страшилу из сказки «Волшебник Изумрудного города» более 400 раз и сделал более 150 рисунков Буратино?
+                            .testing__items
+                                .testing-item
+                                    input(type="radio" name="r1" id="an1")
+                                    label.testing-item__label(for="an1")
+                                        b A
+                                        span Дехтерёв В.А
+                                .testing-item
+                                    input(type="radio" name="r1" id="an2")
+                                    label.testing-item__label(for="an2")
+                                        b B
+                                        span Дехтерёв В.А
+                                .testing-item
+                                    input(type="radio" name="r1" id="an3")
+                                    label.testing-item__label(for="an3")
+                                        b C
+                                        span Савченко А.М.
+                                //  правильный ответ
+                                .testing-item.testing-item--true
+                                    input(type="radio" name="r1" id="an3")
+                                    label.testing-item__label(for="an3")
+                                        b C
+                                        span Савченко А.М.
+                                //  неправильный ответ
+                                .testing-item.testing-item--false
+                                    input(type="radio" name="r1" id="an3")
+                                    label.testing-item__label(for="an3")
+                                        b C
+                                        span Савченко А.М.
+                            .testing__btm
+                                button(class="btn") Далее
+                    .testing
+                        .testing__head
+                            img(src="../static/images/lose.svg")
+                        .testing__question В ответах допущена ошибка, попробуйте пройти тест на следующей неделе
+                        .testing__btm
+                            button(class="btn") Хорошо
+                    .testing
+                        .testing__head
+                            img(src="../static/images/win.svg")
+                        .testing__question Вы верно ответили на все 10 вопросов! В Ваш рейтинг начислено 10 баллов
+                        .testing__btm
+                            button(class="btn") Отлично
+
+#modal-log.modal.fade(tabindex="-1", role="dialog", aria-hidden="true")
+    .modal-dialog.modal-dialog-left(role="document")
+        .modal-content
+            button(type="button", class="modal-close", data-dismiss="modal", aria-label="Close")
+            .modal-scroll
+                .modal-form
+                    .modal-header
+                        .modal-title Войти
+                    .modal-body
+                        .modal-error Учетная запись с таким логином не обнаружена. Попробуйте ввести другой логин или свяжитесь с нами по телефону: <strong>+7 800 800-80-80</strong>
+                        form.form
+                            .form-group
+                                .inputlabel
+                                    .inputlabel__label Электронная почта
+                                    input(type="text", class="inputlabel__input form-input", placeholder="*@*.*" required)
+                                    .inputlabel__clear.js-inputClear
+                            .form-group
+                                .inputlabel
+                                    .inputlabel__label Пароль
+                                    input(type="password", class="inputlabel__input form-input", placeholder="123123" required)
+                                    .inputlabel__pass.js-showPass
+                            .form-rowsc
+                                <a href="#" data-toggle="modal" data-target="#modal-remind" data-dismiss="modal">Забыли пароль?</a>
+                                button(class="btn") Войти
+                        .modal-noac
+                            .modal-noac__heading нет аккаунта?
+                            .modal-noac__body
+                                .joins-plane
+                                    img(src="../static/images/plane3.png")
+                                    a.joins-plane__link(href="#") регистрация
+
+#modal-reg.modal.fade(tabindex="-1", role="dialog", aria-hidden="true")
+    .modal-dialog.modal-dialog-left(role="document")
+        .modal-content
+            button(type="button", class="modal-close", data-dismiss="modal", aria-label="Close")
+            .modal-scroll
+                .modal-form
+                    .modal-header
+                        .modal-title Регистрация
+                    .modal-body
+                        form.form
+                            .form-group
+                                .inputlabel
+                                    .inputlabel__label ФИО *
+                                    input(type="text", class="inputlabel__input form-input", placeholder="Сидоров Иван Петрович" required)
+                                    .inputlabel__clear.js-inputClear
+                            .form-group
+                                .inputlabel
+                                    .inputlabel__label Электронная почта *
+                                    input(type="text", class="inputlabel__input form-input", placeholder="*@*.*" required)
+                                    .inputlabel__clear.js-inputClear
+                            .form-group
+                                .inputlabel
+                                    .inputlabel__label Пароль *
+                                    input(type="password", class="inputlabel__input form-input", placeholder="123123" required)
+                                    .inputlabel__pass.js-showPass
+                            .form-group
+                                .inputlabel
+                                    .inputlabel__label Повторите пароль *
+                                    input(type="password", class="inputlabel__input form-input", placeholder="123123" required)
+                                    .inputlabel__pass.js-showPass
+                            .form-group
+                                .inputlabel
+                                    .inputlabel__label Город
+                                    input(type="text", class="inputlabel__input form-input", placeholder="Укажите")
+                                    .inputlabel__clear.js-inputClear
+                            .form-group
+                                .inputlabel
+                                    .inputlabel__label Номер телефона *
+                                    input(type="text", class="inputlabel__input form-input", placeholder="+7 ### ### ## ##" required)
+                                    .inputlabel__clear.js-inputClear
+                            .form-group
+                                .inputlabel.inputlabel--error
+                                    .inputlabel__error Допускаются участники от 3 до 17 лет
+                                    .inputlabel__label Дата рождения *
+                                    input(type="text", class="inputlabel__input form-input", placeholder="01.01.2001" required)
+                                    .inputlabel__clear.js-inputClear
+                            .form-group
+                                 input(type="file", class="form-file", data-placeholder="Загрузить работу *" required)
+                            .modal-error Размер файла <strong>не более 10МБ</strong>. <br>Формат <strong>jpg или png</strong>. <br>На фото с рисунком <strong>должна присутствовать продукция</strong> <a href="https://www.luch-pk.ru/creative/catalog/">торговой марки “ЛУЧ - Школа Творчества”
+                            .form-group
+                                .form-checkbox
+                                    label.form-checkbox__label
+                                        input.checkbox(type="checkbox", name="ch01", checked)
+                                        span Соглашаюсь с условиями <a href="#">политики конфиденциальности</a>
+                            .form-group
+                                button(class="btn btn--full") ЗарегИстрироваться
+                        .modal-noac
+                            .modal-noac__heading Уже регистрировались?
+                            .modal-noac__body
+                                .joins-plane
+                                    img(src="../static/images/plane3.png")
+                                    a.joins-plane__link(href="#") войти
+
+#modal-remind.modal.fade(tabindex="-1", role="dialog", aria-hidden="true")
+    .modal-dialog.modal-dialog-left(role="document")
+        .modal-content
+            button(type="button", class="modal-close", data-dismiss="modal", aria-label="Close")
+            .modal-scroll
+                .modal-form
+                    .modal-header
+                        .modal-title Забыли пароль?
+                    .modal-body
+                        .form-group
+                            .inputlabel
+                                .inputlabel__label Электронная почта
+                                input(type="text", class="inputlabel__input form-input", placeholder="" required)
+                                .inputlabel__clear.js-inputClear
+                        .form-end
+                            input(type="submit", class="btn btn--full", value="Выслать пароль")
+
+#modal-rating.modal.fade(tabindex="-1", role="dialog", aria-hidden="true")
+    .modal-dialog.modal-dialog-left(role="document")
+        .modal-content
+            button(type="button", class="modal-close", data-dismiss="modal", aria-label="Close")
+            .modal-scroll
+                .ratings
+                    .modal-header
+                        .modal-title Рейтинг участников
+                    .modal-body
+                        .btabs__wrap
+                            ul.btabs__list.nav
+                                li.btabs__item
+                                    a(data-toggle="tab", href="#pt1", class="btabs__link active show") Еженедельный
+                                li.btabs__item
+                                    a(data-toggle="tab", href="#pt2", class="btabs__link") Общий
+                        .btabs__content
+                            .btabs__pane.active.show#pt1
+                                table.ratings-table
+                                    tr
+                                        th Место
+                                        th Имя участника
+                                        th Баллы
+                                    tr
+                                        td <span class="ratings-num">1</span>
+                                        td <a class="ratings-name" href="#" data-toggle="modal" data-target="#modal-user">Пирожков Миша</a>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">2</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">3</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">4</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">5</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">6</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">7</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">8</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">9</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">10</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">11</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">12</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">13</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">14</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">15</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                            .btabs__pane#pt2
+                                table.ratings-table
+                                    tr
+                                        th Место
+                                        th Имя участника
+                                        th Баллы
+                                    tr
+                                        td <span class="ratings-num">1</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">2</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">3</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">4</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+                                    tr
+                                        td <span class="ratings-num">5</span>
+                                        td <span class="ratings-name">Пирожков Миша</span>
+                                        td <span class="ratings-points">98</span>
+
+#modal-book.modal.fade(tabindex="-1", role="dialog", aria-hidden="true")
+    .modal-dialog.modal-dialog-left(role="document")
+        .modal-content
+            button(type="button", class="modal-close", data-dismiss="modal", aria-label="Close")
+            .modal-scroll
+                .book
+                    .book-header
+                        .book-title Художник Л. В. Владимирский
+                        img.book-himg(src="../static/images/modal-book.png")
+                    .book-body
+                        .book-text
+                            .book-text__content
+                                p Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.
+                                img(src="../static/images/text.jpg")
+                                p Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.
+                                p Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.
+
+#modal-prod.modal.fade(tabindex="-1", role="dialog", aria-hidden="true")
+    .modal-dialog.modal-dialog-left(role="document")
+        .modal-content
+            button(type="button", class="modal-close", data-dismiss="modal", aria-label="Close")
+            .modal-scroll
+                .mprod
+                    .mprod-header
+                        .mprod-title Пластилин
+                    .mprod-body
+                        .mprod-text
+                            .mprod-text__content
+                                p Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.
+                                img(src="../static/images/text.jpg")
+                                p Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.
+                                p Являясь всего лишь частью общей картины, диаграммы связей заблокированы в рамках своих собственных рациональных ограничений. Равным образом, семантический разбор внешних противодействий представляет собой интересный эксперимент проверки своевременного выполнения сверхзадачи. Безусловно, синтетическое тестирование однозначно определяет каждого участника как способного принимать собственные решения касаемо системы обучения кадров, соответствующей насущным потребностям.
+
+#modal-user.modal.fade(tabindex="-1", role="dialog", aria-hidden="true")
+    .modal-dialog.modal-dialog-left(role="document")
+        .modal-content
+            button(type="button", class="modal-close", data-dismiss="modal", aria-label="Close")
+            .modal-scroll
+                .mprod
+                    .mprod-header
+                        .mprod-name Константин константинопольский
+                        .mprod-age Возраст: 8 лет
+                    .mprod-body
+                        .mprod-wrap
+                            .gallery-items
+                                .gallery-item
+                                    a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                                        img.gallery-item__prize(src="../static/images/sprize3.png")
+                                        .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                                    .gallery-item__content
+                                        a.gallery-item__like(href="#") 348
+                                .gallery-item
+                                    a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                                        img.gallery-item__prize(src="../static/images/sprize2.png")
+                                        .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                                    .gallery-item__content
+                                        a.gallery-item__like.gallery-item__like--active(href="#") 348
+                                .gallery-item
+                                    a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                                        img.gallery-item__prize(src="../static/images/sprize2.png")
+                                        .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                                    .gallery-item__content
+                                        a.gallery-item__like(href="#") 348
+                                .gallery-item
+                                    a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                                        .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                                    .gallery-item__content
+                                        a.gallery-item__like(href="#") 348
+                                .gallery-item
+                                    a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                                        .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                                    .gallery-item__content
+                                        a.gallery-item__like(href="#") 348
+                                .gallery-item
+                                    a.gallery-item__imgwrap(href="../static/images/big.png" data-fancybox="gallery" data-caption="Константин Константинопольский <br> Возраст: 8 лет")
+                                        .gallery-item__img(style="background-image: url(../static/images/normal.png)")
+                                    .gallery-item__content
+                                        a.gallery-item__like(href="#") 348

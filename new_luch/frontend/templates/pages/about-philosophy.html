@@ -1,0 +1,56 @@
+{% extends 'base_page.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load get_include_area %}
+{% block content %}
+<div class="page-vertical">
+{% include 'partials/breadcrumbs.html' with breadcrumbs=breadcrumbs title=object.title %}
+<div class="wrapper">
+  <div itemscope itemtype="http://schema.org/Article" class="page-main__content page-main__content--about">
+    <div class="title-group">
+      <h2 class="page-main__content-title">{{ page.parent.title }}</h2>
+      <p class="page-main__deco-title">{{ page.parent.title }}</p>
+    </div>
+    <section class="about">
+      <div class="about__filter-open jsAboutOpen">Разделы: <span class="about__filter-current">Философия</span></div>
+          {% if whereroot == 'creative' %}
+            {% include 'include/menu_about.html' with menu=menus.about_menu_creative where=where %}
+          {% elif whereroot == 'en' %}
+            {% include 'include/menu_about.html' with menu=menus.about_menu_eng where=where %}
+          {% else %}
+            {% include 'include/menu_about.html' with menu=menus.about_menu where=where %}
+          {% endif %}
+      <div class="about__content">
+        <div class="about__section about__section--philosophy">
+          <div class="about__photo-slider">
+            <div class="about__arrow-block about__arrow-block--photo-prev">
+              <div class="about__arrow about__arrow--prev jsPhotoPrev"></div>
+            </div>
+            <div class="about__arrow-block about__arrow-block--photo-next">
+              <div class="about__arrow about__arrow--next jsPhotoNext"></div>
+            </div>
+            <div class="jsSliderPhilosophy">
+                {% if object.is_active1 %}
+              <div itemprop="image" class="about__picture" style='background-image: url("/media/{{ object.baner_image1 }}")'></div>
+                {% endif %}
+                {% if object.is_active2 %}
+              <div itemprop="image" class="about__picture" style='background-image: url("/media/{{ object.baner_image2 }}")'></div>
+                {% endif %}
+                {% if object.is_active3 %}
+              <div itemprop="image" class="about__picture" style='background-image: url("/media/{{ object.baner_image3 }}")'></div>
+                {% endif %}
+                {% if object.is_active4 %}
+              <div itemprop="image" class="about__picture" style='background-image: url("/media/{{ object.baner_image4 }}")'></div>
+                {% endif %}
+            </div>
+          </div>
+          <div itemprop="articleBody" class="about__text">
+            {{ object.content|safe }}
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+{% endblock content %}

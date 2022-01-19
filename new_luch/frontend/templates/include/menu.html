@@ -1,0 +1,7 @@
+{% for menu_item in menu %}
+    {% if menu_item.is_active %}
+<li class="main-nav__item main-nav__underline">
+    <a class="main-nav__item-link" href="{{ menu_item.get_link }}">{{ menu_item.title }}</a>
+</li>
+    {% endif %}
+{% endfor %}

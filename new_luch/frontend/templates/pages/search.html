@@ -1,0 +1,38 @@
+{% extends 'base_page.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load get_include_area %}
+
+{% block content %}
+
+<div class="page-vertical">
+{% include 'partials/breadcrumbs.html' with breadcrumbs=breadcrumbs title=object.title %}
+<div class="wrapper">
+  <div class="page-main_content page-main__content--new">
+    <div class="title-group">
+      <h2 class="page-main__content-title">Результаты поиска</h2>
+      <p class="page-main__deco-title">Результаты поиска</p>
+    </div>
+      <div class="search-results">
+        {% for finded_items in objects %}
+            {% for item in finded_items %}
+            <a href="{{ item.get_absolute_url }}" class="search-results_item">
+                {% if item.image %}
+                    <img src="{{ item.image.url }}" alt="{{ item.title }}"/>
+                {% endif %}
+                <p class="product__title">{{ item.title }}</p>
+                <div class="product__description">
+                    <span class="product__colors">8</span>
+                    <span itemprop="model" class="product__article">{% if item.article %}Арт.{{ item.article }}{% endif %}</span>
+                </div>
+
+            </a>
+            {% endfor %}
+        {% endfor %}
+      </div>
+  </div>
+
+</div>
+</div>
+ {# {% get_include_area request 'ia_page_text' title='Текст в футере' content='Все права защищены &copy;' %} #}
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'base_page.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load get_include_area %}
+
+{% block content %}
+<div class="page-vertical">
+    {% include 'partials/breadcrumbs.html' with breadcrumbs=breadcrumbs title=object.title %}
+<div class="wrapper">
+  <div class="information">
+    <section class="information__block">
+      <h2 class="content-title">Catalogue</h2>
+      <p class="deco-title">Catalogue:</p>
+        {% for item in objects_marketing %}
+      <a class="information__item" href="{{ item.file_tag }}" download>
+        <div class="information__download">
+          <svg class="information__download-icon" xmlns="http://www.w3.org/2000/svg" width="88" height="89"
+                viewBox="0 0 88 89">
+            <path fill="#2B7DDE" fill-rule="nonzero"
+                  d="M43.781 0A2 2 0 0 0 42 2.031V61.22L25.406 44.625a2 2 0 1 0-2.812 2.844l20 20a2 2 0 0 0 2.812 0l20-20a2 2 0 1 0-2.812-2.844L46 61.219V2.03A2 2 0 0 0 43.781 0zm-42 64A2 2 0 0 0 0 66.031v7c0 8.276 6.725 15 15 15h58c8.275 0 15-6.724 15-15v-7a2 2 0 1 0-4 0v7c0 6.129-4.871 11-11 11H15c-6.129 0-11-4.871-11-11v-7A2 2 0 0 0 1.781 64z"/>
+          </svg>
+        </div>
+        <div class="information__title">{{ item.title }}</div>
+        <span class="information__weight">{{ item.file.size|filesizeformat }}</span>
+      </a>
+        {% endfor %}
+    </section>
+</div>
+</div>
+{% endblock content %}

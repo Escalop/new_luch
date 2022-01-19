@@ -1,0 +1,23 @@
+.button {
+  border-radius: 3px;
+  border: solid 1px $white;
+  padding: 10px;
+  color: $white;
+  text-align: center;
+  transition:.4s;
+  outline: none;
+
+  @media #{$max-width-tablet} {
+    padding: 6px;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 0 0 2px $white;
+  }
+
+  &:active {
+    border: solid 1px $white--60;
+    box-shadow: inset 0 0 0 2px $white--60;
+  }
+}

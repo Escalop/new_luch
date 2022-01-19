@@ -1,0 +1,14 @@
+.wrappings-product {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.wrappings-product__products {
+  display: flex;
+  z-index: 3;
+
+  @media #{$max-width-desktop} {
+    flex-wrap: wrap;
+  }
+}

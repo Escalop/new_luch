@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+{% load i18n %}
+{% load static %}
+{% load staticfiles %}
+{% load thumbnail %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'promo/static/icons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'promo/static/icons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'promo/static/icons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'promo/static/icons/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'promo/static/icons/safari-pinned-tab.svg' %}" color="#40d761">
+    <link rel="shortcut icon" href="{% static 'promo/static/icons/favicon.ico' %}">
+    <meta name="msapplication-TileColor" content="#bbbbbb">
+    <meta name="msapplication-config" content="{% static 'promo/static/icons/browserconfig.xml' %}">
+    <meta name="theme-color" content="#DDF5F9">
+    <meta name="description"
+          content="Поделки создавай – подарки получай! Сделай поделку/рисунок с использованием материалов ТМ «Луч», проходи тесты и набирай баллы, собирая лайки за работу. Каждую неделю ты можешь получить подарок. Главный приз – путевка в «Артек» 2021!">
+    <title>Конкурс творческих работ с использованием материалов «Школа творчества» ТМ «Луч»</title>
+    <link href="{% static 'promo/static/css/style.css' %}" rel="stylesheet">
+    <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
+</head>
+
+<body>
+<div class="root">
+
+    <div class="headermob"><a class="headermob-logosm" href="https://www.luch-pk.ru/"><img
+            src="{% static 'promo/static/images/logom.png' %}"></a>
+        <div class="headermob-btn js-showMenu"><span></span> <b>МЕНЮ</b></div>
+        <div class="headermob-wrap">
+            <div class="headermob-menu">
+                {% if user.is_authenticated %}
+                <div class="headermob-left">
+                    <a class="headermob-menu__link" data-toggle="modal" data-target="#modal-load-work">Загрузить
+                        работу</a>
+                    <a class="headermob-menu__link" href="{% url 'logout' %}">Выйти</a>
+                </div>
+                {% else %}
+
+                <div class="headermob-left"><a class="headermob-menu__link" href="#" data-toggle="modal"
+                                               data-target="#modal-reg">участвовать</a><a class="headermob-menu__link"
+                                                                                          href="#"
+                                                                                          data-toggle="modal"
+                                                                                          data-target="#modal-log">Войти</a>
+                </div>
+
+                {% endif %}
+                <a class="headermob-logol" href="#">
+                    <imgg src="{% static 'promo/static/images/logom.png' %}"></imgg>
+                </a>
+
+                <!--                <div class="header-ball parallax layer" data-depth="0.04"><img src="{% static 'promo/static/images/ball.png' %}"><a-->
+                <!--                        class="header-ball__link" href="./gallery">галерея</a></div>-->
+                <div class="headermob-right"><a class="headermob-menu__link" href="./gallery">галерея</a><a
+                        class="headermob-menu__link" href="#" data-toggle="modal"
+                        data-target="#modal-rating">рейтинг</a></div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header-wrap scene unselectable" id="scene" data-friction-x="0.1" data-friction-y="0.1"
+             data-scalar-x="25" data-scalar-y="15">
+            <div class="header-plane1 parallax layer" data-depth="0.05"><img
+                    src="{% static 'promo/static/images/plane1.png' %}">
+                <div class="header-plane1__links">
+                    {% if user.is_authenticated %}
+                    <a class="header-plane1__link" href="{% url 'logout' %}">Выйти</a>
+                    <a class="header-plane1__link" data-toggle="modal" data-target="#modal-load-work">Загрузить
+                        работу</a>
+                    {% else %}
+                    <a class="header-plane1__link" href="#" data-toggle="modal"
+                       data-target="#modal-reg">участвовать</a>
+                    <a class="header-plane1__link" href="#" data-toggle="modal" data-target="#modal-log">Войти</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="header-ball parallax layer" data-depth="0.04"><img
+                    src="{% static 'promo/static/images/ball.png' %}"><a
+                    class="header-ball__link" href="./gallery">галерея</a></div>
+            <div class="header-star parallax layer" data-depth="0.06"><img
+                    src="{% static 'promo/static/images/star.png' %}"><a
+                    class="header-star__link" href="#" data-toggle="modal" data-target="#modal-rating">рейтинг</a>
+            </div>
+            <div class="header-plane2 parallax layer" data-depth="0.10"><img
+                    src="{% static 'promo/static/images/plane2.png' %}">
+            </div>
+            <div class="header-house parallax layer" data-depth="0.05"><img
+                    src="{% static 'promo/static/images/house.png' %}"></div>
+            <div class="header-center">
+                <div class="header-center__logo"><img src="{% static 'promo/static/images/logo.png' %}"></div>
+                <div class="header-center__text">Конкурс творческих работ с использованием материалов «Школа
+                    творчества»
+                    ТМ «Луч»
+                </div>
+                <div class="header-center__btns"><a class="btn" href="{{promo_config.youtube_link}}"
+                                                    target="_blank">Смотреть видеоуроки</a></div>
+            </div>
+            <div class="header-cloud1 parallax layer" data-depth="0.06"><img
+                    src="{% static 'promo/static/images/cloud1.png' %}">
+            </div>
+            <div class="header-cloud2 parallax layer" data-depth="0.07"><img
+                    src="{% static 'promo/static/images/cloud2.png' %}">
+            </div>
+            <div class="header-cloud3 parallax layer" data-depth="0.08"><img
+                    src="{% static 'promo/static/images/cloud3.png' %}">
+            </div>
+            <div class="header-cloud4 parallax layer" data-depth="0.09"><img
+                    src="{% static 'promo/static/images/cloud4.png' %}">
+            </div>
+            <div class="header-cloudb"><img src="{% static 'promo/static/images/cloud5.png' %}">
+                <div class="header-cloudb__links">
+                    <div class="header-cloudb__link"><a
+                            onclick="document.getElementById('main-anchor').scrollIntoView({behavior: 'smooth'});">лети
+                        вниз</a></div>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+{% block content %}
+{% endblock %}
+</body>
+<script src="{% static 'promo/static/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'promo/static/js/bootstrap.js' %}"></script>
+<!--<script src="{% static 'promo/static/js/swiper.min.js' %}"></script>-->
+<!--<script src="{% static 'promo/static/js/select2.full.min.js' %}"></script>-->
+<script src="{% static 'promo/static/js/jquery.fancybox.min.js' %}"></script>
+<script src="{% static 'promo/static/js/moment.js' %}"></script>
+<script src="{% static 'promo/static/js/date_picker.js' %}"></script>
+<script src="{% static 'promo/static/js/script.js' %}"></script>
+<script src="https://unpkg.com/imask"></script>
+
+
+</html>

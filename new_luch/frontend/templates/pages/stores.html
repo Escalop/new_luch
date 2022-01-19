@@ -1,0 +1,34 @@
+{% extends 'base_page.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load get_include_area %}
+
+{% block content %}
+<main class="page-main page-vertical">
+{% include 'partials/breadcrumbs.html' with breadcrumbs=breadcrumbs title=object.title %}
+  <div class="wrapper">
+    <div itemscope itemtype="http://schema.org/Article" class="page-main_content page-main__content--contacts">
+      <div class="title-group">
+        <h2 itemprop="name" class="page-main__content-title">Наши магазины</h2>
+        <p class="page-main__deco-title">Наши магазины ({{ object.title }})</p>
+      </div>
+      <section class="contacts">
+        <div itemprop="articleBody" class="contacts__column contacts__description">
+          {{ store.content_rigth|safe }}
+        </div>
+        <div class="contacts__column">
+          <div class="contacts__contacts-block contacts__note">
+
+              {{ store.content_left|safe }}
+            <span class="contacts__tel">Телефон: {{ phone|safe }}</span>
+            <a href="#" class="button-blue contacts__btn jsFeedbackShow">Написать</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <section class="map" style="background-image:url('{{ store.image_tag }}')">
+    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0ea7b50ebf10165250289704ac918bcc5da8b79aedbbc79998572f68423bc9d5&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+  </section>
+</main>
+{% endblock content %}

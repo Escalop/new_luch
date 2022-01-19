@@ -1,0 +1,29 @@
+mixin b-header(params)
+    - var menu = params.menu || []
+    if menu
+        .header-menu
+            each item in menu
+                a(href=item.href, class="b-header__item", class={
+                    "is-active": item.current || false
+                })
+                    = item.title
+
+mixin jsScript(file)
+    script(src=`./static/js/${file}`)
+
+mixin b-page-more(href)
+    - href = href || '#'
+    .b-page__more
+        a.b-more(href=href)#moveSectionDown
+            .b-more__icon.icon
+                <i class="fas fa-angle-down"></i>
+
+mixin b-aside(params)
+    - var menu = params.menu || []
+    .b-aside#aside
+        .b-aside__menu
+            if menu
+                ul.b-aside__list
+                    each item in menu
+                        li(class=(item.current ? 'is-active' : '') data-menuanchor=item.anchor).b-aside__item
+                            a(href=item.href).b-aside__link=item.title

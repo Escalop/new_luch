@@ -1,0 +1,13 @@
+.new-cart {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  height: auto;
+  margin-bottom: 0;
+
+  &:hover,
+  &focus {
+    box-shadow: none;
+  }
+}

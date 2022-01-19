@@ -1,0 +1,41 @@
+<div class="modal modal--form jsForm">
+<button type="button" class="modal__close jsFormClose">+</button>
+<form class="form" action="." method="POST">
+    {% csrf_token %}
+    <input name='form_name' value="catalog_modal" type="hidden" >
+    <p class="form__row-title">Параметры ленты:</p>
+  {% for params in rows%}
+  <div class="form__row">
+    <div class="form__parameters">
+      {% for parameter in params %}
+        {% if parameter.dysplay_type == 1 %}
+          <input type="text" name="{{ parameter.title }}" class="form__input form__input--size3" placeholder="{{ parameter.title }}: {{ parameter.value }}">
+        {% else %}
+          <select name="{{ parameter.title }}" class="form__select form__select--size3">
+            <option selected>{{ parameter.title}}</option>
+            {% for value in parameter.get_param_values %}
+              <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+          </select>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <br />
+     </div>
+  {% endfor %}
+
+
+  <div class="form__row">
+    <p class="form__row-title">Ваши данные:</p>
+    <div class="form__parameters">
+      <input type="text" name="name" class="form__input form__input--size4" placeholder="Ваше имя">
+      <input type="email" name="email" class="form__input form__input--size4" placeholder="Электронная почта">
+      <input type="tel" name="phone" class="form__input form__input--size4" placeholder="Телефон">
+    </div>
+  </div>
+  <div class="form__row form__row--send">
+    <p class="form__privat">Мы гарантируем конфиденциальность Ваших данных</p>
+    <button type="submit" class="form__send button-blue">Отправить запрос</button>
+  </div>
+</form>
+</div>

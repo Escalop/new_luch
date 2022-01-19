@@ -1,0 +1,16 @@
+.wrapper {
+  width: 100%;
+  max-width: $desktop;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media #{$max-width-desktop-max1} {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  @media #{$max-width-tablet} {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}

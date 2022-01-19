@@ -1,9 +1,39 @@
-
-<footer class="footer">
-    <div class="container">
-        <span class="text-muted">
-            {% include 'menus/footer_menu.html' with menu=menus.footer_menu %}
-        </span>
-    </div>
-</footer>
-
+  <footer class="main-footer">
+      <div class="wrapper main-footer__content">
+        <div class="main-footer__company-wrapper">
+          <div class="main-footer__company">
+            <div class="main-footer__company-top">
+              <div class="main-footer__logo">
+                <a href="index.html">
+                  <img src="static/img/logo.png" width="73" height="62" alt="Луч">
+                </a>
+              </div>
+              <p class="main-footer__copyright main-footer__copy-block">© 2012-2018</p>
+            </div>
+            <h3 class="main-footer__block-title main-footer__block-title--company">ПК химический завод "ЛУЧ"</h3>
+            <p class="main-footer__item main-footer__item--personal main-footer__item-link">Политика защиты перс. данных</p>
+            <a href="https://garpix.com" class="made">Создание сайтов <span class="made__icon" href="#">Гарпикс
+              <img class="made__icon-img" src="static/img/logo_new_black.png" alt="Гарпикс"></span>
+            </a>
+          </div>
+        </div>
+        <div class="main-footer__about">
+          <h3 class="main-footer__block-title">О компании</h3>
+          <p class="main-footer__item main-footer__item--history"><a class="main-footer__item-link" href="about.html">История</a></p>
+          <p class="main-footer__item main-footer__item--become-client"><a class="main-footer__item-link" href="about-clients.html">Как стать нашим клиентом</a></p>
+          <p class="main-footer__item main-footer__item--partners"><a class="main-footer__item-link" href="about-partners.html">Наши партнёры</a></p>
+        </div>
+        <div class="main-footer__workshop">
+          <h3 class="main-footer__block-title">Творческая мастерская</h3>
+          <p class="main-footer__item main-footer__item--master-class"><a class="main-footer__item-link" href="workshop.html">Мастер-классы</a></p>
+          <p class="main-footer__item main-footer__item--recommendation"><a class="main-footer__item-link" href="#">Наши рекомендации</a></p>
+          <div class="main-footer__modal-link jsSubscribeShow">Подписаться на рассылку</div>
+        </div>
+        <div class="main-footer__materials">
+          <h3 class="main-footer__block-title">Материалы</h3>
+          <p class="main-footer__item main-footer__item--materials"><a class="main-footer__item-link" href="information.html">Рекламные материалы</a></p>
+          <a href="#" class="main-footer__item main-footer__item--tech-information main-footer__item-link" download>Техническая информация</a>
+          <div class="main-footer__modal-link main-footer__modal-link--feedback jsFeedbackShow">Обратная связь</div>
+        </div>
+      </div>
+  </footer>

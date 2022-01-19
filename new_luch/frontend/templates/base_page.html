@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% include 'include/header.html' %}
+{% include 'menus/header_menu.html' %}
+
+{% block title_bp %}{% block title %}ЛУЧ{% endblock title %}{% endblock title_bp %}
+{% block content_bp %}
+
+
+    <div class="perfect-scroll">
+
+
+        <div class="languages">
+
+        </div>
+
+        {% if whereroot == 'wrappings' %}
+            <main class="page-main" style="background-image: url('{% static "/img/bg-wrappings.png" %}')">
+        {% else %}
+            <main class="page-main" style="background-image: url('{% static "/img/bg-main2.png" %}')">
+        {% endif %}
+    {% block content %}{% endblock content %}
+        </main>
+        </div>
+{% endblock content_bp %}

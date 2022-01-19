@@ -1,0 +1,599 @@
+.header {
+    width: 100%;
+    position: relative;
+    font-size: 16px;
+    
+    @include lg {
+        margin-top: 50px;
+    }
+    &-wrap {
+        max-width: 1900px;
+        position: relative;
+        height: 100vh;
+        min-height: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        @include flex(cc);
+        
+        @include lg {
+            height: 100vh;
+            min-height: 700px;
+        }
+        @include sm {
+            min-height: 100vh;
+            padding-top: 120px;
+            height: auto;
+        }
+        .header--autoheight & {
+            min-height: inherit;
+            height: auto;
+            margin-bottom: 50px;
+            
+            @include lg {
+            }
+        }
+    }
+    &-plane1 {
+        top: 10px !important;
+        left: 40px !important;
+        position: absolute !important;
+        z-index: 3;
+    
+        @include xl {
+            top: 0 !important;
+        }
+        @include lg {
+            width: 300px;
+            top: 30px !important;
+            left: 60px !important;
+        }
+        @include sm {
+            width: 50%;
+            top: 10px !important;
+            left: 10px !important;
+        }
+        img {
+            display: block;
+        }
+        &__links {
+            position: absolute;
+            top: 92px;
+            left: 233px;
+            @include flex(lc);
+            width: 300px;
+            white-space: nowrap;
+            
+            @include xl {
+                width: auto;
+                flex-wrap: wrap;
+            }
+            @include lg {
+                display: none;
+            }
+        }
+        &__link {
+            font-weight: 900;
+            color: $bl;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-right: 40px;
+            display: block;
+            
+            @include xl {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    }
+    &-ball {
+        top: 40px !important;
+        right: 220px !important;
+        left: auto !important;
+        position: absolute !important;
+    
+        @include xxl {
+            right: 150px !important;
+        }
+        @include xl {
+            top: 30px !important;
+            right: 120px !important;
+        }
+        @include lg {
+            width: 300px;
+            right: 20px !important;
+        }
+        @include sm {
+            width: 50%;
+            right: -10px !important;
+            top: 0px !important;
+        }
+        img {
+            display: block;
+            position: relative;
+        }
+        &__link {
+            position: absolute;
+            top: 62px;
+            right: 86px;
+            font-weight: 900;
+            color: $bl;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: block;
+            
+            @include lg {
+                display: none;
+            }
+        }
+    }
+    &-star {
+        top: 62px !important;
+        right: 76px !important;
+        left: auto !important;
+        position: absolute !important;
+    
+        @include xxl {
+            right: 30px !important;
+        }
+        @include xl {
+            right: 10px !important;
+            top: 46px !important;
+        }
+        @include lg {
+            display: none !important;
+        }
+        img {
+            display: block;
+        }
+        &__link {
+            position: absolute;
+            top: 42px;
+            width: 100%;
+            left: 0;
+            font-weight: 900;
+            color: $bl;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+        }
+    }
+    &-center {
+        text-align: center;
+        z-index: 2;
+        max-width: 520px;
+        margin-top: -100px;
+        @include flex(cc);
+        @include flexcol(n);
+    
+        .header--autoheight & {
+            margin-top: 50px;
+        }
+        &__logo {
+            margin-bottom: 40px;
+    
+            @include xxl {
+                width: 400px;
+            }
+            @include lg {
+                width: 320px;
+                margin-bottom: 20px;
+            }
+            @include sm {
+                width: auto;
+                padding: 0 30px;
+                margin-bottom: 10px;
+                max-width: 350px;
+            }
+        }
+        &__text {
+            @extend %lead;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            
+            @include sm {
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+        }
+        &__heading {
+            @include h(2);
+            text-align: center;
+        }
+    }
+    &-house {
+        bottom: 0 !important;
+        left: 0 !important;
+        top: auto !important;
+        position: absolute!important;
+        
+        @include xxl {
+            width: 800px;
+        }
+        @include lg {
+            width: 500px;
+            bottom: 50px !important;
+        }
+        @include sm {
+            display: none !important;
+        }
+    }
+    &-plane2 {
+        right: 110px !important;
+        bottom: 110px !important;
+        top: auto !important;
+        left: auto !important;
+        position: absolute !important;
+    
+        @include xxl {
+            width: 400px;
+            bottom: 70px !important;
+        }
+        @include lg {
+            width: 300px;
+            right: 20px !important;
+            bottom: 120px !important;
+        }
+        @include sm {
+            display: none !important;
+        }
+        img {
+            display: block;
+        }
+    }
+    &-cloud1 {
+        top: 200px !important;
+        left: 230px !important;
+        position: absolute !important;
+        @include flex(lc);
+        
+        @include xxl {
+            width: 100px;
+        }
+        @include sm {
+            width: 60px;
+            top: 5px !important;
+            left: auto !important;
+            right: 90px!important;
+        }
+        img {
+            display: block;
+        }
+    }
+    &-cloud2 {
+        top: 300px !important;
+        left: 430px !important;
+        position: absolute !important;
+    
+        @include xxl {
+            width: 100px;
+        }
+        @include xl {
+            left: 320px !important;
+        }
+        @include lg {
+            left: 40px !important;
+        }
+        @include sm {
+            width: 60px;
+            display: none !important;
+        }
+        img {
+            display: block;
+        }
+    }
+    &-cloud3 {
+        top: 120px !important;
+        right: 590px !important;
+        left: auto !important;
+        position: absolute !important;
+    
+        @include xxl {
+            right: 520px !important;
+            width: 100px;
+        }
+        @include xl {
+            top: 40px !important;
+            right: 420px !important;
+        }
+        @include lg {
+            right: 240px !important;
+        }
+        @include sm {
+            right: 5px !important;
+            width: 60px;
+            top: 160px !important;
+        }
+        img {
+            display: block;
+        }
+    }
+    &-cloud4 {
+        top: 360px !important;
+        right: 400px !important;
+        left: auto !important;
+        position: absolute !important;
+    
+        @include xxl {
+            width: 100px;
+        }
+        @include xl {
+            right: 200px !important;
+        }
+        @include lg {
+            right: 80px !important;
+            top: 320px !important;
+        }
+        @include sm {
+            width: 60px;
+            right: auto !important;
+            left: 15px !important;
+            top: 180px !important;
+        }
+        img {
+            display: block;
+        }
+    }
+    &-cloudb {
+        bottom: 0 !important;
+        left: 50% !important;
+        margin-left: -80px;
+        position: absolute !important;
+        width: 160px;
+        
+        @include lg {
+            width: 120px;
+            margin-left: -60px;
+            bottom: 60px !important;
+        }
+        @include sm {
+            display: none;
+        }
+        &__links {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            @include flex(cc);
+        }
+        &__link {
+            font-weight: 900;
+            color: $bl;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            background: url(../images/arwb.svg) center bottom no-repeat;
+            
+            @include lg {
+                font-size: 14px;
+                background-size: 16px;
+                padding-bottom: 20px;
+            }
+        }
+    }
+}
+
+
+.headermob {
+    display: none;
+    
+    @include lg {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        height: 50px;
+        background: url(../images/bg.jpg) top center no-repeat;
+        background-position: 0 -200px;
+        background-size: cover;
+        box-shadow: 0 0 15px rgba(0,0,0,.15);
+        @include flex(sc);
+        
+        @include sm {
+            padding: 0 5px;
+            background-position: 0 -50px;
+        }
+    }
+    &-btn {
+        display: none;
+        height: 50px;
+        position: relative;
+        margin-left: 10px;
+        cursor: pointer;
+        margin-left: auto;
+        width: 110px;
+        font-size: 16px;
+        padding-left: 50px;
+        color: $bl;
+        
+        @include sm {
+            @include flex(lc);
+        }
+        b {
+        }
+        span {
+            width: 26px;
+            height: 2px;
+            background: $bl;
+            display: block;
+            position: absolute;
+            top: 25px;
+            left: 12px;
+            transition: .3s;
+            border-radius: 2px;
+            
+            &:before {
+                position: absolute;
+                top: -8px;
+                left: 0;
+                background: $bl;
+                display: block;
+                content: '';
+                width: 26px;
+                height: 2px;
+                transition: .3s;
+                transform-origin: top left;
+                border-radius: 2px;
+            }
+            &:after {
+                position: absolute;
+                bottom: -8px;
+                left: 0;
+                background: $bl;
+                display: block;
+                content: '';
+                width: 26px;
+                height: 2px;
+                transition: .3s;
+                transform-origin: top left;
+                border-radius: 2px;
+            }
+        }
+        .header--menushowed & span {
+            background-color: transparent;
+            
+            &:before {
+                transform: rotate(45deg);
+                left:6px;
+                top: -10px;
+            }
+            &:after {
+                transform: rotate(-45deg);
+                bottom: -9px;
+                left:5px;
+            }
+        }
+    }
+    &-wrap {
+        width: 100%;
+        @include sm {
+            position: fixed;
+            width: 100%;
+            height: calc(100% - 50px);
+            top: 50px;
+            right: -100%;
+            transition: .2s;
+            padding: 20px;
+            background: url(../images/bg.jpg) top center no-repeat;
+            background-position: 0 -400px;
+    
+            .header--menushowed & {
+                right: 0;
+            }
+        }
+    }
+    &-logolg {
+        
+        img {
+            height: 40px;
+        }
+        @include sm {
+            display: none;
+        }
+    }
+    &-logosm {
+        display: none;
+        height: 50px;
+        width: 50px;
+        margin: 7px 0 0 10px;
+        img {
+            height: 40px;
+        }
+        @include sm {
+            display: block;
+        }
+    }
+    &-left,
+    &-right {
+        @include flex(cc);
+        
+        @include sm {
+            width: 100%;
+            @include flexcol(n);
+        }
+    }
+    &-right {
+        margin-left: auto;
+    }
+    &-menu {
+        @include flex(sc);
+        height: 50px;
+        padding: 0 10px;
+        width: 100%;
+    
+        @include sm {
+            @include flex(cc);
+            @include flexcol(n);
+            text-align: center;
+            height: auto;
+        }
+        &__link {
+            font-weight: 900;
+            color: $bl;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin: 0 30px;
+            
+            @include sm {
+                margin: 15px 0;
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+.upbtn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    @include flex(cc);
+    cursor: pointer;
+    opacity: 0;
+    bottom: -100%;
+    transition: .6s;
+    width: 70px;
+    z-index: 4;
+    
+    @include xs {
+        width: 60px;
+        right: 5px;
+    }
+    &.fixed {
+        opacity: 1;
+        bottom: 10px;
+        
+        @include xs {
+            bottom: 5px;
+        }
+    }
+    img {
+        display: block;
+        position: relative;
+        z-index: 1;
+    }
+    &:after {
+        width: 30px;
+        height: 30px;
+        display: block;
+        content: '';
+        background: url(../images/arwb.svg) center bottom no-repeat;
+        position: absolute;
+        background-size: 16px;
+        top: 16px;
+        left: 22px;
+        z-index: 2;
+        transform: scaleY(-1);
+        
+        @include xs {
+            top: 13px;
+            left: 17px;
+        }
+    }
+}

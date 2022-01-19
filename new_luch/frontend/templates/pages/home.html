@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block content_bp %}
+<script type="text/javascript" src='/static/js/jquery-3.3.1.min.js'></script>
+<script type="text/javascript" src='/static/js/slick.min.js'></script>
+<script src='/static/js/perfect-scrollbar.jquery.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src='/static/js/script.js'></script>
+
+
+<script>
+    window.current_language_code_url_prefix = '';
+</script>
+
+
+<<div class="perfect-scroll">
+  <main class="page-main">
+  <div class="first-page">
+    <div class="first-page__logo">
+      <img src='/static/img/logo.png' width="275" height="230">
+    </div>
+    <section class="first-page__animation-block">
+      <a href="/wrappings/" class="first-page__box-block-link first-page__box-block-link--1 jsBox">
+        <div class="first-page__box-block">
+          <div class=" first-page__box display-none">
+            <img class="first-page__box--sides" src='/static/img/box-sides.png'>
+            <img class="first-page__box--tape1" width="170" height="170" src='/static/img/tape-1.png'>
+            <img class="first-page__box--tape2" width="170" height="170" src='/static/img/tape-2.png'>
+            <img class="first-page__box--tape3" width="170" height="170" src='/static/img/tape-3.png'>
+            <img class="first-page__box--tube1" width="170" height="170" src='/static/img/tube.png'>
+            <img class="first-page__box--tube2" width="170" height="170" src='/static/img/tube.png'>
+            <img class="first-page__box--tape5" width="170" height="170" src='/static/img/tape-5.png'>
+            <img class="first-page__box--tape4" width="170" height="170" src='/static/img/tape-4.png'>
+            <img class="first-page__box--glue" width="170" height="170" src='/static/img/glue.png'>
+            <img class="first-page__box--box" src='/static/img/left-box.png'>
+          </div>
+        </div>
+      </a>
+      <div class="first-page__box-block-link first-page__box-block-link--2 jsBox">
+        <div class="first-page__box-block">
+          <div class="first-page__box  display-none">
+              <a href="/creative/" >
+              <img class="first-page__box--sides" src='/static/img/box-sides.png'>
+              <img class="first-page__box--clay" width="170" height="170" src='/static/img/clay.png'>
+              <img class="first-page__box--palette" width="170" height="170" src='/static/img/palette-min.png'>
+              <img class="first-page__box--paints" width="170" height="170" src='/static/img/paints.png'>
+              <img class="first-page__box--pen1" width="170" height="170" src='/static/img/pen-1.png'>
+              <img class="first-page__box--pen2" width="170" height="170" src='/static/img/pen-2.png'>
+              <img class="first-page__box--pen3" width="170" height="170" src='/static/img/pen-3.png'>
+              <img class="first-page__box--pen4" width="170" height="170" src='/static/img/pen-4.png'>
+              <img class="first-page__box--pen5" width="170" height="170" src='/static/img/pen-5.png'>
+              <img class="first-page__box--box2" src='/static/img/right-box.png'>
+              </a>
+              <button class="first-page__box--language-btn jsBox" type=button onclick='document.location.href = "/en/about";'><img class="first-page__box--language-img" src='/static/img/eng-btn.png'></button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <a href="https://garpix.com" class="made-index">Создание сайтов <span class="made-index__icon" href="#">Гарпикс
+        <img class="made-index__icon-img" src='/static/img/logo_garpix.png' alt="Гарпикс"></span>
+      </a>
+  </div>
+  </main>
+</div>
+
+
+<script>
+    var countLoad = 0;
+  function preloadImages() {
+    for (var i = 0; i < arguments.length; i++) {
+      var image = new Image();
+      var totalImages = arguments.length;
+
+      image.src = arguments[i];
+      image.onload = function () {
+        countLoad++;
+        if(totalImages == countLoad){
+          $('.first-page__palette-main,.first-page__box').removeClass('display-none');
+        }
+      }
+    }
+  }
+
+
+  preloadImages(
+    "/static/img/logo.png",
+    "/static/img/box-sides.png",
+    "/static/img/tape-1.png",
+    "/static/img/tape-2.png",
+    "/static/img/tape-3.png",
+    "/static/img/tape-4.png",
+    "/static/img/glue.png",
+    "/static/img/left-box.png",
+    "/static/img/box-sides.png",
+    "/static/img/clay.png",
+    "/static/img/palette-min.png",
+    "/static/img/paints.png",
+    "/static/img/pen-1.png",
+    "/static/img/pen-2.png",
+    "/static/img/pen-3.png",
+    "/static/img/pen-4.png",
+    "/static/img/pen-5.png",
+    "/static/img/right-box.png",
+    "/static/img/tube.png"
+  );
+</script>
+{% endblock %}

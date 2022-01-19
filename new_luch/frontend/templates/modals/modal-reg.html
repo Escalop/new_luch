@@ -1,0 +1,153 @@
+{% load static %}
+  <div class="modal fade" id="modal-reg" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-left" role="document">
+            <div class="modal-content">
+                <button class="modal-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-scroll">
+
+                    <div class="modal-form" id="registration-sucess" style="display: none;">
+                        <div class="modal-body">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Вы успешно зарегистрированы!</h4>
+                                    <div class="modal-noac__body">
+                                        <div class="joins-plane"><img src="{% static 'promo/static/images/plane3.png' %}"></div>
+                                    </div>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Благодарим за регистрацию! Ваша работа отправлена на модерацию.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-form" id="registraion-modal">
+                        <div class="modal-header">
+                            <div class="modal-title">Регистрация</div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-error" id="email-error" style="display: none;"></div>
+                            <div class="modal-error" id="password-error" style="display: none;"></div>
+                            <div class="modal-error" style="display: none;" id="other-register-errors"></div>
+
+                            {% if promo_config.is_over  %}
+                            <div class="modal-noac">
+                                <div class="modal-noac__heading">Конкурс окончен</div>
+                            </div>
+                            <form class="form" id="register-form" style="display: none;">
+                            </form>
+
+                            {% elif not promo_config.is_started %}
+                            <div class="modal-noac">
+                                <div class="modal-noac__heading promo-not-started">Регистрация участников и прием конкурсных работ стартует с {{ promo_config.start_date|date }}</div>
+                            </div>
+                            {% else %}
+
+                            {% if not current_competition %}
+                                {% if next_competition %}
+                                    <div class="modal-noac">
+                                    <div class="modal-noac__heading promo-not-started">Прием конкурсных работ стартует с {{ next_competition.start_date|date:"j E H:i" }}</div>
+                                    </div>
+                                {% else %}
+                                    <div class="modal-noac">
+                                    <div class="modal-noac__heading promo-not-started">Еженедельный конкурс пока не начался</div>
+                                    </div>
+                                {% endif %}
+                            {% else %}
+
+                            <form data-url="{% url 'register-api' %}" class="form" id="register-form">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <div class="inputlabel">
+                                        <div class="inputlabel__label">ФИО *</div>
+                                        <input name="full_name" class="inputlabel__input form-input" type="text"
+                                            placeholder="Сидоров Иван Петрович" pattern="[A-zА-яё\- ]{3,}" required>
+                                        <div class="inputlabel__clear js-inputClear"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="inputlabel">
+                                        <div class="inputlabel__label">Электронная почта *</div>
+                                        <input name="email" class="inputlabel__input form-input" type="text"
+                                            placeholder="*@*.*" required>
+                                        <div class="inputlabel__clear js-inputClear"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="inputlabel">
+                                        <div class="inputlabel__label">Пароль * (не менее 8 символов из латинских букв и цифр)</div>
+                                        <input name="password1" class="inputlabel__input form-input mob-password" type="password"
+                                            placeholder="123123" required>
+                                        <div class="inputlabel__pass js-showPass"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="inputlabel">
+                                        <div class="inputlabel__label">Повторите пароль *</div>
+                                        <input name="password2" class="inputlabel__input form-input" type="password"
+                                            placeholder="123123" required>
+                                        <div class="inputlabel__pass js-showPass"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="inputlabel">
+                                        <div class="inputlabel__label">Город *</div>
+                                        <input name="city" class="inputlabel__input form-input" type="text"
+                                            placeholder="Укажите" pattern="[A-zА-я- ]{3,}" required>
+                                        <div class="inputlabel__clear js-inputClear"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="inputlabel">
+                                        <div class="inputlabel__label">Номер телефона *</div>
+                                        <input name="phone" class="inputlabel__input form-input" type="text"
+                                            placeholder="+7 ### ### ## ##" required maxlength="50">
+                                        <div class="inputlabel__clear js-inputClear"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="inputlabel">
+                                        <div class="inputlabel__label">Дата рождения *</div>
+                                        <input name="birthday" class="inputlabel__input form-input js-date_picker" type="text"
+                                            placeholder="01.01.2019" min="01.01.2012" max="01.01.2019" required>
+                                        <div class="inputlabel__clear js-inputClear"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input name="img" accept=".png,.jpg, .jpeg" class="form-file" type="file"
+                                        data-placeholder="Загрузить работу *" required>
+                                </div>
+                                <div class="modal-error" id="register-img-error">Размер файла
+                                    <strong>не более 10МБ</strong>. <br>Формат <strong>jpg
+                                        или png</strong>. <br>На фото с рисунком <strong>должна присутствовать
+                                        продукция</strong> <a href="https://www.luch-pk.ru/creative/catalog/"><u>торговой марки “ЛУЧ - Школа Творчества”</u></a>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-checkbox">
+                                        <label class="form-checkbox__label">
+                                            <input name="consent" class="checkbox" type="checkbox" name="ch01"
+                                                checked><span>Соглашаюсь с <a target="_blank" href="{%if promo_config.rules %}{{ promo_config.rules.url }}{% endif %}">правилами</a> конкурса
+                                                    и с <a target="_blank"  href="{% if promo_config.privacy_policy %}{{ promo_config.privacy_policy.url }}{% endif %}">условиями</a> защиты персональных данных</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" id="register-submit-btn" class="btn btn--full">ЗарегИстрироваться</button>
+                                </div>
+                            </form>
+                                {% endif %}
+                            {% endif %}
+                            <div class="modal-noac">
+                                <div class="modal-noac__heading">Уже регистрировались?</div>
+                                <div class="modal-noac__body">
+                                    <div class="joins-plane"><img src="{% static 'promo/static/images/plane3.png' %}">
+                                        <a class="joins-plane__link" data-dismiss="modal" data-toggle="modal"
+                                            data-target="#modal-log" href="#">войти</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

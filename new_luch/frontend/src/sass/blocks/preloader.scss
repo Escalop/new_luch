@@ -1,0 +1,39 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: radial-gradient(circle at 50% 50%, #009bff, #0052a7);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader__logo {
+  width: 5%;
+  height: auto;
+  min-height: auto;
+  // transform: translate(-50%, -50%);
+
+  @keyframes preloader {
+    50% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  animation: preloader 4s infinite linear;
+  transform-origin: 50% 50%;
+
+  @media #{$max-width-tablet} {
+    width: 16%;
+  }
+
+  @media #{$max-width-mobile-max2} {
+    width: 20%;
+  }
+}

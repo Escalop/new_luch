@@ -1,0 +1,55 @@
+.footer {
+    padding: 50px 0;
+    font-size: 16px;
+    color: $b;
+    font-weight: 500;
+    
+    a {
+        color: $b;
+        text-decoration: underline;
+        
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    &-row {
+        @include row(15);
+    }
+    &-left,
+    &-middle,
+    &-right {
+        @include col(4, 15);
+        
+        @include md {
+            @include col(12, 15);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    }
+    &-middle {
+        @include flex(cc);
+    }
+    &-right {
+        @include flex(rc);
+        
+        @include md {
+            @include flex(cc);
+        }
+    }
+    .garpix {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        text-decoration: none;
+        
+        svg {
+            margin-left: 6px;
+        }
+    }
+}
